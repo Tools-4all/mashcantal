@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>שערים ומדדים</title>
+    <style>
+        .must-know-section {
+            min-height: 100vh;
+            background: radial-gradient(circle at top, #0f172a 0, #020617 55%, #000 100%);
+            color: #f9fafb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 1.5rem;
+        }
+
+        .must-know-inner {
+            width: 100%;
+            max-width: 1200px;
+            margin-inline: auto;
+        }
+
+        .must-know-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .must-know-header h2 {
+            font-size: 2.3rem;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .must-know-header p {
+            font-size: 0.95rem;
+            color: #9ca3af;
+        }
+
+        .must-know-cards {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr);
+            gap: 1.5rem;
+        }
+
+        .mk-card {
+            background: linear-gradient(145deg, #020617, #020617, #020617);
+            border-radius: 1.25rem;
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            padding: 1.4rem 1.5rem 1.3rem;
+            box-shadow: 0 30px 80px rgba(15, 23, 42, 0.6);
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .mk-card-primary {
+            background: radial-gradient(circle at top left, #16a34a33, #020617 55%);
+        }
+
+        .mk-card-top-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .mk-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border: 1px solid rgba(148, 163, 184, 0.5);
+        }
+
+        .mk-pill-green {
+            background: rgba(22, 163, 74, 0.15);
+            border-color: rgba(22, 163, 74, 0.7);
+            color: #bbf7d0;
+        }
+
+        .mk-pill-orange {
+            background: rgba(249, 115, 22, 0.12);
+            border-color: rgba(249, 115, 22, 0.7);
+            color: #fed7aa;
+        }
+
+        .mk-pill-blue {
+            background: rgba(56, 189, 248, 0.12);
+            border-color: rgba(56, 189, 248, 0.7);
+            color: #bae6fd;
+        }
+
+        .mk-card-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .mk-card-subtitle {
+            font-size: 0.8rem;
+            color: #9ca3af;
+        }
+
+        /* ריביות */
+        .mk-rate-box {
+            background: radial-gradient(circle at top left, #16a34a33, #022c22 60%, #022c22);
+            border-radius: 0.9rem;
+            padding: 1rem 1.1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            border: 1px solid rgba(22, 163, 74, 0.6);
+        }
+
+        .mk-rate-line {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 0.75rem;
+        }
+
+        .mk-rate-line-secondary {
+            opacity: 0.9;
+        }
+
+        .mk-rate-label {
+            font-size: 0.8rem;
+            color: #d1fae5;
+        }
+
+        .mk-rate-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .mk-rate-value-secondary {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #bbf7d0;
+        }
+
+        /* כותרות תחתונות */
+        .mk-card-footer {
+            margin-top: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: #9ca3af;
+        }
+
+        .mk-updated-label {
+            opacity: 0.8;
+        }
+
+        .mk-updated-date {
+            font-weight: 600;
+        }
+
+        .mk-footer-small span {
+            font-weight: 600;
+        }
+
+        /* גרפים */
+        .mk-chart-wrapper {
+            margin-top: 0.3rem;
+            height: 150px;
+            border-radius: 0.8rem;
+            background: radial-gradient(circle at top, #020617, #020617 60%, #020617);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            padding: 0.4rem 0.6rem 0.6rem;
+        }
+
+        /* רספונסיביות */
+        @media (max-width: 1024px) {
+            .must-know-section {
+                padding-inline: 1rem;
+            }
+
+            .must-know-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .mk-card {
+                max-width: 640px;
+                margin-inline: auto;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .must-know-section {
+                padding-block: 4rem;
+            }
+
+            .must-know-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .mk-chart-wrapper {
+                height: 140px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <header class="navbar">
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="home.html" class="active">דף הבית</a></li>
+            <li><a href="procces.html">תזרים</a></li>
+            <li><a href="glossary.html">מילון מונחים</a></li>
+            <li><a href="rates.html">שערים ומדדים</a></li>
+            <li><a href="calculator.html">מחשבון משכנתא</a></li>
+        </ul>
+
+
+        <button class="nav-toggle" id="navToggle" aria-label="תפריט">
+            <div class="nav-toggle-bar"></div>
+        </button>
+        <div class="navbar-logo">
+            משכנטל
+            <span>ייעוץ משכנתאות</span>
+        </div>
+    </header>
+
+
+    <section id="must-know" class="must-know-section">
+        <div class="must-know-inner">
+            <div class="must-know-header">
+                <h2>חשוב לדעת</h2>
+                <p>נתונים פיננסיים מרכזיים המשפיעים על המשכנתא שלכם</p>
+            </div>
+
+            <div class="must-know-cards">
+                <!-- כרטיס ריבית פריים / בנק ישראל -->
+                <article class="mk-card mk-card-primary">
+                    <div class="mk-card-top-row">
+                        <span class="mk-pill mk-pill-green">Prime</span>
+                        <span class="mk-card-title">ריביות עדכניות</span>
+                    </div>
+
+                    <p class="mk-card-subtitle">
+                        ריבית בנק ישראל וריבית הפריים המשפיעות על מסלולי המשכנתא
+                    </p>
+
+                    <div class="mk-rate-box">
+                        <div class="mk-rate-line">
+                            <span class="mk-rate-label">ריבית פריים</span>
+                            <span id="primeRate" class="mk-rate-value">5.75%</span>
+                        </div>
+                        <div class="mk-rate-line mk-rate-line-secondary">
+                            <span class="mk-rate-label">ריבית בנק ישראל</span>
+                            <span id="boiRate" class="mk-rate-value-secondary">4.25%</span>
+                        </div>
+                    </div>
+
+                    <div class="mk-card-footer">
+                        <span class="mk-updated-label">נכון לתאריך</span>
+                        <span id="ratesUpdatedAt" class="mk-updated-date">27.11.2025</span>
+                    </div>
+                </article>
+
+                <!-- כרטיס מדד תשומות הבנייה -->
+                <article class="mk-card">
+                    <div class="mk-card-top-row">
+                        <span class="mk-pill mk-pill-orange">בנייה</span>
+                        <span class="mk-card-title">מדד תשומות הבנייה</span>
+                    </div>
+
+                    <p class="mk-card-subtitle">
+                        מדד תשומות הבנייה ב־12 החודשים האחרונים והחציון השנתי ל־5 שנים אחורה
+                    </p>
+
+                    <div class="mk-chart-wrapper">
+                        <canvas id="constructionChart"></canvas>
+                    </div>
+
+                    <div class="mk-card-footer">
+                        <span class="mk-footer-small">
+                            ממוצע 5 שנים: <span id="construction5yAvg">–</span>%
+                        </span>
+                        <span class="mk-footer-small">
+                            12 חודשים אחרונים: <span id="constructionLast12">–</span>%
+                        </span>
+                    </div>
+                </article>
+
+                <!-- כרטיס מדד המחירים לצרכן (CPI) -->
+                <article class="mk-card">
+                    <div class="mk-card-top-row">
+                        <span class="mk-pill mk-pill-blue">CPI</span>
+                        <span class="mk-card-title">מדד המחירים לצרכן</span>
+                    </div>
+
+                    <p class="mk-card-subtitle">
+                        מדד המחירים לצרכן ב־12 החודשים האחרונים והחציון השנתי ל־5 שנים אחורה
+                    </p>
+
+                    <div class="mk-chart-wrapper">
+                        <canvas id="cpiChart"></canvas>
+                    </div>
+
+                    <div class="mk-card-footer">
+                        <span class="mk-footer-small">
+                            ממוצע 5 שנים: <span id="cpi5yAvg">–</span>%
+                        </span>
+                        <span class="mk-footer-small">
+                            12 חודשים אחרונים: <span id="cpiLast12">–</span>%
+                        </span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        // ============= הגדרות בסיס – ריביות =============
+        const BOI_RATE = 4.25;       // ריבית בנק ישראל (באחוזים)
+        const PRIME_SPREAD = 1.5;    // פריים = בנק ישראל + 1.5%
+        const RATES_UPDATED_AT = "27.11.2025"; // תאריך עדכון ידני
+
+        function initRatesCard() {
+            const primeRate = (BOI_RATE + PRIME_SPREAD).toFixed(2);
+            document.getElementById("boiRate").textContent = BOI_RATE.toFixed(2) + "%";
+            document.getElementById("primeRate").textContent = primeRate + "%";
+            document.getElementById("ratesUpdatedAt").textContent = RATES_UPDATED_AT;
+        }
+
+        // ============= פונקציית fetch כללית ל-XML (הלמ״ס) =============
+        async function fetchCbsXml(url) {
+            const res = await fetch(url);
+            if (!res.ok) {
+                throw new Error("CBS API error: " + res.status);
+            }
+            const text = await res.text();
+            const parser = new DOMParser();
+            return parser.parseFromString(text, "text/xml");
+        }
+
+        // שליפה של ערכי אחוז / מדד מה-XML
+        function parseCbsPriceSeries(xmlDoc) {
+            const dateNodes = Array.from(xmlDoc.getElementsByTagName("DateMonth"));
+            const nodes = dateNodes.length
+                ? dateNodes
+                : Array.from(xmlDoc.getElementsByTagName("DateYear"));
+
+            const labels = [];
+            const values = [];
+
+            nodes.forEach((node, idx) => {
+                const percentNode = node.getElementsByTagName("percent")[0];
+                const indexNode = node.getElementsByTagName("index")[0];
+
+                const valueText = percentNode
+                    ? percentNode.textContent.trim()
+                    : indexNode
+                        ? indexNode.textContent.trim()
+                        : null;
+
+                const value = valueText ? Number(valueText.replace(",", ".")) : null;
+                if (value != null && !Number.isNaN(value)) {
+                    labels.push("T" + (idx + 1));
+                    values.push(value);
+                }
+            });
+
+            return { labels, values };
+        }
+
+        function calcAverage(values) {
+            if (!values || !values.length) return null;
+            const sum = values.reduce((acc, v) => acc + v, 0);
+            return sum / values.length;
+        }
+
+        // ============= יצירת גרפים =============
+        function createLineChart(ctx, labels, data, color) {
+            return new Chart(ctx, {
+                type: "line",
+                data: {
+                    labels,
+                    datasets: [
+                        {
+                            data,
+                            borderColor: color,
+                            backgroundColor: "rgba(255,255,255,0.03)",
+                            tension: 0.35,
+                            borderWidth: 2,
+                            pointRadius: 0,
+                            fill: true,
+                        },
+                    ],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: (ctx) => ctx.parsed.y.toFixed(2) + "%",
+                            },
+                        },
+                    },
+                    scales: {
+                        x: {
+                            grid: { display: false },
+                            ticks: {
+                                color: "rgba(255,255,255,0.6)",
+                                maxRotation: 0,
+                                autoSkip: true,
+                            },
+                        },
+                        y: {
+                            grid: {
+                                color: "rgba(148, 163, 184, 0.25)",
+                            },
+                            ticks: {
+                                color: "rgba(255,255,255,0.6)",
+                                callback: (val) => val + "%",
+                            },
+                        },
+                    },
+                },
+            });
+        }
+
+        // ============= אתחול הסקשן כולו =============
+        document.addEventListener("DOMContentLoaded", async () => {
+            initRatesCard();
+
+            const constructionCtx = document
+                .getElementById("constructionChart")
+                .getContext("2d");
+            const cpiCtx = document.getElementById("cpiChart").getContext("2d");
+
+            // ------- מדד תשומות הבנייה (קוד 200010) -------
+            let constructionLabels12 = [];
+            let constructionValues12 = [];
+            let constructionValues60 = [];
+
+            try {
+                const [constructionXml12, constructionXml60] = await Promise.all([
+                    fetchCbsXml(
+                        "https://api.cbs.gov.il/index/data/price?download=false&format=xml&id=200010&lang=en&last=12"
+                    ),
+                    fetchCbsXml(
+                        "https://api.cbs.gov.il/index/data/price?download=false&format=xml&id=200010&lang=en&last=60"
+                    ),
+                ]);
+
+                const parsed12 = parseCbsPriceSeries(constructionXml12);
+                const parsed60 = parseCbsPriceSeries(constructionXml60);
+
+                constructionLabels12 = parsed12.labels;
+                constructionValues12 = parsed12.values;
+                constructionValues60 = parsed60.values;
+            } catch (err) {
+                console.error("Construction index fetch failed, using demo data:", err);
+                constructionLabels12 = [
+                    "חודש 1", "2", "3", "4", "5", "6",
+                    "7", "8", "9", "10", "11", "12",
+                ];
+                constructionValues12 = [0.3, 0.4, 0.1, 0.2, 0.5, 0.4, 0.3, 0.6, 0.2, 0.1, 0.0, 0.4];
+                // ל-5 שנים נשתמש פשוט באותם ערכים (כfallback)
+                constructionValues60 = constructionValues12;
+            }
+
+            createLineChart(
+                constructionCtx,
+                constructionLabels12,
+                constructionValues12,
+                "#f97316"
+            );
+
+            const constructionAvgLast12 = calcAverage(constructionValues12);
+            document.getElementById("constructionLast12").textContent =
+                constructionAvgLast12 != null ? constructionAvgLast12.toFixed(2) : "–";
+
+            const constructionAvg5Years = calcAverage(constructionValues60);
+            document.getElementById("construction5yAvg").textContent =
+                constructionAvg5Years != null ? constructionAvg5Years.toFixed(2) : "–";
+
+            // ------- מדד המחירים לצרכן (CPI, קוד 120010) -------
+            let cpiLabels12 = [];
+            let cpiValues12 = [];
+            let cpiValues60 = [];
+
+            try {
+                const [cpiXml12, cpiXml60] = await Promise.all([
+                    fetchCbsXml(
+                        "https://api.cbs.gov.il/index/data/price?download=false&format=xml&id=120010&lang=en&last=12"
+                    ),
+                    fetchCbsXml(
+                        "https://api.cbs.gov.il/index/data/price?download=false&format=xml&id=120010&lang=en&last=60"
+                    ),
+                ]);
+
+                const parsed12 = parseCbsPriceSeries(cpiXml12);
+                const parsed60 = parseCbsPriceSeries(cpiXml60);
+
+                cpiLabels12 = parsed12.labels;
+                cpiValues12 = parsed12.values;
+                cpiValues60 = parsed60.values;
+            } catch (err) {
+                console.error("CPI fetch failed, using demo data:", err);
+                cpiLabels12 = [
+                    "חודש 1", "2", "3", "4", "5", "6",
+                    "7", "8", "9", "10", "11", "12",
+                ];
+                cpiValues12 = [0.2, 0.3, 0.1, 0.4, 0.0, 0.2, 0.3, 0.1, -0.1, 0.2, 0.1, 0.3];
+                cpiValues60 = cpiValues12;
+            }
+
+            createLineChart(cpiCtx, cpiLabels12, cpiValues12, "#38bdf8");
+
+            const cpiAvgLast12 = calcAverage(cpiValues12);
+            document.getElementById("cpiLast12").textContent =
+                cpiAvgLast12 != null ? cpiAvgLast12.toFixed(2) : "–";
+
+            const cpiAvg5Years = calcAverage(cpiValues60);
+            document.getElementById("cpi5yAvg").textContent =
+                cpiAvg5Years != null ? cpiAvg5Years.toFixed(2) : "–";
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</body>
+
+</html>

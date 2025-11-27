@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>משכנטל – ייעוץ משכנתאות</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar">
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="home.html" class="active">דף הבית</a></li>
+      <li><a href="procces.html">תזרים</a></li>
+      <li><a href="glossary.html">מילון מונחים</a></li>
+      <li><a href="rates.html">שערים ומדדים</a></li>
+      <li><a href="calculator.html">מחשבון משכנתא</a></li>
+    </ul>
+
+
+    <button class="nav-toggle" id="navToggle" aria-label="תפריט">
+      <div class="nav-toggle-bar"></div>
+    </button>
+    <div class="navbar-logo">
+      משכנטל
+      <span>ייעוץ משכנתאות</span>
+    </div>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main>
+    <!-- SECTION 1: HERO – מי אנחנו + השירות -->
+    <section id="about" class="hero">
+      <div class="section-inner">
+        <div class="hero-grid">
+          <!-- RIGHT COLUMN – מי אנחנו -->
+          <div class="hero-col">
+            <h2 class="hero-title">מי אנחנו</h2>
+            <p>
+              אנו במשכנטל, ערים לכך שהלוואת המשכנתא היא מצד אחד הכרחית לרכישת דירה או למינוף נכס קיים, אך מצד שני זו
+              ההתחייבות הפיננסית היקרה והארוכה ביותר לאורך חיי רובנו.
+            </p>
+            <p>
+              לפיכך, אנו כאן מציעים את שירותינו על מנת לייעץ, לתכנן וללוות יחד איתכם את הלוואת המשכנתא והשלכותיה על
+              חייכם על מנת מחד לשמור על האינטרסים שלכם כלווים ומאידך לשפר את ההתנהלות הפיננסית שלכם בחייכם.
+            </p>
+            <p>
+              השירות ניתן באופן אישי על ידי טל, יועץ משכנתאות וחבר התאחדות המשכנתאות.
+            </p>
+          </div>
+
+          <!-- LEFT COLUMN – השירות -->
+          <div class="hero-col">
+            <h2 class="hero-title">השירות</h2>
+            <p>
+              ייעוץ, תכנון וליווי הלווים מול הבנקים תוך שמירת האינטרסים שלכם במרכז ההלוואה. תחילה, נערוך היכרות עם
+              הלווים תוך מתן דגש לחלומותיהם, מטרותיהם, רצונם ויכולתם לאורך תקופת ההלוואה.
+            </p>
+            <p>
+              יחד, אנו נתכנן את העתיד הפיננסי של הלווים על ידי בחירת הלוואת המשכנתא שהותאמה להם ונבחרה על ידם ועם
+              התחשבות באירועים עתידיים הנראים לעין כיום.
+            </p>
+            <p>
+              לבסוף אנו נבחר את הבנק הטוב ביותר עבור הלקוח ונלווה אותו עד לחתימה המאושרת וקבלת ההלוואה הטובה ביותר
+              שתוכלו לקבל.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- סקשן שירותינו ומוצרינו -->
+    <section id="services" class="services-section">
+      <div class="services-container">
+        <h2 class="services-title">שירותים</h2>
+        <p class="services-subtitle">בחרו מוצר כדי לראות פירוט קצר על ההלוואה</p>
+
+        <!-- בועות המוצרים -->
+        <div class="services-bubbles-grid">
+          <button class="service-pill" data-product-id="p1">
+            הלוואת משכנתא לדיור / שיפוץ
+          </button>
+          <button class="service-pill" data-product-id="p2">
+            מחזור משכנתא קיימת
+          </button>
+          <button class="service-pill" data-product-id="p3">
+            מחיר למשתכן / דירה בהנחה
+          </button>
+          <button class="service-pill" data-product-id="p4">
+            משכנתא לשיפור דיור
+          </button>
+          <button class="service-pill" data-product-id="p5">
+            משכנתא עבור דירה שנייה ומעלה
+          </button>
+          <button class="service-pill" data-product-id="p6">
+            משכנתא הפוכה לבני 55+
+          </button>
+          <button class="service-pill" data-product-id="p7">
+            משכנתא לכל מטרה כנגד נכס קיים
+          </button>
+        </div>
+
+        <!-- כרטיס פירוט שנפתח מתחת לבועות -->
+        <div class="service-details-card" id="serviceDetails">
+          <h3 class="service-details-title" id="detailsTitle">
+            בחרו אחד מהמוצרים למעלה
+          </h3>
+          <p class="service-details-text" id="detailsText">
+            לחיצה על כל אחד מהמוצרים תציג כאן הסבר קצר על סוג ההלוואה והתאמתה לצרכים שלכם.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // תוכן לכל מוצר
+      const productsData = {
+        p1: {
+          title: "הלוואת משכנתא לדיור / שיפוץ",
+          body: `עסקה עבור דירה יחידה/ראשונה. בין אם מדובר ברכישת דירה מיד שנייה, קבלן או שיפוץ נכס קיים,
+ניתן לקבל עד 75% מימון מסכום העסקה תוך התאמת ההלוואה אל אופי העסקה ולוחות הזמנים.`
+        },
+        p2: {
+          title: "מחזור משכנתא קיימת",
+          body: `מחזור ההלוואה בשנית או יותר, על מנת להתאים את ההלוואה אל התנאים הנוכחיים של הלווה
+מבחינה פיננסית ותכנונית, ולהוריד את הריבית בגשרות עד מאות אלפי שקלים – במחזור פנימי או חיצוני.`
+        },
+        p3: {
+          title: "מחיר למשתכן / דירה בהנחה",
+          body: `עסקה עבור זוכי תוכניות המחיר למשתכן או דירה בהנחה של משרד השיכון.
+התאמת הלוואת המשכנתא אל הלווים ומצבם הכלכלי בזמן בניית הפרויקט ולאחריו.
+בעסקה שכזו ניתן לקבל הלוואה תוך שימוש בהון עצמי נמוך מ־25%.`
+        },
+        p4: {
+          title: "משכנתא לשיפור דיור",
+          body: `עסקה עבור בעלי דירה יחידה המעוניינים לשפר את מגוריהם על ידי רכישת דירה נוספת,
+תוך התחייבות למכור את הדירה הנוכחית בעד 24 חודשים מרגע רכישת הדירה החדשה.
+בסוג עסקה זה ניתן לקבל עד 70% מימון מסכום העסקה, בניכוי משכנתא קיימת (אם ישנה).`
+        },
+        p5: {
+          title: "משכנתא עבור דירה שנייה ומעלה",
+          body: `עסקה המתאימה לבעלי לפחות דירה אחת אשר ברצונם לרכוש דירה נוספת.
+בעסקה זו יוכלו הלווים לקבל עד 50% מסכום העסקה, בניכוי משכנתא קיימת (אם קיימת).`
+        },
+        p6: {
+          title: "משכנתא הפוכה לבני 55+",
+          body: `עסקה המתאימה לבעלי דירות מעל גיל 55 אשר ברצונם לקבל כסף כנגד הבית (משכון).
+ככל שגיל הלווים גבוה יותר – כך עולים אחוזי ההלוואה מתוך שווי הבית.
+את פירעון ההלוואה ישלמו היורשים או הלווים לאורך שארית חייהם.`
+        },
+        p7: {
+          title: "משכנתא לכל מטרה כנגד נכס קיים",
+          body: `עסקה המתאימה לבעלי דירות אשר ברצונם לקבל סכום כסף כנגד שווי הנכס.
+בעסקה שכזו ניתן לקבל עד 50% משווי הנכס, בהתאם למצב הפיננסי ויכולת ההחזר של הלווה.`
+        }
+      };
+
+      const pills = document.querySelectorAll(".service-pill");
+      const detailsCard = document.getElementById("serviceDetails");
+      const detailsTitle = document.getElementById("detailsTitle");
+      const detailsText = document.getElementById("detailsText");
+
+      pills.forEach((pill) => {
+        pill.addEventListener("click", () => {
+          const id = pill.dataset.productId;
+          const data = productsData[id];
+          if (!data) return;
+
+          // עדכון הטקסט בכרטיס
+          detailsTitle.textContent = data.title;
+          detailsText.textContent = data.body;
+
+          // הדגשת הבועה שנבחרה
+          pills.forEach((p) => p.classList.remove("active"));
+          pill.classList.add("active");
+
+          // גלילה אל הכרטיס (במיוחד במובייל)
+
+        });
+      });
+    </script>
+
+    <section id="mortgage">
+      <div class="section-inner">
+        <h2 class="placeholder-title"> למה בעצם ייעוץ משכנתאות?</h2>
+        <p class="placeholder-text">
+
+          כאשר לוקחים הלוואה, במיוחד כזו הנאמדת בין מאות אלפי שקלים למיליונים ואורכת עשרות שנים, בדרך כלל יש שתי
+          אפשרויות: האחת, לקחת משכנתא שהוצעה, תוכננה והותאמה על ידי הבנק עבור הבנק, והשנייה היא לקיחת משכנתא לצד תכנון,
+          ייעוץ וליווי של יועץ מנוסה אשר שם את האינטרסים שלכם במרכז ההלוואה על ידי בניית תמהיל הלוואה יחד עם הלווים.
+          לפיכך, חשוב לקבל ייעץ וליווי של בעל מקצוע אשר יבין את העבר שלכם, יסדר את הווה ויתכנן את העתיד הפיננסי שלכם יחד
+          איתכם. בשירות שכזה, הרצונות, התוכניות והחלומות שלכם יקבלו ביטוי ממשי בהלוואה בכל הנוגע להחזר החודשי, בחירת
+          מסלולים קצרים או ארוכים ואולי אף פירעון הלוואה מוקדם. ללא ייעוץ, רבים מהלווים למעשה לוקחים את ההלוואה אשר
+          הוצעה להם על ידי הבנק ולא משקפת את נקודת מבטם ועל כן תפקיד היועץ הוא הכרחי בעת לקיחת הלוואת משכנתא מכל סוג
+          שהיא.
+        </p>
+      </div>
+    </section>
+
+
+
+
+    <section id="contact">
+      <div class="contact-container">
+        <h2> צרו קשר </h2>
+        <a href="https://wa.me/972552705176" target="_blank" rel="noopener" class="whatsapp-button"
+          aria-label="שלח הודעה בוואטסאפ">
+          <span class="whatsapp-text">לחץ לשליחת הודעה</span>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"
+            class="whatsapp-icon" />
+        </a>
+      </div>
+    </section>
+
+    </section>
+
+
+    <!-- ============= שאלות נפוצות ============= -->
+    <section id="faq" class="faq-section">
+      <div class="faq-container">
+        <div class="faq-header">
+          <h2 class="faq-title">שאלות נפוצות</h2>
+          <p class="faq-subtitle">
+            ריכזנו עבורכם תשובות לשאלות המרכזיות בנושא משכנתאות והתהליך המלא
+          </p>
+        </div>
+
+        <div class="faq-list" aria-label="שאלות נפוצות">
+
+          <!-- שאלה 1 -->
+          <article class="faq-item faq-item-open">
+            <button class="faq-question" type="button">
+              <span class="faq-q-label">שאלה</span>
+              <span class="faq-q-text">
+                לכמה זמן ניתן לקחת הלוואת משכנתא?
+              </span>
+              <span class="faq-toggle-icon" aria-hidden="true">−</span>
+            </button>
+            <div class="faq-answer-wrapper">
+              <p class="faq-answer">
+                על פי הרגולציה, ניתן לקחת הלוואת משכנתא עד 30 שנים או עד גיל 75.
+                יחד עם זאת, כיום לאור גידול באורך החיים, ניתן לקחת הלוואה שתגמר מעבר
+                לגיל 75, אך בכל מקרה לא יותר מ־30 שנים.
+              </p>
+            </div>
+          </article>
+
+          <!-- שאלה 2 -->
+          <article class="faq-item">
+            <button class="faq-question" type="button">
+              <span class="faq-q-label">שאלה</span>
+              <span class="faq-q-text">
+                מה הרגולציה העיקרית בהלוואת המשכנתא?
+              </span>
+              <span class="faq-toggle-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer-wrapper">
+              <p class="faq-answer">
+                ישנם מספר קריטריונים מרכזיים בהלוואת משכנתא: משך הלוואה (לא יותר מ־30
+                שנים), נתוני אשראי תקינים של הלווים, כושר החזר לתשלום המשכנתא עד 40%
+                מההכנסה הפנויה (עם זאת אנו לא ממליצים על יותר מ־35%), אחוז מימון תקין
+                להלוואה (תלוי בסוג העסקה), תקינות הנכס משפטית ותכנונית, וכן ביטוחי חיים
+                ומבנה.
+              </p>
+            </div>
+          </article>
+
+          <!-- שאלה 3 -->
+          <article class="faq-item">
+            <button class="faq-question" type="button">
+              <span class="faq-q-label">שאלה</span>
+              <span class="faq-q-text">
+                כמה זמן לוקח תהליך לקיחת משכנתא?
+              </span>
+              <span class="faq-toggle-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer-wrapper">
+              <p class="faq-answer">
+                משך התהליך תלוי בעיקר במקרה עצמו, שכן הוא כולל בין היתר: מציאת נכס,
+                הבנת העסקה, בניית אסטרטגיה כלכלית, המצאת מסמכים, בדיקת שמאות, השגת
+                אישור עקרוני להלוואה, הכנת הלקוח לקראת ההלוואה, חתימה על רכישת הנכס
+                וקבלת המשכנתא בבנק. התהליך יכול להימשך מספר שבועות ועד מספר חודשים,
+                בהתאם למורכבות ותכנון העסקה.
+              </p>
+            </div>
+          </article>
+
+          <!-- שאלה 4 – למה בכלל יועץ משכנתאות? -->
+          <article class="faq-item">
+            <button class="faq-question" type="button">
+              <span class="faq-q-label">שאלה</span>
+              <span class="faq-q-text">
+                למה כדאי להיעזר ביועץ משכנתאות פרטי ולא להסתמך רק על הבנק?
+              </span>
+              <span class="faq-toggle-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer-wrapper">
+              <p class="faq-answer">
+                הבנק מייצג בראש ובראשונה את האינטרס של הבנק. התפקיד שלי כיועץ משכנתאות
+                הוא לייצג אתכם בלבד: לבנות תמהיל הלוואה מותאם אישית, לבדוק מספר בנקים
+                בו־זמנית, לנהל משא ומתן על ריביות ועל תנאים נלווים ולהתאים את ההחזר
+                החודשי ליכולת הכלכלית שלכם היום ובעתיד. במילים פשוטות – המטרה שלי היא
+                לצמצם סיכונים, לחסוך לכם כסף לאורך השנים ולדאוג שתישארו עם משכנתא
+                שמשרתת אתכם ולא להפך.
+              </p>
+            </div>
+          </article>
+
+          <!-- שאלה 5 – מתי לפנות -->
+          <article class="faq-item">
+            <button class="faq-question" type="button">
+              <span class="faq-q-label">שאלה</span>
+              <span class="faq-q-text">
+                באיזה שלב בתהליך כדאי לפנות אליי לייעוץ?
+              </span>
+              <span class="faq-toggle-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer-wrapper">
+              <p class="faq-answer">
+                ההמלצה המקצועית שלי היא לפנות לייעוץ עוד לפני חתימה על זיכרון דברים
+                או חוזה רכישה. בשלב הזה ניתן לבדוק את יכולת המימון, להבין מהו ההון
+                העצמי הנדרש, לבחון את כדאיות העסקה ולמנוע הפתעות לא נעימות בהמשך. יחד
+                עם זאת, גם אם אתם כבר בתוך התהליך או אפילו עם משכנתא קיימת – עדיין
+                אפשר לשפר תנאים, לבצע מחזור משכנתא ולבנות תכנון פיננסי נכון יותר
+                לשנים הקרובות.
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <style>
+      .faq-section {
+        direction: rtl;
+        min-height: 100vh;
+        padding: 80px 20px;
+        background: radial-gradient(circle at top, #020617 0, #020617 50%, #000 100%);
+        color: #f9fafb;
+        display: flex;
+        align-items: center;
+      }
+
+      .faq-container {
+        max-width: 950px;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      .faq-header {
+        text-align: center;
+        margin-bottom: 36px;
+      }
+
+      .faq-title {
+        font-size: 2.2rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+
+      .faq-subtitle {
+        font-size: 0.95rem;
+        color: #9ca3af;
+      }
+
+      .faq-list {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .faq-item {
+        background: radial-gradient(circle at top right, #0b1220 0, #020617 60%);
+        border-radius: 16px;
+        border: 1px solid rgba(148, 163, 184, 0.35);
+        overflow: hidden;
+        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.7);
+        transition: border-color 0.2s ease, box-shadow 0.2s ease,
+          transform 0.12s ease;
+      }
+
+      .faq-item:hover {
+        border-color: rgba(59, 130, 246, 0.7);
+        box-shadow: 0 24px 55px rgba(15, 23, 42, 0.85);
+        transform: translateY(-1px);
+      }
+
+      .faq-item-open {
+        border-color: rgba(59, 130, 246, 0.9);
+      }
+
+      .faq-question {
+        width: 100%;
+        padding: 16px 18px;
+        background: transparent;
+        border: none;
+        color: inherit;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        cursor: pointer;
+        text-align: right;
+      }
+
+      .faq-q-label {
+        font-size: 0.75rem;
+        padding: 2px 8px;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.4);
+        color: #e5e7eb;
+      }
+
+      .faq-q-text {
+        flex: 1;
+        font-size: 0.95rem;
+        font-weight: 500;
+      }
+
+      .faq-toggle-icon {
+        font-size: 1.2rem;
+        width: 26px;
+        text-align: center;
+        color: #9ca3af;
+        transition: transform 0.18s ease, color 0.18s ease;
+      }
+
+      .faq-item-open .faq-toggle-icon {
+        transform: rotate(0deg);
+        color: #60a5fa;
+      }
+
+      .faq-answer-wrapper {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.25s ease;
+        padding: 0 18px 0;
+      }
+
+      .faq-item-open .faq-answer-wrapper {
+        padding-bottom: 14px;
+      }
+
+      .faq-answer {
+        font-size: 0.9rem;
+        color: #e5e7eb;
+        line-height: 1.7;
+      }
+
+      @media (max-width: 768px) {
+        .faq-section {
+          padding: 60px 16px;
+        }
+
+        .faq-title {
+          font-size: 1.9rem;
+        }
+      }
+    </style>
+
+    <script>
+      // אקורדיון לשאלות נפוצות
+      document.addEventListener("DOMContentLoaded", () => {
+        const items = document.querySelectorAll(".faq-item");
+
+        items.forEach((item) => {
+          const btn = item.querySelector(".faq-question");
+          const wrapper = item.querySelector(".faq-answer-wrapper");
+          const icon = item.querySelector(".faq-toggle-icon");
+
+          // אם זה פריט פתוח כבר ב־HTML – פותחים גובה בפועל
+          if (item.classList.contains("faq-item-open")) {
+            wrapper.style.maxHeight = wrapper.scrollHeight + "px";
+            if (icon) icon.textContent = "−";
+          }
+
+          btn.addEventListener("click", () => {
+            const isOpen = item.classList.contains("faq-item-open");
+
+            // סגירת כל השאר (אקורדיון אמיתי)
+            items.forEach((other) => {
+              if (other !== item) {
+                other.classList.remove("faq-item-open");
+                const w = other.querySelector(".faq-answer-wrapper");
+                const i = other.querySelector(".faq-toggle-icon");
+                if (w) w.style.maxHeight = null;
+                if (i) i.textContent = "+";
+              }
+            });
+
+            if (!isOpen) {
+              item.classList.add("faq-item-open");
+              wrapper.style.maxHeight = wrapper.scrollHeight + "px";
+              if (icon) icon.textContent = "−";
+            } else {
+              item.classList.remove("faq-item-open");
+              wrapper.style.maxHeight = null;
+              if (icon) icon.textContent = "+";
+            }
+          });
+        });
+      });
+    </script>
+
+  </main>
+
+  <script>
+    // המבורגר במובייל
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    navToggle.addEventListener("click", () => {
+      navToggle.classList.toggle("open");
+      navLinks.classList.toggle("open");
+    });
+
+    // סגירת תפריט אחרי לחיצה על לינק במובייל
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        if (window.innerWidth <= 768) {
+          navToggle.classList.remove("open");
+          navLinks.classList.remove("open");
+        }
+      });
+    });
+
+
+  </script>
+</body>
+
+</html>

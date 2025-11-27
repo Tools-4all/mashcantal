@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+</html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>מחשבון משכנתא</title>
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="home.html" class="active">דף הבית</a></li>
+            <li><a href="procces.html">תזרים</a></li>
+            <li><a href="glossary.html">מילון מונחים</a></li>
+            <li><a href="rates.html">שערים ומדדים</a></li>
+            <li><a href="calculator.html">מחשבון משכנתא</a></li>
+        </ul>
+
+
+        <button class="nav-toggle" id="navToggle" aria-label="תפריט">
+            <div class="nav-toggle-bar"></div>
+        </button>
+        <div class="navbar-logo">
+            משכנטל
+            <span>ייעוץ משכנתאות</span>
+        </div>
+    </header>
+
+
+    <section id="calculator" class="mc-section">
+        <div class="mc-container">
+            <div class="mc-header">
+                <h2 class="mc-title">מחשבון משכנתא</h2>
+                <p class="mc-subtitle">
+                    מומלץ לבחון אפשרות לקיצור תקופת המשכנתא או שילוב מסלולים שונים כדי להקטין את סך הריבית שתשולם לאורך
+                    השנים.
+                </p>
+            </div>
+
+            <div class="mc-grid">
+                <!-- צד הקלטים -->
+                <div class="mc-inputs-card">
+                    <div class="mc-input-group">
+                        <label for="mc-amount" class="mc-label">סכום המשכנתא (₪)</label>
+                        <div class="mc-input-wrapper">
+                            <span class="mc-input-prefix">₪</span>
+                            <input id="mc-amount" type="number" min="50000" step="10000" class="mc-input"
+                                value="1000000" />
+                        </div>
+                        <p class="mc-hint">סכום ההלוואה נטו שאתם מתכננים לקחת מהבנק</p>
+                    </div>
+
+                    <div class="mc-input-row">
+                        <div class="mc-input-group">
+                            <label for="mc-rate" class="mc-label">ריבית שנתית %</label>
+                            <div class="mc-input-wrapper">
+                                <input id="mc-rate" type="number" min="0.1" max="15" step="0.1" class="mc-input"
+                                    value="5.0" />
+                                <span class="mc-input-suffix">%</span>
+                            </div>
+                            <p class="mc-hint">הריבית הממוצעת על כלל מסלולי המשכנתא</p>
+                        </div>
+
+                        <div class="mc-input-group">
+                            <label for="mc-years" class="mc-label">מספר שנים</label>
+                            <div class="mc-input-wrapper">
+                                <input id="mc-years" type="number" min="5" max="30" step="1" class="mc-input"
+                                    value="25" />
+                                <span class="mc-input-suffix">שנים</span>
+                            </div>
+                            <p class="mc-hint">התקופה הכוללת של ההלוואה (עד 30 שנים מקסימום)</p>
+                        </div>
+                    </div>
+
+                    <div class="mc-presets">
+                        <span class="mc-presets-label">בחירת שנים מהירה:</span>
+                        <button type="button" class="mc-preset-btn" data-years="10">10</button>
+                        <button type="button" class="mc-preset-btn" data-years="15">15</button>
+                        <button type="button" class="mc-preset-btn" data-years="20">20</button>
+                        <button type="button" class="mc-preset-btn" data-years="25">25</button>
+                        <button type="button" class="mc-preset-btn" data-years="30">30</button>
+                    </div>
+
+                    <button type="button" id="mc-calc-btn" class="mc-primary-btn">
+                        חשבו החזר משכנתא
+                    </button>
+                </div>
+
+                <!-- צד התוצאות -->
+                <div class="mc-results-card" id="mc-results-card">
+                    <div class="mc-results-header">
+                        <span class="mc-results-tag">תוצאה משוערת</span>
+                        <p id="mc-summary-line" class="mc-summary-line">
+                            עבור משכנתא בסכום של ₪1,000,000 בריבית שנתית של 5.00% לתקופה של 25 שנים:
+                        </p>
+                    </div>
+
+                    <div class="mc-main-result">
+                        <p class="mc-main-label">החזר חודשי משוער</p>
+                        <p id="mc-monthly" class="mc-main-value">₪5,846</p>
+                        <p class="mc-main-sub">
+                            ההחזר החודשי מחושב בשיטת לוח סילוקין שפיצר (תשלום קבוע)
+                        </p>
+                    </div>
+
+                    <div class="mc-results-details">
+                        <div class="mc-detail-item">
+                            <span class="mc-detail-label">סך ההחזר לאורך התקופה</span>
+                            <span id="mc-total" class="mc-detail-value">₪1,753,770</span>
+                        </div>
+                        <div class="mc-detail-item">
+                            <span class="mc-detail-label">סך הריבית שתשולם לבנק</span>
+                            <span id="mc-interest" class="mc-detail-value mc-detail-accent">
+                                ₪753,770
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="mc-bottom-note">
+                        * החישוב הינו חישוב כללי ואינו מהווה התחייבות של גורם בנקאי או הצעה
+                        מחייבת. הריביות והתנאים בפועל עשויים להשתנות.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .mc-section {
+            direction: rtl;
+            min-height: 100vh;
+            padding: 80px 20px;
+            background: radial-gradient(circle at top, #020617 0, #020617 50%, #000 100%);
+            color: #f9fafb;
+            display: flex;
+            align-items: center;
+        }
+
+        .mc-container {
+            max-width: 1150px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .mc-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .mc-title {
+            font-size: 2.3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .mc-subtitle {
+            font-size: 0.95rem;
+            color: #9ca3af;
+        }
+
+        .mc-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.2fr);
+            gap: 24px;
+            align-items: stretch;
+        }
+
+        .mc-inputs-card,
+        .mc-results-card {
+            border-radius: 20px;
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            background: radial-gradient(circle at top right, #020617, #020617 60%, #020617);
+            padding: 22px 22px 20px;
+            box-shadow: 0 24px 60px rgba(15, 23, 42, 0.85);
+        }
+
+        .mc-inputs-card {
+            background: radial-gradient(circle at top left, #facc1530, #020617 55%);
+        }
+
+        .mc-label {
+            display: block;
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .mc-input-group {
+            margin-bottom: 16px;
+        }
+
+        .mc-input-row {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .mc-input-wrapper {
+            position: relative;
+        }
+
+        .mc-input {
+            width: 100%;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.8);
+            background: rgba(15, 23, 42, 0.7);
+            color: #f9fafb;
+            padding: 10px 14px;
+            padding-inline-start: 34px;
+            padding-inline-end: 40px;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease,
+                background-color 0.2s ease;
+            -moz-appearance: textfield;
+            /* ביטול חיצים בפיירפוקס */
+        }
+
+        /* ביטול חיצים ב-WebKit (Chrome, Edge, Safari וכו׳) */
+        .mc-input::-webkit-outer-spin-button,
+        .mc-input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .mc-input-prefix,
+        .mc-input-suffix {
+            position: absolute;
+            inset-inline-start: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8rem;
+            color: #9ca3af;
+        }
+
+        .mc-input-suffix {
+            inset-inline-start: auto;
+            inset-inline-end: 14px;
+        }
+
+        .mc-input:focus {
+            border-color: #facc15;
+            box-shadow: 0 0 0 1px rgba(250, 204, 21, 0.4);
+            background: rgba(15, 23, 42, 0.9);
+        }
+
+        .mc-hint {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            margin-top: 4px;
+        }
+
+        .mc-presets {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+            margin: 6px 0 14px;
+        }
+
+        .mc-presets-label {
+            font-size: 0.78rem;
+            color: #e5e7eb;
+        }
+
+        .mc-preset-btn {
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.7);
+            background: transparent;
+            color: #e5e7eb;
+            padding: 4px 10px;
+            font-size: 0.78rem;
+            cursor: pointer;
+            transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease,
+                transform 0.08s ease;
+        }
+
+        .mc-preset-btn:hover {
+            background: rgba(250, 204, 21, 0.1);
+            border-color: rgba(250, 204, 21, 0.8);
+            transform: translateY(-1px);
+        }
+
+        .mc-preset-btn.mc-preset-active {
+            background: #facc15;
+            color: #0f172a;
+            border-color: #facc15;
+        }
+
+        .mc-primary-btn {
+            width: 100%;
+            margin-top: 8px;
+            border-radius: 999px;
+            border: none;
+            padding: 11px 16px;
+            background: linear-gradient(135deg, #facc15, #f59e0b);
+            color: #0f172a;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            box-shadow: 0 14px 35px rgba(250, 204, 21, 0.45);
+            transition: transform 0.12s ease, box-shadow 0.12s ease,
+                filter 0.12s ease;
+        }
+
+        .mc-primary-btn:hover {
+            transform: translateY(-1px);
+            filter: brightness(1.05);
+            box-shadow: 0 18px 45px rgba(250, 204, 21, 0.6);
+        }
+
+        .mc-primary-btn:active {
+            transform: translateY(0px);
+            box-shadow: 0 10px 28px rgba(250, 204, 21, 0.4);
+        }
+
+        .mc-disclaimer {
+            font-size: 0.72rem;
+            color: #9ca3af;
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+
+        .mc-results-card {
+            background: radial-gradient(circle at top right, #0b1120 0, #020617 60%);
+        }
+
+        .mc-results-header {
+            margin-bottom: 18px;
+        }
+
+        .mc-results-tag {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3px 10px;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            border: 1px solid rgba(148, 163, 184, 0.7);
+            color: #e5e7eb;
+            margin-bottom: 6px;
+        }
+
+        .mc-summary-line {
+            font-size: 0.9rem;
+            color: #e5e7eb;
+        }
+
+        .mc-main-result {
+            border-radius: 18px;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            padding: 18px 18px 16px;
+            margin-bottom: 18px;
+            box-shadow: 0 22px 50px rgba(22, 163, 74, 0.7);
+        }
+
+        .mc-main-label {
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
+        .mc-main-value {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .mc-main-sub {
+            font-size: 0.8rem;
+            margin-top: 6px;
+            color: #dcfce7;
+        }
+
+        .mc-results-details {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .mc-detail-item {
+            background: rgba(15, 23, 42, 0.85);
+            border-radius: 14px;
+            padding: 10px 12px;
+            border: 1px solid rgba(148, 163, 184, 0.35);
+        }
+
+        .mc-detail-label {
+            display: block;
+            font-size: 0.8rem;
+            color: #cbd5f5;
+            margin-bottom: 4px;
+        }
+
+        .mc-detail-value {
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .mc-detail-accent {
+            color: #facc15;
+        }
+
+        .mc-bottom-note {
+            font-size: 0.8rem;
+            color: #9ca3af;
+            border-top: 1px dashed rgba(148, 163, 184, 0.4);
+            padding-top: 10px;
+            margin-top: 2px;
+        }
+
+        @media (max-width: 900px) {
+            .mc-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .mc-section {
+                padding: 70px 16px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .mc-title {
+                font-size: 2rem;
+            }
+
+            .mc-main-value {
+                font-size: 1.7rem;
+            }
+
+            .mc-results-details {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+    </style>
+
+    <script>
+        function mcFormatCurrency(num) {
+            if (!Number.isFinite(num)) return "—";
+            return "₪" + num.toLocaleString("he-IL", {
+                maximumFractionDigits: 0,
+            });
+        }
+
+        function mcCalcMonthlyPayment(amount, annualRate, years) {
+            const n = years * 12;
+            const r = (annualRate / 100) / 12;
+
+            if (n <= 0) return { monthly: 0, total: 0, interest: 0 };
+
+            if (r === 0) {
+                const monthly0 = amount / n;
+                return {
+                    monthly: monthly0,
+                    total: monthly0 * n,
+                    interest: (monthly0 * n) - amount,
+                };
+            }
+
+            const pow = Math.pow(1 + r, n);
+            const monthly = amount * r * pow / (pow - 1);
+            const total = monthly * n;
+            const interest = total - amount;
+
+            return { monthly, total, interest };
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const amountInput = document.getElementById("mc-amount");
+            const rateInput = document.getElementById("mc-rate");
+            const yearsInput = document.getElementById("mc-years");
+            const calcBtn = document.getElementById("mc-calc-btn");
+
+            const presets = document.querySelectorAll(".mc-preset-btn");
+
+            const summaryLine = document.getElementById("mc-summary-line");
+            const monthlyEl = document.getElementById("mc-monthly");
+            const totalEl = document.getElementById("mc-total");
+            const interestEl = document.getElementById("mc-interest");
+
+            function clampYears(raw) {
+                let years = Number(raw);
+                if (!Number.isFinite(years)) years = 25;
+                if (years < 5) years = 5;
+                if (years > 30) years = 30;
+                yearsInput.value = years;
+                return years;
+            }
+
+            function updatePresets(years) {
+                presets.forEach((btn) => {
+                    btn.classList.toggle(
+                        "mc-preset-active",
+                        Number(btn.dataset.years) === Number(years)
+                    );
+                });
+            }
+
+            presets.forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    const years = clampYears(btn.dataset.years);
+                    updatePresets(years);
+                    runCalc();
+                });
+            });
+
+            function runCalc() {
+                const amount = Number(amountInput.value);
+                const rate = Number(rateInput.value);
+                const years = clampYears(yearsInput.value);
+
+                if (!amount || amount <= 0 || !rate || rate <= 0) {
+                    monthlyEl.textContent = "—";
+                    totalEl.textContent = "—";
+                    interestEl.textContent = "—";
+                    summaryLine.textContent = "נא למלא סכום, ריבית ומספר שנים תקין (5–30) כדי לקבל חישוב.";
+                    return;
+                }
+
+                const { monthly, total, interest } = mcCalcMonthlyPayment(
+                    amount,
+                    rate,
+                    years
+                );
+
+                summaryLine.textContent =
+                    "עבור משכנתא בסכום של " +
+                    mcFormatCurrency(amount) +
+                    " בריבית שנתית של " +
+                    rate.toFixed(2) +
+                    "% לתקופה של " +
+                    years +
+                    " שנים:";
+
+                monthlyEl.textContent = mcFormatCurrency(Math.round(monthly));
+                totalEl.textContent = mcFormatCurrency(Math.round(total));
+                interestEl.textContent = mcFormatCurrency(Math.round(interest));
+
+                updatePresets(years);
+            }
+
+            calcBtn.addEventListener("click", runCalc);
+
+            [amountInput, rateInput, yearsInput].forEach((input) => {
+                input.addEventListener("change", runCalc);
+                input.addEventListener("blur", runCalc);
+            });
+
+            // חישוב ראשוני
+            updatePresets(clampYears(yearsInput.value));
+            runCalc();
+        });
+    </script>
+
+</body>
+
+</html>
