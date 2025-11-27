@@ -203,7 +203,7 @@
 
         @media (max-width: 900px) {
             .glos-section {
-                padding: 70px 16px 60px;
+                padding: 100px 16px 60px;
             }
 
             .glos-title {
@@ -806,8 +806,28 @@
         });
     </script>
 
-    <script src="nav.js"></script>
+    <script>
+        // המבורגר במובייל
+        const navToggle = document.getElementById("navToggle");
+        const navLinks = document.getElementById("navLinks");
 
+        navToggle.addEventListener("click", () => {
+            navToggle.classList.toggle("open");
+            navLinks.classList.toggle("open");
+        });
+
+        // סגירת תפריט אחרי לחיצה על לינק במובייל
+        navLinks.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+                if (window.innerWidth <= 768) {
+                    navToggle.classList.remove("open");
+                    navLinks.classList.remove("open");
+                }
+            });
+        });
+
+
+    </script>
 </body>
 
 </html>
