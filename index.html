@@ -19,7 +19,7 @@
 
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html" class="active">דף הבית</a></li>
-      <li><a href="procces.html">תזרים</a></li>
+      <li><a href="procces.html">תזרים התהליך</a></li>
       <li><a href="glossary.html">מילון מונחים</a></li>
       <li><a href="rates.html">שערים ומדדים</a></li>
       <li><a href="calculator.html">מחשבון משכנתא</a></li>
@@ -35,6 +35,8 @@
       <span>ייעוץ משכנתאות</span>
     </div>
   </header>
+
+
 
   <!-- ===== MAIN ===== -->
   <main>
@@ -529,28 +531,64 @@
 
   </main>
 
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <!-- עמודת לוגו וטקסט -->
+      <div class="footer-brand">
+        <div class="navbar-logo">
+          משכנטל
+          <span>ייעוץ משכנתאות</span>
+        </div>
+
+        <p class="footer-desc">
+          השירות ניתן באופן אישי על ידי טל, יועץ משכנתאות וחבר התאחדות המשכנתאות.
+        </p>
+      </div>
+
+      <!-- קישורי ניווט -->
+      <div>
+        <h3 class="footer-title">ניווט מהיר</h3>
+        <ul class="footer-links">
+          <li><a href="index.html" class="active">דף הבית</a></li>
+          <li><a href="procces.html">תזרים התהליך</a></li>
+          <li><a href="glossary.html">מילון מונחים</a></li>
+          <li><a href="rates.html">שערים ומדדים</a></li>
+          <li><a href="calculator.html">מחשבון משכנתא</a></li>
+          <li><a href="contact.html">צור קשר</a></li>
+        </ul>
+      </div>
+
+      <!-- פרטי קשר / מידע -->
+      <div>
+        <h3 class="footer-title">יצירת קשר</h3>
+        <ul class="footer-contact">
+          <li><span class="label">מייל:</span> <a style="text-decoration: none; color: inherit;"
+              href="mailto:Taltz@mmins.co.il">Taltz@mmins.co.il</a></li>
+          <li><span class="label">טלפון:</span> <a style="text-decoration: none; color: inherit;"
+              href="tel:0552705176">055-270-5176</a></span></li>
+          <li><span class="label">שעות פעילות:</span> א'–ה' 9:00–18:00</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> משכנטל · כל הזכויות שמורות.</span>
+
+      <div class="footer-social">
+        <div class="social-pill">Instagram</div>
+        <div class="social-pill">Facebook</div>
+        <div class="social-pill"><a href="https://wa.me/972552705176" target="_blank" rel="noopener">WhatsApp</a></div>
+      </div>
+    </div>
+  </footer>
+
   <script>
-    // המבורגר במובייל
-    const navToggle = document.getElementById("navToggle");
-    const navLinks = document.getElementById("navLinks");
-
-    navToggle.addEventListener("click", () => {
-      navToggle.classList.toggle("open");
-      navLinks.classList.toggle("open");
-    });
-
-    // סגירת תפריט אחרי לחיצה על לינק במובייל
-    navLinks.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        if (window.innerWidth <= 768) {
-          navToggle.classList.remove("open");
-          navLinks.classList.remove("open");
-        }
-      });
-    });
-
-
+    // שנה נוכחית אוטומטית
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
+  <script src="nav.js"></script>
 </body>
 
 </html>
