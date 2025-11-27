@@ -1,0 +1,143 @@
+/* timeline */
+
+.timeline-section {
+    direction: rtl;
+    background: #f9fafb;
+    padding: 100px 20px;
+}
+
+.timeline-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.timeline-title-main {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.timeline-subtitle {
+    text-align: center;
+    font-size: 0.95rem;
+    color: #4b5563;
+    margin-bottom: 40px;
+}
+
+/* רשימת ציר זמן אנכית */
+.timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+/* הקו של ציר הזמן */
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    inset-inline-start: 20px;
+    /* קרוב לצד ימין כי RTL */
+    width: 2px;
+    background: #e5e7eb;
+}
+
+/* פריט זמן */
+.timeline-item {
+    position: relative;
+    padding-inline-start: 60px;
+    /* מרחק מהקו אל התוכן */
+    margin-bottom: 16px;
+}
+
+/* נקודת הזמן + מספר */
+.timeline-dot {
+    position: absolute;
+    inset-inline-start: 10px;
+    top: 6px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #111827;
+    color: #ffffff;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.18);
+}
+
+/* קונטיינר הטקסט */
+.timeline-content {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    padding: 10px 14px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease,
+        background 0.2s ease, transform 0.15s ease;
+    cursor: default;
+}
+
+/* כותרת תמיד נראית */
+.timeline-step-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0;
+}
+
+/* הטקסט – מוסתר כברירת מחדל */
+.timeline-step-text {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #374151;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin-top: 0;
+    transition: max-height 0.25s ease, opacity 0.25s ease, margin-top 0.25s ease;
+}
+
+/* הרחבה בריחוף / פוקוס */
+.timeline-item:hover .timeline-content,
+.timeline-item:focus-within .timeline-content {
+    background: #eff6ff;
+    border-color: #111827;
+    box-shadow: 0 14px 30px rgba(37, 99, 235, 0.16);
+    transform: translateY(-2px);
+}
+
+.timeline-item:hover .timeline-step-text,
+.timeline-item:focus-within .timeline-step-text {
+    max-height: 200px;
+    /* מספיק לפסקה; אפשר להגדיל אם תרצה */
+    opacity: 1;
+    margin-top: 6px;
+}
+
+/* מובייל */
+@media (max-width: 768px) {
+    .timeline-section {
+        padding: 60px 16px;
+    }
+
+    .timeline::before {
+        inset-inline-start: 16px;
+    }
+
+    .timeline-item {
+        padding-inline-start: 55px;
+    }
+
+    .timeline-step-title {
+        font-size: 0.9rem;
+    }
+
+    .timeline-step-text {
+        font-size: 0.85rem;
+    }
+}

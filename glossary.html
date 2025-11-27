@@ -7,40 +7,44 @@
     <link rel="stylesheet" href="style.css">
     <title>מונחון משכתנאות</title>
     <style>
+        /* ===== מונחון משכנתאות – סקשן בהיר ===== */
+
         .glos-section {
             direction: rtl;
-            min-height: 100vh;
-            padding: 80px 20px;
-            background: radial-gradient(circle at top, #020617 0, #020617 50%, #000 100%);
-            color: #f9fafb;
+            min-height: calc(100vh - 64px);
+            padding: 100px 20px 70px;
+            background: #f9fafb;
             display: flex;
             align-items: flex-start;
         }
 
         .glos-container {
-            max-width: 1180px;
+            max-width: 1100px;
             margin: 0 auto;
             width: 100%;
         }
 
+        /* כותרות החלק */
         .glos-header {
             text-align: center;
-            margin-bottom: 28px;
+            margin-bottom: 30px;
         }
 
         .glos-title {
             font-size: 2.1rem;
             font-weight: 700;
             margin-bottom: 6px;
+            color: #111827;
         }
 
         .glos-subtitle {
             font-size: 0.95rem;
-            color: #9ca3af;
+            color: #4b5563;
             max-width: 640px;
             margin: 0 auto 18px;
         }
 
+        /* שדה החיפוש */
         .glos-search-wrapper {
             max-width: 520px;
             margin: 0 auto;
@@ -49,78 +53,93 @@
         .glos-search-input {
             width: 100%;
             border-radius: 999px;
-            border: 1px solid rgba(148, 163, 184, 0.8);
-            background: rgba(15, 23, 42, 0.85);
-            color: #f9fafb;
+            border: 1px solid #cbd5e1;
+            background: #ffffff;
+            color: #111827;
             padding: 10px 16px;
             font-size: 0.9rem;
             outline: none;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease,
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease,
                 background-color 0.2s ease;
         }
 
         .glos-search-input::placeholder {
-            color: rgba(148, 163, 184, 0.8);
+            color: #9ca3af;
         }
 
         .glos-search-input:focus {
-            border-color: #38bdf8;
-            box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.4);
-            background: rgba(15, 23, 42, 0.95);
+            border-color: #2d4c8d;
+            box-shadow: 0 0 0 1px rgba(45, 76, 141, 0.25);
+            background-color: #ffffff;
         }
 
+        /* הגריד של הכרטיסים */
         .glos-grid {
-            margin-top: 8px;
+            margin-top: 14px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 14px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
         }
 
+        /* כרטיס מונח (מצב סגור) */
         .glos-item {
-            background: rgba(15, 23, 42, 0.9);
-            border: 1px solid rgba(148, 163, 184, 0.4);
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
             border-radius: 12px;
-            min-height: 120px;
+            min-height: 76px;
             display: flex;
             flex-direction: column;
-            transition: border-color 0.18s ease, box-shadow 0.18s ease,
-                transform 0.06s ease, background-color 0.18s ease;
+            transition:
+                border-color 0.18s ease,
+                box-shadow 0.18s ease,
+                transform 0.06s ease,
+                background-color 0.18s ease;
+            cursor: pointer;
         }
 
         .glos-item:hover {
-            border-color: rgba(56, 189, 248, 0.7);
-            box-shadow: 0 10px 22px rgba(15, 23, 42, 0.9);
+            border-color: #cbd5e1;
+            box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
             transform: translateY(-1px);
         }
 
+        /* כרטיס פתוח */
         .glos-item.open {
-            background: radial-gradient(circle at top right, #0f172a, #020617 75%);
-            border-color: #38bdf8;
+            background: #eff6ff;
+            border-color: #2d4c8d;
+            box-shadow: 0 12px 26px rgba(45, 76, 141, 0.18);
         }
 
+        /* ראש הכרטיס – הכותרת + האייקון */
         .glos-card-head {
-            padding: 10px 12px;
+            padding: 10px 14px;
             background: transparent;
             border: none;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 8px;
+            gap: 10px;
             color: inherit;
+            width: 100%;
         }
 
         .glos-term {
             font-size: 0.95rem;
             font-weight: 600;
             text-align: right;
+            color: #111827;
         }
 
+        /* אייקון + / – */
         .glos-icon {
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             border-radius: 999px;
-            border: 1px solid rgba(148, 163, 184, 0.8);
+            border: 1px solid #cbd5e1;
+            background: #f9fafb;
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -132,51 +151,78 @@
         .glos-icon::after {
             content: "";
             position: absolute;
-            background: rgba(248, 250, 252, 0.9);
-            transition: transform 0.18s ease;
+            background: #4b5563;
+            transition: transform 0.18s ease, background-color 0.18s ease;
         }
 
         .glos-icon::before {
             width: 10px;
-            height: 1.5px;
+            height: 1.6px;
         }
 
         .glos-icon::after {
-            width: 1.5px;
+            width: 1.6px;
             height: 10px;
+        }
+
+        /* במצב פתוח – הופך למינוס */
+        .glos-item.open .glos-icon {
+            background: #2d4c8d;
+            border-color: #2d4c8d;
+        }
+
+        .glos-item.open .glos-icon::before,
+        .glos-item.open .glos-icon::after {
+            background-color: #f9fafb;
         }
 
         .glos-item.open .glos-icon::after {
             transform: scaleY(0);
         }
 
+        /* הגוף – הטקסט */
         .glos-card-body {
-            font-size: 0.84rem;
-            color: #e5e7eb;
-            line-height: 1.7;
-            padding: 0 12px 0;
+            font-size: 0.88rem;
+            color: #374151;
+            line-height: 1.9;
+            padding: 0 14px 0;
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.22s ease, padding-bottom 0.18s ease;
+            transition:
+                max-height 0.24s ease,
+                padding-bottom 0.2s ease;
         }
 
+        /* כשהכרטיס פתוח – להרחיב */
         .glos-item.open .glos-card-body {
             padding-bottom: 10px;
-            max-height: 280px;
-            /* מספיק לרוב המונחים */
+            max-height: 260px;
         }
 
-        @media (max-width: 768px) {
+        /* ===== רספונסיביות ===== */
+
+        @media (max-width: 900px) {
             .glos-section {
-                padding: 70px 14px;
+                padding: 70px 16px 60px;
             }
 
             .glos-title {
-                font-size: 1.8rem;
+                font-size: 1.9rem;
             }
+        }
 
+        @media (max-width: 600px) {
             .glos-grid {
                 grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .glos-card-head {
+                padding-inline: 12px;
+            }
+
+            .glos-card-body {
+                padding-inline: 12px;
             }
         }
     </style>
@@ -188,11 +234,12 @@
     <header class="navbar">
 
         <ul class="nav-links" id="navLinks">
-            <li><a href="home.html" class="active">דף הבית</a></li>
+            <li><a href="home.html">דף הבית</a></li>
             <li><a href="procces.html">תזרים</a></li>
-            <li><a href="glossary.html">מילון מונחים</a></li>
+            <li><a href="glossary.html" class="active">מילון מונחים</a></li>
             <li><a href="rates.html">שערים ומדדים</a></li>
             <li><a href="calculator.html">מחשבון משכנתא</a></li>
+            <li><a href="contact.html">צור קשר</a></li>
         </ul>
 
 
@@ -757,6 +804,29 @@
                 });
             }
         });
+    </script>
+
+    <script>
+        // המבורגר במובייל
+        const navToggle = document.getElementById("navToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        navToggle.addEventListener("click", () => {
+            navToggle.classList.toggle("open");
+            navLinks.classList.toggle("open");
+        });
+
+        // סגירת תפריט אחרי לחיצה על לינק במובייל
+        navLinks.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+                if (window.innerWidth <= 768) {
+                    navToggle.classList.remove("open");
+                    navLinks.classList.remove("open");
+                }
+            });
+        });
+
+
     </script>
 </body>
 

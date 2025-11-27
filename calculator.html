@@ -15,11 +15,12 @@
     <header class="navbar">
 
         <ul class="nav-links" id="navLinks">
-            <li><a href="home.html" class="active">דף הבית</a></li>
+            <li><a href="home.html">דף הבית</a></li>
             <li><a href="procces.html">תזרים</a></li>
             <li><a href="glossary.html">מילון מונחים</a></li>
             <li><a href="rates.html">שערים ומדדים</a></li>
-            <li><a href="calculator.html">מחשבון משכנתא</a></li>
+            <li><a href="calculator.html" class="active">מחשבון משכנתא</a></li>
+            <li><a href="contact.html">צור קשר</a></li>
         </ul>
 
 
@@ -135,7 +136,7 @@
         .mc-section {
             direction: rtl;
             min-height: 100vh;
-            padding: 80px 20px;
+            padding: 100px 20px;
             background: radial-gradient(circle at top, #020617 0, #020617 50%, #000 100%);
             color: #f9fafb;
             display: flex;
@@ -555,6 +556,29 @@
             updatePresets(clampYears(yearsInput.value));
             runCalc();
         });
+    </script>
+
+    <script>
+        // המבורגר במובייל
+        const navToggle = document.getElementById("navToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        navToggle.addEventListener("click", () => {
+            navToggle.classList.toggle("open");
+            navLinks.classList.toggle("open");
+        });
+
+        // סגירת תפריט אחרי לחיצה על לינק במובייל
+        navLinks.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+                if (window.innerWidth <= 768) {
+                    navToggle.classList.remove("open");
+                    navLinks.classList.remove("open");
+                }
+            });
+        });
+
+
     </script>
 
 </body>

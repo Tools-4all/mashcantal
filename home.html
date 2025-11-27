@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="home.css" />
 </head>
 
 <body>
@@ -22,6 +23,7 @@
       <li><a href="glossary.html">מילון מונחים</a></li>
       <li><a href="rates.html">שערים ומדדים</a></li>
       <li><a href="calculator.html">מחשבון משכנתא</a></li>
+      <li><a href="contact.html">צור קשר</a></li>
     </ul>
 
 
@@ -205,24 +207,6 @@
       </div>
     </section>
 
-
-
-
-    <section id="contact">
-      <div class="contact-container">
-        <h2> צרו קשר </h2>
-        <a href="https://wa.me/972552705176" target="_blank" rel="noopener" class="whatsapp-button"
-          aria-label="שלח הודעה בוואטסאפ">
-          <span class="whatsapp-text">לחץ לשליחת הודעה</span>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"
-            class="whatsapp-icon" />
-        </a>
-      </div>
-    </section>
-
-    </section>
-
-
     <!-- ============= שאלות נפוצות ============= -->
     <section id="faq" class="faq-section">
       <div class="faq-container">
@@ -236,9 +220,8 @@
         <div class="faq-list" aria-label="שאלות נפוצות">
 
           <!-- שאלה 1 -->
-          <article class="faq-item faq-item-open">
+          <article class="faq-item  ">
             <button class="faq-question" type="button">
-              <span class="faq-q-label">שאלה</span>
               <span class="faq-q-text">
                 לכמה זמן ניתן לקחת הלוואת משכנתא?
               </span>
@@ -256,7 +239,6 @@
           <!-- שאלה 2 -->
           <article class="faq-item">
             <button class="faq-question" type="button">
-              <span class="faq-q-label">שאלה</span>
               <span class="faq-q-text">
                 מה הרגולציה העיקרית בהלוואת המשכנתא?
               </span>
@@ -276,7 +258,6 @@
           <!-- שאלה 3 -->
           <article class="faq-item">
             <button class="faq-question" type="button">
-              <span class="faq-q-label">שאלה</span>
               <span class="faq-q-text">
                 כמה זמן לוקח תהליך לקיחת משכנתא?
               </span>
@@ -296,7 +277,6 @@
           <!-- שאלה 4 – למה בכלל יועץ משכנתאות? -->
           <article class="faq-item">
             <button class="faq-question" type="button">
-              <span class="faq-q-label">שאלה</span>
               <span class="faq-q-text">
                 למה כדאי להיעזר ביועץ משכנתאות פרטי ולא להסתמך רק על הבנק?
               </span>
@@ -314,10 +294,8 @@
             </div>
           </article>
 
-          <!-- שאלה 5 – מתי לפנות -->
           <article class="faq-item">
             <button class="faq-question" type="button">
-              <span class="faq-q-label">שאלה</span>
               <span class="faq-q-text">
                 באיזה שלב בתהליך כדאי לפנות אליי לייעוץ?
               </span>
@@ -341,12 +319,14 @@
 
 
     <style>
+      /* ===== שאלות נפוצות – גרסה בהירה ===== */
+
       .faq-section {
         direction: rtl;
-        min-height: 100vh;
-        padding: 80px 20px;
-        background: radial-gradient(circle at top, #020617 0, #020617 50%, #000 100%);
-        color: #f9fafb;
+        min-height: calc(100vh - 64px);
+        padding: 80px 20px 70px;
+        background: #f9fafb;
+        color: #111827;
         display: flex;
         align-items: center;
       }
@@ -359,19 +339,22 @@
 
       .faq-header {
         text-align: center;
-        margin-bottom: 36px;
+        margin-bottom: 32px;
       }
 
       .faq-title {
-        font-size: 2.2rem;
+        font-size: 2.1rem;
         font-weight: 700;
         margin-bottom: 8px;
+        color: #111827;
       }
 
       .faq-subtitle {
         font-size: 0.95rem;
-        color: #9ca3af;
+        color: #4b5563;
       }
+
+      /* רשימת שאלות */
 
       .faq-list {
         display: flex;
@@ -379,29 +362,40 @@
         gap: 14px;
       }
 
+      /* כרטיס שאלה */
+
       .faq-item {
-        background: radial-gradient(circle at top right, #0b1220 0, #020617 60%);
-        border-radius: 16px;
-        border: 1px solid rgba(148, 163, 184, 0.35);
+        background: #ffffff;
+        border-radius: 14px;
+        border: 1px solid #e5e7eb;
         overflow: hidden;
-        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.7);
-        transition: border-color 0.2s ease, box-shadow 0.2s ease,
-          transform 0.12s ease;
+        box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+        transition:
+          border-color 0.2s ease,
+          box-shadow 0.2s ease,
+          transform 0.12s ease,
+          background-color 0.18s ease;
       }
 
       .faq-item:hover {
-        border-color: rgba(59, 130, 246, 0.7);
-        box-shadow: 0 24px 55px rgba(15, 23, 42, 0.85);
+        border-color: #cbd5e1;
+        box-shadow: 0 16px 34px rgba(15, 23, 42, 0.1);
         transform: translateY(-1px);
       }
 
+      /* מצב פתוח */
+
       .faq-item-open {
-        border-color: rgba(59, 130, 246, 0.9);
+        background: #eff6ff;
+        border-color: #2563eb;
+        box-shadow: 0 18px 40px rgba(37, 99, 235, 0.16);
       }
+
+      /* כפתור השאלה */
 
       .faq-question {
         width: 100%;
-        padding: 16px 18px;
+        padding: 14px 18px;
         background: transparent;
         border: none;
         color: inherit;
@@ -413,48 +407,62 @@
       }
 
       .faq-q-label {
-        font-size: 0.75rem;
-        padding: 2px 8px;
+        font-size: 0.78rem;
+        padding: 3px 10px;
         border-radius: 999px;
-        border: 1px solid rgba(148, 163, 184, 0.4);
-        color: #e5e7eb;
+        border: 1px solid #bfdbfe;
+        background: #eff6ff;
+        color: #1d4ed8;
+        flex-shrink: 0;
       }
 
       .faq-q-text {
         flex: 1;
-        font-size: 0.95rem;
+        font-size: 0.96rem;
         font-weight: 500;
       }
 
+      /* אייקון פתיחה/סגירה */
+
       .faq-toggle-icon {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         width: 26px;
         text-align: center;
         color: #9ca3af;
         transition: transform 0.18s ease, color 0.18s ease;
       }
 
+      /* כשהשאלה פתוחה – סיבוב וצבע */
+
       .faq-item-open .faq-toggle-icon {
-        transform: rotate(0deg);
-        color: #60a5fa;
+        transform: rotate(180deg);
+        color: #2563eb;
       }
+
+      /* גוף התשובה */
 
       .faq-answer-wrapper {
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.25s ease;
+        transition:
+          max-height 0.25s ease,
+          padding-bottom 0.2s ease;
         padding: 0 18px 0;
       }
 
       .faq-item-open .faq-answer-wrapper {
+        max-height: 260px;
+        /* מספיק לרוב תשובות הטקסט */
         padding-bottom: 14px;
       }
 
       .faq-answer {
         font-size: 0.9rem;
-        color: #e5e7eb;
-        line-height: 1.7;
+        color: #374151;
+        line-height: 1.9;
       }
+
+      /* רספונסיביות */
 
       @media (max-width: 768px) {
         .faq-section {
@@ -462,7 +470,15 @@
         }
 
         .faq-title {
-          font-size: 1.9rem;
+          font-size: 1.85rem;
+        }
+
+        .faq-question {
+          padding-inline: 14px;
+        }
+
+        .faq-answer-wrapper {
+          padding-inline: 14px;
         }
       }
     </style>

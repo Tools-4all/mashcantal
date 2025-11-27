@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>צור קשר</title>
+
+
+    <style>
+        /* ========= צור קשר ========= */
+
+        .contact-section {
+            direction: rtl;
+            min-height: 100vh;
+            padding: 100px 80px;
+            background: radial-gradient(circle at top, #020617 0, #020617 50%, #000 100%);
+            display: flex;
+            align-items: flex-start;
+            color: #f9fafb;
+        }
+
+        .contact-container {
+            max-width: 1180px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .contact-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .contact-subtitle {
+            font-size: 0.96rem;
+            color: #9ca3af;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            margin-top: 28px;
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+            gap: 24px;
+        }
+
+        /* כרטיס מידע */
+        .contact-info-card {
+            background: radial-gradient(circle at top left, #0f172a, #020617 70%);
+            border-radius: 18px;
+            padding: 22px 24px;
+            border: 1px solid rgba(148, 163, 184, 0.5);
+            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.9);
+        }
+
+        .contact-info-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-info-card p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: #e5e7eb;
+            margin-bottom: 16px;
+        }
+
+        .contact-details {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .contact-details li+li {
+            margin-top: 6px;
+        }
+
+        .contact-details .label {
+            color: #9ca3af;
+            margin-left: 4px;
+        }
+
+        .contact-details a {
+            color: #e5e7eb;
+            text-decoration: none;
+        }
+
+        .contact-details a:hover {
+            text-decoration: underline;
+        }
+
+        /* כפתורי פעולה */
+        .contact-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            border-radius: 999px;
+            padding: 10px 16px;
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            background: linear-gradient(90deg, #020617, #020617);
+            color: #f9fafb;
+            font-size: 0.92rem;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 16px 35px rgba(15, 23, 42, 0.9);
+            transition:
+                border-color 0.18s ease,
+                box-shadow 0.18s ease,
+                transform 0.08s ease,
+                background 0.2s ease;
+        }
+
+        .contact-btn:hover {
+            border-color: #38bdf8;
+            background: linear-gradient(90deg, #0f172a, #020617);
+            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.95);
+            transform: translateY(-1px);
+        }
+
+        .contact-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.9);
+        }
+
+        .contact-btn-whatsapp {
+            border-color: #22c55e;
+            background: radial-gradient(circle at top left, #16a34a, #065f46 70%);
+        }
+
+        .contact-btn-whatsapp:hover {
+            border-color: #4ade80;
+            background: radial-gradient(circle at top left, #22c55e, #065f46 75%);
+        }
+
+        .contact-btn-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-btn-icon svg {
+            width: 22px;
+            height: 22px;
+            fill: #f9fafb;
+        }
+
+        .icon-circle {
+            width: 24px;
+            height: 24px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(148, 163, 184, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .contact-btn-text {
+            flex: 1;
+            text-align: right;
+        }
+
+        /* רספונסיביות */
+        @media (max-width: 900px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .contact-section {
+                padding: 70px 16px;
+            }
+
+            .contact-title {
+                font-size: 1.8rem;
+            }
+
+            .contact-info-card {
+                padding: 18px 16px;
+            }
+
+            .contact-btn {
+                padding-inline: 14px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <header class="navbar">
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="home.html">דף הבית</a></li>
+            <li><a href="procces.html">תזרים</a></li>
+            <li><a href="glossary.html">מילון מונחים</a></li>
+            <li><a href="rates.html">שערים ומדדים</a></li>
+            <li><a href="calculator.html">מחשבון משכנתא</a></li>
+            <li><a href="contact.html" class="active">צור קשר</a></li>
+        </ul>
+
+
+        <button class="nav-toggle" id="navToggle" aria-label="תפריט">
+            <div class="nav-toggle-bar"></div>
+        </button>
+        <div class="navbar-logo">
+            משכנטל
+            <span>ייעוץ משכנתאות</span>
+        </div>
+    </header>
+
+
+    <!-- ============= צור קשר ============= -->
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <header class="contact-header">
+                <h2 class="contact-title">צור קשר</h2>
+                <p class="contact-subtitle">
+                    נשמח לענות על כל שאלה, ללוות אתכם בתהליך ולבדוק יחד מהי המשכנתא הנכונה עבורכם.
+                </p>
+            </header>
+
+            <div class="contact-grid">
+                <!-- כרטיס מידע קצר -->
+                <div class="contact-info-card">
+                    <h3>איך נוח לכם לדבר?</h3>
+                    <p>
+                        אפשר להשאיר הודעה בוואטסאפ, להתקשר, לשלוח מייל או לפנות אלינו דרך פייסבוק.
+                        ננסה לחזור אליכם בהקדם האפשרי.
+                    </p>
+                    <ul class="contact-details">
+                        <li><span class="label">טלפון:</span> <a href="tel:0552705176">055-270-5176</a></li>
+                        <li><span class="label">מייל:</span> <a
+                                href="mailto:info@meshkental.co.il">info@meshkental.co.il</a></li>
+                    </ul>
+                </div>
+
+                <!-- כפתורי פעולה -->
+                <div class="contact-actions">
+                    <!-- וואטסאפ -->
+                    <a class="contact-btn contact-btn-whatsapp" href="https://wa.me/972552705176" target="_blank"
+                        rel="noopener">
+                        <span class="contact-btn-icon">
+                            <!-- אייקון וואטסאפ פשוט ב-SVG -->
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M12.04 2C6.59 2 2.2 6.39 2.2 11.84c0 2.09.61 4.03 1.77 5.73L2 22l4.58-1.95a9.86 9.86 0 0 0 5.46 1.6h.01c5.45 0 9.84-4.39 9.84-9.84C21.89 6.39 17.49 2 12.04 2Zm0 17.52h-.01a7.63 7.63 0 0 1-3.89-1.07l-.28-.17-2.72 1.16.58-2.89-.19-.3a7.56 7.56 0 0 1-1.16-4.04c0-4.2 3.42-7.62 7.64-7.62 2.04 0 3.95.8 5.39 2.23a7.54 7.54 0 0 1 2.24 5.38c0 4.2-3.42 7.62-7.6 7.62Zm4.19-5.67c-.23-.11-1.35-.67-1.56-.74-.21-.08-.36-.11-.51.11-.15.23-.59.74-.72.89-.13.15-.27.17-.5.06-.23-.11-.96-.35-1.83-1.12-.68-.6-1.13-1.34-1.27-1.57-.13-.23-.01-.35.1-.46.1-.1.23-.27.34-.4.11-.13.15-.23.23-.38.08-.15.04-.28-.02-.4-.06-.11-.51-1.22-.7-1.68-.18-.44-.37-.38-.51-.39l-.44-.01c-.15 0-.4.06-.6.28-.21.23-.79.77-.79 1.88 0 1.11.81 2.18.92 2.33.11.15 1.6 2.44 3.88 3.33.54.24.96.38 1.29.49.54.17 1.03.14 1.42.08.43-.06 1.35-.55 1.55-1.09.19-.54.19-1 .13-1.09-.06-.09-.21-.15-.44-.26Z" />
+                            </svg>
+                        </span>
+                        <span class="contact-btn-text">
+                            שלחו לנו הודעה בוואטסאפ
+                        </span>
+                    </a>
+
+                    <!-- טלפון -->
+                    <a class="contact-btn" href="tel:0552705176">
+                        <span class="contact-btn-icon">
+                            <span class="icon-circle">📞</span>
+                        </span>
+                        <span class="contact-btn-text">התקשרו אלינו – 055-270-5176</span>
+                    </a>
+
+                    <!-- מייל -->
+                    <a class="contact-btn" href="mailto:info@meshkental.co.il">
+                        <span class="contact-btn-icon">
+                            <span class="icon-circle">✉️</span>
+                        </span>
+                        <span class="contact-btn-text">שלחו מייל ל־info@meshkental.co.il</span>
+                    </a>
+
+                    <!-- פייסבוק -->
+                    <a class="contact-btn" href="https://www.facebook.com/yourpage" target="_blank" rel="noopener">
+                        <span class="contact-btn-icon">
+                            <span class="icon-circle">f</span>
+                        </span>
+                        <span class="contact-btn-text">עקבו אחרינו בפייסבוק</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
