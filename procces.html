@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="procces.css" />
 
     <title>תזרים התהליך</title>
-
 </head>
 
 <body>
@@ -28,11 +27,9 @@
         <button class="nav-toggle" id="navToggle" aria-label="תפריט">
             <div class="nav-toggle-bar"></div>
         </button>
-        <div class="navbar-logo">
-            משכנטל
-            <span>ייעוץ משכנתאות</span>
-        </div>
+        <img style="height: 64px;width: auto;" src="logo.png" alt="logo">
     </header>
+
     <!-- ===== תזרים התהליך – ציר זמן ===== -->
     <section id="process" class="timeline-section">
         <div class="timeline-container">
@@ -42,8 +39,8 @@
             </p>
 
             <ul class="timeline">
-                <!-- שלב 1 -->
-                <li class="timeline-item">
+                <!-- שלב 1 (פתוח כברירת מחדל) -->
+                <li class="timeline-item active">
                     <div class="timeline-dot">1</div>
                     <div class="timeline-content">
                         <h3 class="timeline-step-title">שיחת ייעוץ ראשונית ובדיקת היתכנות</h3>
@@ -131,6 +128,26 @@
 
     <script src="nav.js"></script>
 
+    <!-- סקריפט לפתיחה/סגירה בלחיצה (גם במובייל) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const items = document.querySelectorAll('.timeline-item');
+
+            items.forEach(function (item) {
+                item.addEventListener('click', function () {
+                    // סגירה של כל האחרים
+                    items.forEach(function (other) {
+                        if (other !== item) {
+                            other.classList.remove('active');
+                        }
+                    });
+
+                    // פתיחה/סגירה של הנוכחי
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

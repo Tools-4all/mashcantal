@@ -225,10 +225,7 @@
         <button class="nav-toggle" id="navToggle" aria-label="תפריט">
             <div class="nav-toggle-bar"></div>
         </button>
-        <div class="navbar-logo">
-            משכנטל
-            <span>ייעוץ משכנתאות</span>
-        </div>
+        <img style="height: 64px;width: auto;" src="logo.png" alt="logo">
     </header>
 
 
@@ -328,7 +325,7 @@
         // ============= הגדרות בסיס – ריביות =============
         const BOI_RATE = 4.25;       // ריבית בנק ישראל (באחוזים)
         const PRIME_SPREAD = 1.5;    // פריים = בנק ישראל + 1.5%
-        const RATES_UPDATED_AT = "27.11.2025"; // תאריך עדכון ידני
+        const RATES_UPDATED_AT = "24.11.2025"; // תאריך עדכון ידני
 
         function initRatesCard() {
             const primeRate = (BOI_RATE + PRIME_SPREAD).toFixed(2);
