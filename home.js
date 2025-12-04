@@ -36,6 +36,50 @@ window.addEventListener("scroll", () => {
 });
 
 
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const title = document.getElementById("siftah_title");
+    const subtitle = document.getElementById("siftah_subtitle");
+
+    // מצב התחלתי – טקסטים מחוץ למסך
+    title.style.transform = "translateX(-150%)";
+    subtitle.style.transform = "translateX(150%)";
+    title.style.opacity = "0";
+    subtitle.style.opacity = "0";
+
+    setTimeout(() => {
+        title.style.transition = "transform 1.5s ease-out, opacity 1s ease-out";
+        subtitle.style.transition = "transform 1.5s ease-out, opacity 1s ease-out";
+
+        title.style.transform = "translateX(0)";
+        subtitle.style.transform = "translateX(0)";
+        title.style.opacity = "1";
+        subtitle.style.opacity = "1";
+
+        setTimeout(() => {
+            title.style.transition = "";
+            subtitle.style.transition = "";
+            window.addEventListener("scroll", updateTitles);
+        }, 1500);
+
+    }, 120);
+
+    function updateTitles() {
+        const scrollY = window.scrollY;
+        const isMobile = window.innerWidth <= 768;
+        const speed = isMobile ? 0.6 : 0.9;
+        const maxOffset = isMobile ? 250 : 500;
+        const offset = Math.min(scrollY * speed, maxOffset);
+
+        title.style.transform = `translateX(${offset}px)`;
+        subtitle.style.transform = `translateX(${-offset}px)`;
+    }
+
+});
+
+
+
 // section 3
 
 const productsData = {

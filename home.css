@@ -78,8 +78,8 @@
 }
 
 .siftah-logo img {
-    height: 250px;
-    width: auto;
+    height: 300px;
+    width: 400px;
 }
 
 @media (max-width: 768px) {
@@ -98,6 +98,32 @@
 
     .siftah-logo img {
         height: 100px;
+        width: auto;
+    }
+}
+
+
+.siftah-headline {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    margin: 10px 0;
+    /* מרווח יפה מלמעלה ומלמטה */
+}
+
+.siftah-headline h1 {
+    font-size: 48px;
+    line-height: 1.1;
+    margin: 0 auto;
+    display: inline-block;
+    white-space: nowrap;
+    /* למנוע ירידה לשורה שנייה */
+}
+
+/* התאמה למסכים קטנים */
+@media (max-width: 768px) {
+    .siftah-headline h1 {
+        font-size: 34px;
     }
 }
 
