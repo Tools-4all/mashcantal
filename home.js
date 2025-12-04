@@ -56,25 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
         subtitle.style.transform = "translateX(0)";
         title.style.opacity = "1";
         subtitle.style.opacity = "1";
-
-        setTimeout(() => {
-            title.style.transition = "";
-            subtitle.style.transition = "";
-            window.addEventListener("scroll", updateTitles);
-        }, 1500);
-
     }, 120);
-
-    function updateTitles() {
-        const scrollY = window.scrollY;
-        const isMobile = window.innerWidth <= 768;
-        const speed = isMobile ? 0.6 : 0.9;
-        const maxOffset = isMobile ? 250 : 500;
-        const offset = Math.min(scrollY * speed, maxOffset);
-
-        title.style.transform = `translateX(${offset}px)`;
-        subtitle.style.transform = `translateX(${-offset}px)`;
-    }
 
 });
 
