@@ -11,6 +11,7 @@
   }
 
   body {
+      padding-top: calc(36px + 64px);
       font-family: "Heebo", system-ui, -apple-system, BlinkMacSystemFont,
           "Segoe UI", sans-serif;
       color: #0f172a;
@@ -24,9 +25,67 @@
 
   /* ===== NAVBAR ===== */
 
-  .navbar {
+  /* ===== TOP CONTACT BAR ===== */
+  .top-bar {
       position: fixed;
       top: 0;
+      inset-inline: 0;
+      background: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+      z-index: 1100;
+      direction: rtl;
+      font-family: inherit;
+  }
+
+  .top-bar-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 5px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+
+  /* Text contact */
+  .top-link {
+      color: #002a36;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.25s;
+  }
+
+  .top-link:hover {
+      color: #1273c8;
+  }
+
+  /* Icons */
+  .icon-link {
+      font-size: 18px;
+      color: #002a36;
+      text-decoration: none;
+      margin-left: 12px;
+      transition: 0.25s ease;
+  }
+
+  .icon-link:hover {
+      color: #1273c8;
+      transform: translateY(-2px);
+  }
+
+  .divider {
+      color: #94a3b8;
+      margin: 0 10px;
+  }
+
+
+  .navbar {
+      position: fixed;
+      top: 36px;
+      /* במקום top: 0 */
       inset-inline: 0;
       height: 64px;
       background: rgba(15, 23, 42, 0.96);
@@ -40,23 +99,9 @@
       border-bottom: 1px solid rgba(148, 163, 184, 0.4);
   }
 
-  .navbar-logo {
-      font-weight: 700;
-      font-size: 1.1rem;
-      letter-spacing: 0.04em;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      white-space: nowrap;
-  }
-
-  .navbar-logo span {
-      display: inline-block;
-      padding: 3px 9px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #d9dde4, #3b82f6);
-      color: #0f172a;
-      font-size: 0.75rem;
+  .navbar_logo {
+      height: 64px;
+      width: auto;
   }
 
   .nav-links {
@@ -279,7 +324,24 @@
       }
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 768px) {
+      .top-bar-inner {
+          gap: 8px;
+          text-align: center;
+      }
+
+      .icon-link {
+          margin-left: 5px;
+      }
+
+      .navbar {
+          padding: 0 10px;
+      }
+
+      .navbar_logo {
+          height: 50px;
+      }
+
       .footer-inner {
           grid-template-columns: minmax(0, 1fr);
           text-align: center;
@@ -309,13 +371,10 @@
       }
   }
 
+
   /* ===== LAYOUT ===== */
 
-  main {
-      margin-top: 64px;
-  }
-
-  section {
+  /* section {
       min-height: calc(100vh - 64px);
       padding: 24px 20px 32px;
       display: flex;
@@ -326,7 +385,7 @@
   .section-inner {
       width: 100%;
       max-width: 1150px;
-  }
+  } */
 
   /* contact */
 

@@ -5,16 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet" />
     <title>שערים ומדדים</title>
     <style>
         .must-know-section {
-            min-height: 100vh;
-            background: radial-gradient(circle at top, #0f172a 0, #020617 55%, #000 100%);
-            color: #f9fafb;
+            background: radial-gradient(circle at top right, #e0f2fe 0, #f9fafb 45%, #f8fafc 100%);
+            color: #020617;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 50px 20px;
+            padding: 50px 20px 100px;
         }
 
         .must-know-inner {
@@ -36,7 +37,7 @@
 
         .must-know-header p {
             font-size: 0.95rem;
-            color: #9ca3af;
+            color: #020617;
         }
 
         .must-know-cards {
@@ -56,12 +57,9 @@
             gap: 0.75rem;
         }
 
-        .mk-card-primary {
-            background: radial-gradient(circle at top left, #16a34a33, #020617 55%);
-        }
-
         .mk-card-top-row {
             display: flex;
+            flex-direction: row-reverse;
             align-items: center;
             justify-content: space-between;
             gap: 0.75rem;
@@ -98,6 +96,7 @@
         }
 
         .mk-card-title {
+            color: #bae6fd;
             font-weight: 600;
             font-size: 0.95rem;
         }
@@ -167,6 +166,10 @@
             font-weight: 600;
         }
 
+        #primeRate {
+            color: #bbf7d0;
+        }
+
         /* גרפים */
         .mk-chart-wrapper {
             margin-top: 0.3rem;
@@ -210,11 +213,41 @@
 <body>
 
     <!-- ===== NAVBAR ===== -->
+    <!-- ===== TOP CONTACT BAR ===== -->
+    <div class="top-bar">
+        <div class="top-bar-inner">
+
+            <!-- Right: Contact info -->
+            <div class="top-contact">
+                <a href="tel:0552705176" class="top-link">
+                    <i class="fa-solid fa-phone"></i> 055-2705176
+                </a>
+                <span class="divider">|</span>
+                <a href="mailto:Taltz@mmins.co.il" class="top-link">
+                    <i class="fa-solid fa-envelope"></i> Taltz@mmins.co.il
+                </a>
+            </div>
+
+            <!-- Left: Social icons -->
+            <div class="top-social">
+                <a href="https://wa.me/972552705176" target="_blank" rel="noopener" class="icon-link">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <a href="#" class="icon-link">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#" class="icon-link">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
     <header class="navbar">
 
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html">דף הבית</a></li>
-            <li><a href="procces.html">תזרים התהליך</a></li>
             <li><a href="glossary.html">מילון מונחים</a></li>
             <li><a href="rates.html" class="active">שערים ומדדים</a></li>
             <li><a href="calculator.html">מחשבון משכנתא</a></li>
@@ -225,7 +258,7 @@
         <button class="nav-toggle" id="navToggle" aria-label="תפריט">
             <div class="nav-toggle-bar"></div>
         </button>
-        <img style="height: 64px;width: auto;" src="logo.png" alt="logo">
+        <img class="navbar_logo" src="logo.png" alt="logo">
     </header>
 
 

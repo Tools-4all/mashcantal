@@ -6,20 +6,54 @@
   <title>משכנטל – ייעוץ משכנתאות</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- <link rel="preconnect" href="https://fonts.googleapis.com" /> -->
+  <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> -->
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="home.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
 </head>
 
 <body>
   <!-- ===== NAVBAR ===== -->
+  <!-- ===== TOP CONTACT BAR ===== -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+
+      <!-- Right: Contact info -->
+      <div class="top-contact">
+        <a href="tel:0552705176" class="top-link">
+          <i class="fa-solid fa-phone"></i> 055-2705176
+        </a>
+        <span class="divider">|</span>
+        <a href="mailto:Taltz@mmins.co.il" class="top-link">
+          <i class="fa-solid fa-envelope"></i> Taltz@mmins.co.il
+        </a>
+      </div>
+
+      <!-- Left: Social icons -->
+      <div class="top-social">
+        <a href="https://wa.me/972552705176" target="_blank" rel="noopener" class="icon-link">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="#" class="icon-link">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="#" class="icon-link">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
   <header class="navbar">
 
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html" class="active">דף הבית</a></li>
-      <li><a href="procces.html">תזרים התהליך</a></li>
       <li><a href="glossary.html">מילון מונחים</a></li>
       <li><a href="rates.html">שערים ומדדים</a></li>
       <li><a href="calculator.html">מחשבון משכנתא</a></li>
@@ -30,60 +64,64 @@
     <button class="nav-toggle" id="navToggle" aria-label="תפריט">
       <div class="nav-toggle-bar"></div>
     </button>
-    <img style="height: 64px;width: auto;" src="logo.png" alt="logo">
+    <img class="navbar_logo" src="logo.png" alt="logo">
   </header>
 
 
   <!-- ===== MAIN ===== -->
   <main>
-    <!-- SECTION 1: HERO – מי אנחנו + השירות -->
-    <section id="about" class="hero">
-      <div class="section-inner">
-        <div class="hero-grid">
-          <!-- RIGHT COLUMN – מי אנחנו -->
-          <div class="hero-col">
-            <h2 class="hero-title">מי אנחנו</h2>
-            <p>
-              אנו במשכנטל, ערים לכך שהלוואת המשכנתא היא מצד אחד הכרחית לרכישת דירה או למינוף נכס קיים, אך מצד שני זו
-              ההתחייבות הפיננסית היקרה והארוכה ביותר לאורך חיי רובנו.
-            </p>
-            <p>
-              לפיכך, אנו כאן מציעים את שירותינו על מנת לייעץ, לתכנן וללוות יחד איתכם את הלוואת המשכנתא והשלכותיה על
-              חייכם על מנת מחד לשמור על האינטרסים שלכם כלווים ומאידך לשפר את ההתנהלות הפיננסית שלכם בחייכם.
-            </p>
-            <p>
-              השירות ניתן באופן אישי על ידי טל, יועץ משכנתאות וחבר התאחדות המשכנתאות.
-            </p>
-          </div>
 
-          <!-- LEFT COLUMN – השירות -->
-          <div class="hero-col">
-            <h2 class="hero-title">השירות שלנו</h2>
-            <p>
-              ייעוץ, תכנון וליווי הלווים מול הבנקים תוך שמירת האינטרסים שלכם במרכז ההלוואה. תחילה, נערוך היכרות עם
-              הלווים תוך מתן דגש לחלומותיהם, מטרותיהם, רצונם ויכולתם לאורך תקופת ההלוואה.
-            </p>
-            <p>
-              יחד, אנו נתכנן את העתיד הפיננסי של הלווים על ידי בחירת הלוואת המשכנתא שהותאמה להם ונבחרה על ידם ועם
-              התחשבות באירועים עתידיים הנראים לעין כיום.
-            </p>
-            <p>
-              לבסוף אנו נבחר את הבנק הטוב ביותר עבור הלקוח ונלווה אותו עד לחתימה המאושרת וקבלת ההלוואה הטובה ביותר
-              שתוכלו לקבל.
-            </p>
-          </div>
+    <div class="headline-row top-headline">
+      <h1 class="headline-text">
+        הידעת שהמשכנתא זו ההלוואה הארוכה והיקרה ביותר של האדם הממוצע?
+      </h1>
+      <i class="fa-solid fa-lightbulb headline-icon"></i>
+    </div>
+
+    <!-- סקשן אמצעי -->
+    <section class="siftah">
+      <div class="siftah-inner">
+        <div class="siftah-person">
+          <img src="tal2.png" alt="tal tzadok" />
+        </div>
+        <div class="siftah-logo">
+          <img src="logo.png" alt="logo" />
         </div>
       </div>
     </section>
 
+    <!-- שורה תחתונה -->
+    <div class="headline-row bottom-headline">
+      <h1 class="headline-text">
+        אך בעזרתנו ניתן לחסוך מאות אלפי שקלים על ידי תכנון, ייעוץ וליווי מותאם אישית
+      </h1>
+      <i class="fa-solid fa-bullseye headline-icon"></i>
+    </div>
 
-    <!-- סקשן שירותינו ומוצרינו -->
+
+    <section id="about" class="about">
+      <div id="about_text" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+        <h2>מי אנחנו</h2>
+        <p>
+          אנו במשכנטל, ערים לכך שהלוואת המשכנתא היא מצד אחד הכרחית לרכישת דירה או למינוף נכס קיים, אך מצד שני זו
+          ההתחייבות הפיננסית היקרה והארוכה ביותר לאורך חיי רובנו.
+        </p>
+        <p>
+          לפיכך, אנו כאן מציעים את שירותינו על מנת לייעץ, לתכנן וללוות יחד איתכם את הלוואת המשכנתא והשלכותיה על
+          חייכם על מנת מחד לשמור על האינטרסים שלכם כלווים ומאידך לשפר את ההתנהלות הפיננסית שלכם בחייכם.
+        </p>
+        <p>
+          השירות ניתן באופן אישי על ידי טל צדוק, יועץ משכנתאות וחבר התאחדות המשכנתאות.
+        </p>
+      </div>
+    </section>
+
+
     <section id="services" class="services-section">
-      <div class="services-container">
+      <div class="services-container" data-aos="fade-in" data-aos-duration="800" data-aos-delay="200">
         <h2 class="services-title">שירותים</h2>
         <p class="services-subtitle">בחרו מוצר כדי לראות פירוט קצר על ההלוואה</p>
 
-        <!-- בועות המוצרים -->
         <div class="services-bubbles-grid">
           <button class="service-pill" data-product-id="p1">
             הלוואת משכנתא לדיור / שיפוץ
@@ -108,7 +146,6 @@
           </button>
         </div>
 
-        <!-- כרטיס פירוט שנפתח מתחת לבועות -->
         <div class="service-details-card" id="serviceDetails">
           <h3 class="service-details-title" id="detailsTitle">
             בחרו אחד מהמוצרים למעלה
@@ -120,93 +157,101 @@
       </div>
     </section>
 
-    <script>
-      // תוכן לכל מוצר
-      const productsData = {
-        p1: {
-          title: "הלוואת משכנתא לדיור / שיפוץ",
-          body: `עסקה עבור דירה יחידה/ראשונה. בין אם מדובר ברכישת דירה מיד שנייה, קבלן או שיפוץ נכס קיים,
-ניתן לקבל עד 75% מימון מסכום העסקה תוך התאמת ההלוואה אל אופי העסקה ולוחות הזמנים.`
-        },
-        p2: {
-          title: "מחזור משכנתא קיימת",
-          body: `מחזור ההלוואה בשנית או יותר, על מנת להתאים את ההלוואה אל התנאים הנוכחיים של הלווה
-מבחינה פיננסית ותכנונית, ולהוריד את הריבית בגשרות עד מאות אלפי שקלים – במחזור פנימי או חיצוני.`
-        },
-        p3: {
-          title: "מחיר למשתכן / דירה בהנחה",
-          body: `עסקה עבור זוכי תוכניות המחיר למשתכן או דירה בהנחה של משרד השיכון.
-התאמת הלוואת המשכנתא אל הלווים ומצבם הכלכלי בזמן בניית הפרויקט ולאחריו.
-בעסקה שכזו ניתן לקבל הלוואה תוך שימוש בהון עצמי נמוך מ־25%.`
-        },
-        p4: {
-          title: "משכנתא לשיפור דיור",
-          body: `עסקה עבור בעלי דירה יחידה המעוניינים לשפר את מגוריהם על ידי רכישת דירה נוספת,
-תוך התחייבות למכור את הדירה הנוכחית בעד 24 חודשים מרגע רכישת הדירה החדשה.
-בסוג עסקה זה ניתן לקבל עד 70% מימון מסכום העסקה, בניכוי משכנתא קיימת (אם ישנה).`
-        },
-        p5: {
-          title: "משכנתא עבור דירה שנייה ומעלה",
-          body: `עסקה המתאימה לבעלי לפחות דירה אחת אשר ברצונם לרכוש דירה נוספת.
-בעסקה זו יוכלו הלווים לקבל עד 50% מסכום העסקה, בניכוי משכנתא קיימת (אם קיימת).`
-        },
-        p6: {
-          title: "משכנתא הפוכה לבני 55+",
-          body: `עסקה המתאימה לבעלי דירות מעל גיל 55 אשר ברצונם לקבל כסף כנגד הבית (משכון).
-ככל שגיל הלווים גבוה יותר – כך עולים אחוזי ההלוואה מתוך שווי הבית.
-את פירעון ההלוואה ישלמו היורשים או הלווים לאורך שארית חייהם.`
-        },
-        p7: {
-          title: "משכנתא לכל מטרה כנגד נכס קיים",
-          body: `עסקה המתאימה לבעלי דירות אשר ברצונם לקבל סכום כסף כנגד שווי הנכס.
-בעסקה שכזו ניתן לקבל עד 50% משווי הנכס, בהתאם למצב הפיננסי ויכולת ההחזר של הלווה.`
-        }
-      };
-
-      const pills = document.querySelectorAll(".service-pill");
-      const detailsCard = document.getElementById("serviceDetails");
-      const detailsTitle = document.getElementById("detailsTitle");
-      const detailsText = document.getElementById("detailsText");
-
-      pills.forEach((pill) => {
-        pill.addEventListener("click", () => {
-          const id = pill.dataset.productId;
-          const data = productsData[id];
-          if (!data) return;
-
-          // עדכון הטקסט בכרטיס
-          detailsTitle.textContent = data.title;
-          detailsText.textContent = data.body;
-
-          // הדגשת הבועה שנבחרה
-          pills.forEach((p) => p.classList.remove("active"));
-          pill.classList.add("active");
-
-          // גלילה אל הכרטיס (במיוחד במובייל)
-
-        });
-      });
-    </script>
-
-    <section id="mortgage">
-      <div class="section-inner">
-        <h2 class="placeholder-title"> למה בעצם ייעוץ משכנתאות?</h2>
-        <p class="placeholder-text">
-
-          כאשר לוקחים הלוואה, במיוחד כזו הנאמדת בין מאות אלפי שקלים למיליונים ואורכת עשרות שנים, בדרך כלל יש שתי
-          אפשרויות: האחת, לקחת משכנתא שהוצעה, תוכננה והותאמה על ידי הבנק עבור הבנק, והשנייה היא לקיחת משכנתא לצד תכנון,
-          ייעוץ וליווי של יועץ מנוסה אשר שם את האינטרסים שלכם במרכז ההלוואה על ידי בניית תמהיל הלוואה יחד עם הלווים.
-          לפיכך, חשוב לקבל ייעץ וליווי של בעל מקצוע אשר יבין את העבר שלכם, יסדר את הווה ויתכנן את העתיד הפיננסי שלכם יחד
-          איתכם. בשירות שכזה, הרצונות, התוכניות והחלומות שלכם יקבלו ביטוי ממשי בהלוואה בכל הנוגע להחזר החודשי, בחירת
-          מסלולים קצרים או ארוכים ואולי אף פירעון הלוואה מוקדם. ללא ייעוץ, רבים מהלווים למעשה לוקחים את ההלוואה אשר
-          הוצעה להם על ידי הבנק ולא משקפת את נקודת מבטם ועל כן תפקיד היועץ הוא הכרחי בעת לקיחת הלוואת משכנתא מכל סוג
-          שהיא.
+    <section id="process" class="timeline-section" data-aos="fade-in" data-aos-duration="800" data-aos-delay="200">
+      <div class="timeline-container">
+        <h2 class="timeline-title-main">תזרים התהליך</h2>
+        <p class="timeline-subtitle">
+          מעבר על השלבים המרכזיים בתהליך המשכנתא – מרגע ההיכרות ועד הליווי המתמשך.
         </p>
+
+        <ul class="timeline">
+          <li class="timeline-item active">
+            <div class="timeline-dot">1</div>
+            <div class="timeline-content">
+              <h3 class="timeline-step-title">שיחת ייעוץ ראשונית ובדיקת היתכנות</h3>
+              <p class="timeline-step-text">
+                שיחת היכרות ראשונית ובדיקת היתכנות לקבלת משכנתא, תוך בחינת המצב הכלכלי,
+                ההתחייבויות והצרכים שלכם.
+              </p>
+            </div>
+          </li>
+
+          <!-- שלב 2 -->
+          <li class="timeline-item">
+            <div class="timeline-dot">2</div>
+            <div class="timeline-content">
+              <h3 class="timeline-step-title">בניית מספר תמהילי משכנתא</h3>
+              <p class="timeline-step-text">
+                בניית מספר תמהילים שונים בהתאם לרצונות, לתוכניות וליכולות ההחזר של הלווים,
+                כדי לאפשר בחירה מושכלת בין חלופות.
+              </p>
+            </div>
+          </li>
+
+          <!-- שלב 3 -->
+          <li class="timeline-item">
+            <div class="timeline-dot">3</div>
+            <div class="timeline-content">
+              <h3 class="timeline-step-title">בחירת התמהיל המתאים ותכנון פיננסי</h3>
+              <p class="timeline-step-text">
+                בחירה משותפת של התמהיל המתאים ביותר לכם, תוך תכנון התנהלות פיננסית נכונה
+                לכל אורך תקופת ההלוואה.
+              </p>
+            </div>
+          </li>
+
+          <!-- שלב 4 -->
+          <li class="timeline-item">
+            <div class="timeline-dot">4</div>
+            <div class="timeline-content">
+              <h3 class="timeline-step-title">הגשת התמהיל והשגת אישור עקרוני</h3>
+              <p class="timeline-step-text">
+                הגשת התמהיל הנבחר לבנק והשגת אישור עקרוני להלוואה בתנאים מיטביים,
+                כולל בדיקת חלופות בין בנקים שונים במידת הצורך.
+              </p>
+            </div>
+          </li>
+
+          <!-- שלב 5 -->
+          <li class="timeline-item">
+            <div class="timeline-dot">5</div>
+            <div class="timeline-content">
+              <h3 class="timeline-step-title">הכנת הלווים לקראת החתימה בבנק</h3>
+              <p class="timeline-step-text">
+                הכנה מסודרת לקראת הגעה לבנק: סידור מסמכים, הסבר על שלבי החתימה
+                והבנת כל הסעיפים המרכזיים בהסכם ההלוואה.
+              </p>
+            </div>
+          </li>
+
+          <!-- שלב 6 -->
+          <li class="timeline-item">
+            <div class="timeline-dot">6</div>
+            <div class="timeline-content">
+              <h3 class="timeline-step-title">ליווי בסניף בעת חתימת ההלוואה</h3>
+              <p class="timeline-step-text">
+                ליווי אישי של הלווים בסניף הבנק בעת חתימת ההלוואה, לוודא שהכול מתבצע
+                בהתאם לתנאים שסוכמו מראש.
+              </p>
+            </div>
+          </li>
+
+          <!-- שלב 7 -->
+          <li class="timeline-item">
+            <div class="timeline-dot">7</div>
+            <div class="timeline-content">
+              <h3 class="timeline-step-title">אוזן קשבת וליווי מתמשך</h3>
+              <p class="timeline-step-text">
+                אוזן קשבת לכל שאלה ושימת לב לרחשי שוק המשכנתאות לאורך כל תקופת ההלוואה,
+                כדי לזהות הזדמנויות לשיפור תנאים בעתיד.
+              </p>
+            </div>
+          </li>
+        </ul>
       </div>
     </section>
 
-    <!-- ============= שאלות נפוצות ============= -->
-    <section id="faq" class="faq-section">
+    <section id="faq" class="faq-section" data-aos="fade-in" data-aos-duration="800" data-aos-delay="200">
       <div class="faq-container">
         <div class="faq-header">
           <h2 class="faq-title">שאלות נפוצות</h2>
@@ -316,214 +361,61 @@
     </section>
 
 
-    <style>
-      /* ===== שאלות נפוצות – גרסה בהירה ===== */
+    <!-- <section id="about" class="hero">
+      <div class="section-inner">
+        <div class="hero-grid">
+          <div class="hero-col">
+            <h2 class="hero-title">מי אנחנו</h2>
+            <p>
+              אנו במשכנטל, ערים לכך שהלוואת המשכנתא היא מצד אחד הכרחית לרכישת דירה או למינוף נכס קיים, אך מצד שני זו
+              ההתחייבות הפיננסית היקרה והארוכה ביותר לאורך חיי רובנו.
+            </p>
+            <p>
+              לפיכך, אנו כאן מציעים את שירותינו על מנת לייעץ, לתכנן וללוות יחד איתכם את הלוואת המשכנתא והשלכותיה על
+              חייכם על מנת מחד לשמור על האינטרסים שלכם כלווים ומאידך לשפר את ההתנהלות הפיננסית שלכם בחייכם.
+            </p>
+            <p>
+              השירות ניתן באופן אישי על ידי טל צדוק, יועץ משכנתאות וחבר התאחדות המשכנתאות.
+            </p>
+          </div>
 
-      .faq-section {
-        direction: rtl;
-        min-height: calc(100vh - 64px);
-        padding: 80px 20px 70px;
-        background: #f9fafb;
-        color: #111827;
-        display: flex;
-        align-items: center;
-      }
+          <div class="hero-col">
+            <h2 class="hero-title">השירות שלנו</h2>
+            <p>
+              ייעוץ, תכנון וליווי הלווים מול הבנקים תוך שמירת האינטרסים שלכם במרכז ההלוואה. תחילה, נערוך היכרות עם
+              הלווים תוך מתן דגש לחלומותיהם, מטרותיהם, רצונם ויכולתם לאורך תקופת ההלוואה.
+            </p>
+            <p>
+              יחד, אנו נתכנן את העתיד הפיננסי של הלווים על ידי בחירת הלוואת המשכנתא שהותאמה להם ונבחרה על ידם ועם
+              התחשבות באירועים עתידיים הנראים לעין כיום.
+            </p>
+            <p>
+              לבסוף אנו נבחר את הבנק הטוב ביותר עבור הלקוח ונלווה אותו עד לחתימה המאושרת וקבלת ההלוואה הטובה ביותר
+              שתוכלו לקבל.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section> -->
 
-      .faq-container {
-        max-width: 950px;
-        margin: 0 auto;
-        width: 100%;
-      }
+    <!-- <section id="mortgage">
+      <div class="section-inner">
+        <h2 class="placeholder-title"> למה בעצם ייעוץ משכנתאות?</h2>
+        <p class="placeholder-text">
 
-      .faq-header {
-        text-align: center;
-        margin-bottom: 32px;
-      }
-
-      .faq-title {
-        font-size: 2.1rem;
-        font-weight: 700;
-        margin-bottom: 8px;
-        color: #111827;
-      }
-
-      .faq-subtitle {
-        font-size: 0.95rem;
-        color: #4b5563;
-      }
-
-      /* רשימת שאלות */
-
-      .faq-list {
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-      }
-
-      /* כרטיס שאלה */
-
-      .faq-item {
-        background: #ffffff;
-        border-radius: 14px;
-        border: 1px solid #e5e7eb;
-        overflow: hidden;
-        box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
-        transition:
-          border-color 0.2s ease,
-          box-shadow 0.2s ease,
-          transform 0.12s ease,
-          background-color 0.18s ease;
-      }
-
-      .faq-item:hover {
-        border-color: #cbd5e1;
-        box-shadow: 0 16px 34px rgba(15, 23, 42, 0.1);
-        transform: translateY(-1px);
-      }
-
-      /* מצב פתוח */
-
-      .faq-item-open {
-        background: #eff6ff;
-        border-color: #2563eb;
-        box-shadow: 0 18px 40px rgba(37, 99, 235, 0.16);
-      }
-
-      /* כפתור השאלה */
-
-      .faq-question {
-        width: 100%;
-        padding: 14px 18px;
-        background: transparent;
-        border: none;
-        color: inherit;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        cursor: pointer;
-        text-align: right;
-      }
-
-      .faq-q-label {
-        font-size: 0.78rem;
-        padding: 3px 10px;
-        border-radius: 999px;
-        border: 1px solid #bfdbfe;
-        background: #eff6ff;
-        color: #1d4ed8;
-        flex-shrink: 0;
-      }
-
-      .faq-q-text {
-        flex: 1;
-        font-size: 0.96rem;
-        font-weight: 500;
-      }
-
-      /* אייקון פתיחה/סגירה */
-
-      .faq-toggle-icon {
-        font-size: 1.1rem;
-        width: 26px;
-        text-align: center;
-        color: #9ca3af;
-        transition: transform 0.18s ease, color 0.18s ease;
-      }
-
-      /* כשהשאלה פתוחה – סיבוב וצבע */
-
-      .faq-item-open .faq-toggle-icon {
-        transform: rotate(180deg);
-        color: #2563eb;
-      }
-
-      /* גוף התשובה */
-
-      .faq-answer-wrapper {
-        max-height: 0;
-        overflow: hidden;
-        transition:
-          max-height 0.25s ease,
-          padding-bottom 0.2s ease;
-        padding: 0 18px 0;
-      }
-
-      .faq-item-open .faq-answer-wrapper {
-        max-height: 260px;
-        /* מספיק לרוב תשובות הטקסט */
-        padding-bottom: 14px;
-      }
-
-      .faq-answer {
-        font-size: 0.9rem;
-        color: #374151;
-        line-height: 1.9;
-      }
-
-      /* רספונסיביות */
-
-      @media (max-width: 768px) {
-        .faq-section {
-          padding: 60px 16px;
-        }
-
-        .faq-title {
-          font-size: 1.85rem;
-        }
-
-        .faq-question {
-          padding-inline: 14px;
-        }
-
-        .faq-answer-wrapper {
-          padding-inline: 14px;
-        }
-      }
-    </style>
-
-    <script>
-      // אקורדיון לשאלות נפוצות
-      document.addEventListener("DOMContentLoaded", () => {
-        const items = document.querySelectorAll(".faq-item");
-
-        items.forEach((item) => {
-          const btn = item.querySelector(".faq-question");
-          const wrapper = item.querySelector(".faq-answer-wrapper");
-          const icon = item.querySelector(".faq-toggle-icon");
-
-          // אם זה פריט פתוח כבר ב־HTML – פותחים גובה בפועל
-          if (item.classList.contains("faq-item-open")) {
-            wrapper.style.maxHeight = wrapper.scrollHeight + "px";
-            if (icon) icon.textContent = "−";
-          }
-
-          btn.addEventListener("click", () => {
-            const isOpen = item.classList.contains("faq-item-open");
-
-            // סגירת כל השאר (אקורדיון אמיתי)
-            items.forEach((other) => {
-              if (other !== item) {
-                other.classList.remove("faq-item-open");
-                const w = other.querySelector(".faq-answer-wrapper");
-                const i = other.querySelector(".faq-toggle-icon");
-                if (w) w.style.maxHeight = null;
-                if (i) i.textContent = "+";
-              }
-            });
-
-            if (!isOpen) {
-              item.classList.add("faq-item-open");
-              wrapper.style.maxHeight = wrapper.scrollHeight + "px";
-              if (icon) icon.textContent = "−";
-            } else {
-              item.classList.remove("faq-item-open");
-              wrapper.style.maxHeight = null;
-              if (icon) icon.textContent = "+";
-            }
-          });
-        });
-      });
-    </script>
+          כאשר לוקחים הלוואה, במיוחד כזו הנאמדת בין מאות אלפי שקלים למיליונים ואורכת עשרות שנים, בדרך כלל יש שתי
+          אפשרויות: האחת, לקחת משכנתא שהוצעה, תוכננה והותאמה על ידי הבנק עבור הבנק, והשנייה היא לקיחת משכנתא לצד
+          תכנון,
+          ייעוץ וליווי של יועץ מנוסה אשר שם את האינטרסים שלכם במרכז ההלוואה על ידי בניית תמהיל הלוואה יחד עם הלווים.
+          לפיכך, חשוב לקבל ייעץ וליווי של בעל מקצוע אשר יבין את העבר שלכם, יסדר את הווה ויתכנן את העתיד הפיננסי שלכם
+          יחד
+          איתכם. בשירות שכזה, הרצונות, התוכניות והחלומות שלכם יקבלו ביטוי ממשי בהלוואה בכל הנוגע להחזר החודשי, בחירת
+          מסלולים קצרים או ארוכים ואולי אף פירעון הלוואה מוקדם. ללא ייעוץ, רבים מהלווים למעשה לוקחים את ההלוואה אשר
+          הוצעה להם על ידי הבנק ולא משקפת את נקודת מבטם ועל כן תפקיד היועץ הוא הכרחי בעת לקיחת הלוואת משכנתא מכל סוג
+          שהיא.
+        </p>
+      </div>
+    </section> -->
 
   </main>
 
@@ -533,7 +425,7 @@
       <div class="footer-brand">
         <img class="footer_logo" src="logo.png" alt="logo">
         <p class="footer-desc">
-          השירות ניתן באופן אישי על ידי טל, יועץ משכנתאות וחבר התאחדות המשכנתאות.
+          השירות ניתן באופן אישי על ידי טל צדוק, יועץ משכנתאות וחבר התאחדות המשכנתאות.
         </p>
       </div>
 
@@ -577,6 +469,12 @@
   </script>
 
   <script src="nav.js"></script>
+  <script src="home.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
 </body>
 
 </html>

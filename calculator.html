@@ -7,17 +7,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet" />
     <title>מחשבון משכנתא</title>
 </head>
 
 <body>
-
     <!-- ===== NAVBAR ===== -->
+    <!-- ===== TOP CONTACT BAR ===== -->
+    <div class="top-bar">
+        <div class="top-bar-inner">
+
+            <!-- Right: Contact info -->
+            <div class="top-contact">
+                <a href="tel:0552705176" class="top-link">
+                    <i class="fa-solid fa-phone"></i> 055-2705176
+                </a>
+                <span class="divider">|</span>
+                <a href="mailto:Taltz@mmins.co.il" class="top-link">
+                    <i class="fa-solid fa-envelope"></i> Taltz@mmins.co.il
+                </a>
+            </div>
+
+            <!-- Left: Social icons -->
+            <div class="top-social">
+                <a href="https://wa.me/972552705176" target="_blank" rel="noopener" class="icon-link">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <a href="#" class="icon-link">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#" class="icon-link">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
     <header class="navbar">
 
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html">דף הבית</a></li>
-            <li><a href="procces.html">תזרים התהליך</a></li>
             <li><a href="glossary.html">מילון מונחים</a></li>
             <li><a href="rates.html">שערים ומדדים</a></li>
             <li><a href="calculator.html" class="active">מחשבון משכנתא</a></li>
@@ -28,7 +59,7 @@
         <button class="nav-toggle" id="navToggle" aria-label="תפריט">
             <div class="nav-toggle-bar"></div>
         </button>
-        <img style="height: 64px;width: auto;" src="logo.png" alt="logo">
+        <img class="navbar_logo" src="logo.png" alt="logo">
     </header>
 
 
@@ -179,10 +210,9 @@
     <style>
         .mc-section {
             direction: rtl;
-            min-height: 100vh;
-            padding: 100px 20px;
-            background: radial-gradient(circle at top, #020617 0, #020617 50%, #000 100%);
-            color: #f9fafb;
+            padding: 50px 20px 100px;
+            background: radial-gradient(circle at top right, #e0f2fe 0, #f9fafb 45%, #f8fafc 100%);
+            color: #0f172a;
             display: flex;
             align-items: center;
         }
@@ -206,7 +236,7 @@
 
         .mc-subtitle {
             font-size: 0.95rem;
-            color: #9ca3af;
+            color: #475569;
         }
 
         .mc-grid {
@@ -225,9 +255,6 @@
             box-shadow: 0 24px 60px rgba(15, 23, 42, 0.85);
         }
 
-        .mc-inputs-card {
-            background: radial-gradient(circle at top left, #facc1530, #020617 55%);
-        }
 
         .mc-label {
             display: block;
@@ -255,7 +282,7 @@
             border-radius: 999px;
             border: 1px solid rgba(148, 163, 184, 0.8);
             background: rgba(15, 23, 42, 0.7);
-            color: #f9fafb;
+            color: #e5e7eb;
             padding: 10px 14px;
             padding-inline-start: 34px;
             padding-inline-end: 40px;
@@ -290,7 +317,7 @@
         }
 
         .mc-input:focus {
-            border-color: #facc15;
+            border-color: #15b6fa;
             box-shadow: 0 0 0 1px rgba(250, 204, 21, 0.4);
             background: rgba(15, 23, 42, 0.9);
         }
@@ -327,15 +354,15 @@
         }
 
         .mc-preset-btn:hover {
-            background: rgba(250, 204, 21, 0.1);
-            border-color: rgba(250, 204, 21, 0.8);
+            background: rgba(21, 182, 250, 0.1);
+            border-color: #15b6fa;
             transform: translateY(-1px);
         }
 
         .mc-preset-btn.mc-preset-active {
-            background: #facc15;
+            background: #15b6fa;
             color: #0f172a;
-            border-color: #facc15;
+            border-color: #15b6fa;
         }
 
         .mc-primary-btn {
@@ -344,12 +371,12 @@
             border-radius: 999px;
             border: none;
             padding: 11px 16px;
-            background: linear-gradient(135deg, #facc15, #f59e0b);
-            color: #0f172a;
+            background: linear-gradient(135deg, #15b6fa, #0ea5e9);
+            color: #ffffff;
             font-weight: 600;
             font-size: 0.95rem;
             cursor: pointer;
-            box-shadow: 0 14px 35px rgba(250, 204, 21, 0.45);
+            box-shadow: 0 14px 35px rgba(21, 182, 250, 0.45);
             transition: transform 0.12s ease, box-shadow 0.12s ease,
                 filter 0.12s ease;
         }
@@ -357,12 +384,12 @@
         .mc-primary-btn:hover {
             transform: translateY(-1px);
             filter: brightness(1.05);
-            box-shadow: 0 18px 45px rgba(250, 204, 21, 0.6);
+            box-shadow: 0 18px 45px rgba(15, 182, 250, 0.6);
         }
 
         .mc-primary-btn:active {
             transform: translateY(0px);
-            box-shadow: 0 10px 28px rgba(250, 204, 21, 0.4);
+            box-shadow: 0 10px 28px rgba(15, 182, 250, 0.4);
         }
 
         .mc-disclaimer {
@@ -448,7 +475,7 @@
         }
 
         .mc-detail-accent {
-            color: #facc15;
+            color: #15b6fa;
         }
 
         .mc-bottom-note {

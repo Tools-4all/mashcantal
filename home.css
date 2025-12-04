@@ -1,101 +1,155 @@
-/* ===== SECTION 1 – מי אנחנו / השירות ===== */
+/* section 1*/
 
-.hero {
-    background: radial-gradient(circle at top right, #e0f2fe 0, #f9fafb 45%, #f8fafc 100%);
-}
-
-.hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    border-radius: 18px;
-    border: 1px solid #cbd5e1;
-    background: #ffffff;
+.headline-row {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    background-color: #f9fafb;
     overflow: hidden;
-    box-shadow: 0 18px 35px rgba(15, 23, 42, 0.14);
 }
 
-.hero-col {
-    padding: 24px 28px 28px;
-    line-height: 1.8;
-    font-size: 0.96rem;
-}
-
-.hero-col+.hero-col {
-    border-inline-end: 1px solid #cbd5e1;
-    /* בגלל RTL */
-}
-
-.hero-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.hero-col p+p {
-    margin-top: 10px;
-}
-
-/* ===== שאר הסקשנים – כרגע פלייסהולדרים ===== */
-
-.placeholder-title {
-    font-size: 1.8rem;
+.headline-text {
+    font-size: 22px;
     font-weight: 600;
-    margin-bottom: 12px;
-    text-align: center;
+    color: #111827;
+
+    opacity: 0;
+    transform: translateX(120px);
+    transition: transform 0.7s ease, opacity 0.7s ease;
 }
 
-.placeholder-text {
-    text-align: center;
-    color: #4b5563;
-    max-width: 600px;
-    margin: 0 auto;
+.headline-icon {
+    font-size: 38px;
+    color: #0d1b2a;
+
+    opacity: 0;
+    transform: translateX(-120px);
+    transition: transform 0.7s ease, opacity 0.7s ease;
 }
 
-/* ===== RESPONSIVE ===== */
+.headline-row.visible .headline-text,
+.headline-row.visible .headline-icon {
+    opacity: 1;
+    transform: translateX(0);
+}
 
-@media (max-width: 992px) {
-    .nav-links {
-        gap: 8px;
-    }
+.headline-row.hidden .headline-text {
+    opacity: 0;
+    transform: translateX(120px);
+}
 
-    .nav-links li a {
-        font-size: 0.8rem;
-        padding-inline: 8px;
-    }
+.headline-row.hidden .headline-icon {
+    opacity: 0;
+    transform: translateX(-120px);
+}
+
+.siftah {
+    background: linear-gradient(45deg, #365db4, #000000);
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.siftah-inner {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 950px;
+    gap: 32px;
+}
+
+.siftah-inner img {
+    display: block;
+}
+
+.siftah-person,
+.siftah-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.siftah-person img {
+    width: 100%;
+    height: auto;
+}
+
+.siftah-logo img {
+    height: 250px;
+    width: auto;
 }
 
 @media (max-width: 768px) {
-    section {
-        padding-inline: 16px;
+    .headline-text {
+        font-size: 19px;
+        margin-left: 5px;
     }
 
-    .hero-grid {
-        grid-template-columns: 1fr;
-        border-radius: 18px;
+    .headline-icon {
+        font-size: 30px;
     }
 
-    .hero-col {
-        padding: 20px 18px 22px;
-        font-size: 0.95rem;
+    .siftah-inner {
+        align-items: center;
     }
 
-    .hero-col+.hero-col {
-        border-inline-end: none;
-        border-top: 1px solid #e2e8f0;
-    }
-
-    .hero-title {
-        font-size: 1.15rem;
+    .siftah-logo img {
+        height: 100px;
     }
 }
 
 
-/* services section styles */
-/* ===== סקשן כללי ===== */
+/* section 2*/
+
+
+.about {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 10% 80px;
+    background: #f9fafb;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about h2 {
+    color: #1e3153;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 3vw;
+}
+
+.about p {
+    text-align: right;
+    direction: rtl;
+    font-size: 1.8vw;
+}
+
+@media (max-width: 768px) {
+    .about {
+        flex-direction: column;
+        padding: 30px 5% 60px;
+    }
+
+    .about h2 {
+        font-size: 6vw;
+    }
+
+    .about p {
+        font-size: 4vw;
+    }
+}
+
+
+/* section 3 */
+
 .services-section {
-    min-height: calc(100vh - 64px);
-    /* אם יש navbar קבוע בגובה 64px */
+    background-color: #ffca84;
+    margin-top: 20px;
     padding: 80px 20px 70px;
     display: flex;
     align-items: center;
@@ -133,9 +187,9 @@
 
 .service-pill {
     border-radius: 999px;
-    border: 2px solid #2d4c8d;
+    border: 2px solid #aaabae;
     background: #ffffff;
-    color: #2d4c8d;
+    color: #6d6d6e;
     font-weight: 700;
     font-size: 0.9rem;
     padding: 12px 20px;
@@ -143,23 +197,23 @@
     max-width: 260px;
     width: 100%;
     text-align: center;
-    box-shadow: 0 10px 20px rgba(17, 24, 39, 0.04);
+    box-shadow: 0 10px 20px rgba(52, 53, 54, 0.04);
     transition: background 0.2s ease, color 0.2s ease,
         box-shadow 0.2s ease, transform 0.15s ease, border-color 0.2s ease;
 }
 
 .service-pill:hover {
-    background: #2d4c8d;
+    background: #aaabae;
     color: #ffffff;
-    box-shadow: 0 16px 30px rgba(17, 24, 39, 0.35);
+    box-shadow: 0 16px 30px rgba(52, 53, 54, 0.35);
     transform: translateY(-2px);
 }
 
 .service-pill.active {
-    border-color: #2d4c8d;
-    background: #2d4c8d;
+    border-color: #aaabae;
+    background: #aaabae;
     color: #ffffff;
-    box-shadow: 0 16px 30px rgba(17, 24, 39, 0.35);
+    box-shadow: 0 16px 30px rgba(52, 53, 54, 0.35);
 }
 
 /* ===== כרטיס הפירוט שמתחת לבועות ===== */
@@ -188,22 +242,299 @@
     color: #374151;
 }
 
-/* ===== מובייל ===== */
+
+/* section 4 */
+
+.timeline-section {
+    direction: rtl;
+    background: #f9fafb;
+    padding: 100px 20px;
+}
+
+.timeline-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.timeline-title-main {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.timeline-subtitle {
+    text-align: center;
+    font-size: 0.95rem;
+    color: #4b5563;
+    margin-bottom: 40px;
+}
+
+.timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    inset-inline-start: 20px;
+    width: 2px;
+    background: #e5e7eb;
+}
+
+.timeline-item {
+    position: relative;
+    padding-inline-start: 60px;
+    margin-bottom: 16px;
+}
+
+.timeline-dot {
+    position: absolute;
+    inset-inline-start: 10px;
+    top: 6px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #111827;
+    color: #ffffff;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.18);
+}
+
+.timeline-content {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    padding: 10px 14px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease,
+        background 0.2s ease, transform 0.15s ease;
+    cursor: pointer;
+}
+
+.timeline-step-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0;
+}
+
+.timeline-step-text {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #374151;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin-top: 0;
+    transition: max-height 0.25s ease, opacity 0.25s ease, margin-top 0.25s ease;
+}
+
+.timeline-item:hover .timeline-content,
+.timeline-item:focus-within .timeline-content,
+.timeline-item.active .timeline-content {
+    background: #eff6ff;
+    border-color: #111827;
+    box-shadow: 0 14px 30px rgba(37, 99, 235, 0.16);
+    transform: translateY(-2px);
+}
+
+.timeline-item:hover .timeline-step-text,
+.timeline-item:focus-within .timeline-step-text,
+.timeline-item.active .timeline-step-text {
+    max-height: 200px;
+    opacity: 1;
+    margin-top: 6px;
+}
+
 @media (max-width: 768px) {
-    .services-section {
-        padding: 70px 16px 60px;
+    .timeline-section {
+        padding: 60px 16px;
     }
 
-    .services-title {
-        font-size: 1.7rem;
+    .timeline::before {
+        inset-inline-start: 16px;
     }
 
-    .service-details-card {
-        padding: 16px 16px;
+    .timeline-item {
+        padding-inline-start: 55px;
     }
 
-    .service-pill {
+    .timeline-step-title {
+        font-size: 0.9rem;
+    }
+
+    .timeline-step-text {
         font-size: 0.85rem;
-        max-width: 100%;
+    }
+}
+
+/* section 5 */
+
+.faq-section {
+    direction: rtl;
+    padding: 80px 20px 70px;
+    background: radial-gradient(circle at top right, #e0f2fe 0, #f9fafb 45%, #f8fafc 100%);
+    color: #111827;
+    display: flex;
+    align-items: center;
+}
+
+.faq-container {
+    max-width: 950px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.faq-title {
+    font-size: 2.1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #111827;
+}
+
+.faq-subtitle {
+    font-size: 0.95rem;
+    color: #4b5563;
+}
+
+/* רשימת שאלות */
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* כרטיס שאלה */
+
+.faq-item {
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.12s ease,
+        background-color 0.18s ease;
+}
+
+.faq-item:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 16px 34px rgba(15, 23, 42, 0.1);
+    transform: translateY(-1px);
+}
+
+/* מצב פתוח */
+
+.faq-item-open {
+    background: #eff6ff;
+    border-color: #2563eb;
+    box-shadow: 0 18px 40px rgba(37, 99, 235, 0.16);
+}
+
+/* כפתור השאלה */
+
+.faq-question {
+    width: 100%;
+    padding: 14px 18px;
+    background: transparent;
+    border: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    text-align: right;
+}
+
+.faq-q-label {
+    font-size: 0.78rem;
+    padding: 3px 10px;
+    border-radius: 999px;
+    border: 1px solid #bfdbfe;
+    background: #eff6ff;
+    color: #1d4ed8;
+    flex-shrink: 0;
+}
+
+.faq-q-text {
+    flex: 1;
+    font-size: 0.96rem;
+    font-weight: 500;
+}
+
+/* אייקון פתיחה/סגירה */
+
+.faq-toggle-icon {
+    font-size: 1.1rem;
+    width: 26px;
+    text-align: center;
+    color: #9ca3af;
+    transition: transform 0.18s ease, color 0.18s ease;
+}
+
+/* כשהשאלה פתוחה – סיבוב וצבע */
+
+.faq-item-open .faq-toggle-icon {
+    transform: rotate(180deg);
+    color: #2563eb;
+}
+
+/* גוף התשובה */
+
+.faq-answer-wrapper {
+    max-height: 0;
+    overflow: hidden;
+    transition:
+        max-height 0.25s ease,
+        padding-bottom 0.2s ease;
+    padding: 0 18px 0;
+}
+
+.faq-item-open .faq-answer-wrapper {
+    max-height: 260px;
+    /* מספיק לרוב תשובות הטקסט */
+    padding-bottom: 14px;
+}
+
+.faq-answer {
+    font-size: 0.9rem;
+    color: #374151;
+    line-height: 1.9;
+}
+
+/* רספונסיביות */
+
+@media (max-width: 768px) {
+    .faq-section {
+        padding: 60px 16px;
+    }
+
+    .faq-title {
+        font-size: 1.85rem;
+    }
+
+    .faq-question {
+        padding-inline: 14px;
+    }
+
+    .faq-answer-wrapper {
+        padding-inline: 14px;
     }
 }
