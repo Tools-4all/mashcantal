@@ -3,7 +3,7 @@
 .headline-row {
     padding: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     height: 90px;
     background-color: #f9fafb;
@@ -11,7 +11,7 @@
 }
 
 .headline-text {
-    font-size: 22px;
+    font-size: 30px;
     font-weight: 600;
     color: #111827;
 
@@ -103,30 +103,6 @@
 }
 
 
-.siftah-headline {
-    width: 100%;
-    text-align: center;
-    font-weight: bold;
-    margin: 10px 0;
-    /* מרווח יפה מלמעלה ומלמטה */
-}
-
-.siftah-headline h1 {
-    font-size: 48px;
-    line-height: 1.1;
-    margin: 0 auto;
-    display: inline-block;
-    white-space: nowrap;
-    /* למנוע ירידה לשורה שנייה */
-}
-
-/* התאמה למסכים קטנים */
-@media (max-width: 768px) {
-    .siftah-headline h1 {
-        font-size: 34px;
-    }
-}
-
 
 /* section 2*/
 
@@ -174,7 +150,7 @@
 /* section 3 */
 
 .services-section {
-    background-color: #ffca84;
+    background-color: rgba(15, 23, 42, 0.96);
     margin-top: 20px;
     padding: 80px 20px 70px;
     display: flex;
@@ -189,6 +165,7 @@
 }
 
 .services-title {
+    color: #ffffff;
     font-size: 2.1rem;
     font-weight: 700;
     margin-bottom: 8px;
@@ -196,9 +173,28 @@
 
 .services-subtitle {
     font-size: 0.95rem;
-    color: #4b5563;
+    color: #d1d5db;
     margin-bottom: 32px;
 }
+
+#bottom-headline {
+    margin-top: 30px;
+    color: #d1d5db;
+    font-size: 0.95rem;
+    margin-bottom: 40px;
+}
+
+.services-section a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.services-section a:hover {
+    color: #1d4ed8;
+}
+
+
 
 /* ===== גריד של הבועות ===== */
 .services-bubbles-grid {
@@ -408,7 +404,6 @@
 .faq-section {
     direction: rtl;
     padding: 80px 20px 70px;
-    background: radial-gradient(circle at top right, #e0f2fe 0, #f9fafb 45%, #f8fafc 100%);
     color: #111827;
     display: flex;
     align-items: center;
