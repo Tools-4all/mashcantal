@@ -524,9 +524,13 @@
 
         async function loadBoiFullJson() {
             const fallback = {
-                current: { boiRate: 4.25, primeSpread: 1.5, updatedAt: "2025-12-17" },
+                current: {
+                    boiRate: 4.00,
+                    primeSpread: 1.5,
+                    updatedAt: "2026-01-05"
+                },
                 history: {
-                    updatedAt: "2025-12-17",
+                    updatedAt: "2026-01-05",
                     points: [
                         { date: "2022-11-21", rate: 3.25 },
                         { date: "2023-01-02", rate: 3.75 },
@@ -534,21 +538,48 @@
                         { date: "2023-04-03", rate: 4.50 },
                         { date: "2023-05-22", rate: 4.75 },
                         { date: "2024-01-01", rate: 4.50 },
-                        { date: "2025-11-24", rate: 4.25 }
+                        { date: "2025-11-24", rate: 4.25 },
+                        { date: "2026-01-05", rate: 4.00 }
                     ]
                 }
             };
 
-            try {
-                const res = await fetch("data/boi_rates_full.json?_=" + Date.now(), { cache: "no-store" })
-                if (!res.ok) throw new Error("boi_rates_full.json not found");
-                const data = await res.json();
-                return data && typeof data === "object" ? data : fallback;
-            } catch (e) {
-                console.warn("Full BOI JSON load failed, using fallback:", e);
-                return fallback;
+            const candidates = ["/data/boi_rates_full.json"];
+
+            const cacheBust = "_=" + Date.now();
+
+            for (let i = 0; i < candidates.length; i++) {
+                const url = candidates[i] + "?" + cacheBust;
+                try {
+                    const res = await fetch(url, { cache: "no-store" });
+                    if (!res.ok) continue;
+
+                    const data = await res.json();
+
+                    const valid =
+                        data &&
+                        typeof data === "object" &&
+                        data.current &&
+                        Number.isFinite(Number(data.current.boiRate)) &&
+                        Number.isFinite(Number(data.current.primeSpread)) &&
+                        data.history &&
+                        Array.isArray(data.history.points);
+
+                    if (!valid) {
+                        console.error("BOI JSON loaded but schema invalid:", data);
+                        break;
+                    }
+
+                    console.info("BOI JSON loaded from:", candidates[i]);
+                    return data;
+                } catch (e) {
+                }
             }
+
+            console.error("USING FALLBACK BOI DATA – JSON NOT LOADED (404 / invalid).");
+            return fallback;
         }
+
 
         function renderCurrentRates(current) {
             const boi = safeNum(current && current.boiRate);
