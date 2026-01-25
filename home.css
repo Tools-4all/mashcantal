@@ -104,50 +104,60 @@
     }
 }
 
-
-
-/* section 2*/
-
-
 .about {
-    position: relative;
-    display: flex;
-    justify-content: space-around;
-    padding: 50px 10% 80px;
     background: #f9fafb;
-    text-align: center;
+    padding: 70px 10%;
+    direction: rtl;
+}
+
+.about-container {
     max-width: 1200px;
     margin: 0 auto;
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
 }
 
-.about h2 {
+.about-box {
+    flex: 1;
+}
+
+.about-box h2 {
     color: #1e3153;
-    text-align: center;
+    font-size: 32px;
     margin-bottom: 20px;
-    font-size: 3vw;
-}
-
-.about p {
     text-align: right;
-    direction: rtl;
-    font-size: 1.8vw;
 }
 
+.about-box p {
+    font-size: 18px;
+    line-height: 1.9;
+    color: #1f2937;
+    margin-bottom: 16px;
+    text-align: right;
+}
+
+/* מובייל */
 @media (max-width: 768px) {
     .about {
+        padding: 40px 6%;
+    }
+
+    .about-container {
         flex-direction: column;
-        padding: 30px 5% 60px;
+        gap: 40px;
     }
 
-    .about h2 {
-        font-size: 6vw;
+    .about-box h2 {
+        font-size: 26px;
+        text-align: center;
     }
 
-    .about p {
-        font-size: 4vw;
+    .about-box p {
+        font-size: 16px;
+        text-align: right;
     }
 }
-
 
 /* section 3 */
 
