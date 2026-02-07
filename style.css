@@ -328,6 +328,11 @@
       .top-bar-inner {
           gap: 8px;
           text-align: center;
+          padding: 5px 5px;
+      }
+
+      .top-link {
+          font-size: 12px;
       }
 
       .icon-link {
