@@ -9,8 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet" />
     <title>מונחון משכתנאות</title>
     <style>
-        /* ===== מונחון משכנתאות – סקשן בהיר ===== */
-
         .glos-section {
             direction: rtl;
             padding: 50px 20px 100px;
@@ -25,7 +23,6 @@
             width: 100%;
         }
 
-        /* כותרות החלק */
         .glos-header {
             text-align: center;
             margin-bottom: 30px;
@@ -45,7 +42,6 @@
             margin: 0 auto 18px;
         }
 
-        /* שדה החיפוש */
         .glos-search-wrapper {
             max-width: 520px;
             margin: 0 auto;
@@ -76,7 +72,6 @@
             background-color: #ffffff;
         }
 
-        /* הגריד של הכרטיסים */
         .glos-grid {
             margin-top: 14px;
             display: grid;
@@ -84,7 +79,6 @@
             gap: 16px;
         }
 
-        /* כרטיס מונח (מצב סגור) */
         .glos-item {
             background: #ffffff;
             border: 1px solid #e5e7eb;
@@ -106,14 +100,12 @@
             transform: translateY(-1px);
         }
 
-        /* כרטיס פתוח */
         .glos-item.open {
             background: #eff6ff;
             border-color: #2d4c8d;
             box-shadow: 0 12px 26px rgba(45, 76, 141, 0.18);
         }
 
-        /* ראש הכרטיס – הכותרת + האייקון */
         .glos-card-head {
             padding: 10px 14px;
             background: transparent;
@@ -134,7 +126,6 @@
             color: #111827;
         }
 
-        /* אייקון + / – */
         .glos-icon {
             width: 22px;
             height: 22px;
@@ -166,7 +157,6 @@
             height: 10px;
         }
 
-        /* במצב פתוח – הופך למינוס */
         .glos-item.open .glos-icon {
             background: #2d4c8d;
             border-color: #2d4c8d;
@@ -181,7 +171,6 @@
             transform: scaleY(0);
         }
 
-        /* הגוף – הטקסט */
         .glos-card-body {
             font-size: 0.88rem;
             color: #374151;
@@ -194,16 +183,12 @@
                 padding-bottom 0.2s ease;
         }
 
-        /* כשהכרטיס פתוח – להרחיב */
         .glos-item.open .glos-card-body {
             padding-bottom: 10px;
             max-height: 260px;
         }
 
-        /* ===== רספונסיביות ===== */
-
         @media (max-width: 900px) {
-
             .glos-title {
                 font-size: 1.9rem;
             }
@@ -228,12 +213,8 @@
 
 <body>
 
-    <!-- ===== NAVBAR ===== -->
-    <!-- ===== TOP CONTACT BAR ===== -->
     <div class="top-bar">
         <div class="top-bar-inner">
-
-            <!-- Right: Contact info -->
             <div class="top-contact">
                 <a href="tel:0552705176" class="top-link">
                     <i class="fa-solid fa-phone"></i> 055-9971294
@@ -244,7 +225,6 @@
                 </a>
             </div>
 
-            <!-- Left: Social icons -->
             <div class="top-social">
                 <a href="https://wa.me/972552705176" target="_blank" rel="noopener" class="icon-link">
                     <i class="fa-brands fa-whatsapp"></i>
@@ -256,12 +236,10 @@
                     <i class="fa-brands fa-facebook"></i>
                 </a>
             </div>
-
         </div>
     </div>
 
     <header class="navbar">
-
         <ul class="nav-links" id="navLinks">
             <li><a href="/">דף הבית</a></li>
             <li><a href="glossary.html" class="active">מילון מונחים</a></li>
@@ -269,7 +247,6 @@
             <li><a href="calculator.html">מחשבון משכנתא</a></li>
             <li><a href="contact.html">צור קשר</a></li>
         </ul>
-
 
         <button class="nav-toggle" id="navToggle" aria-label="תפריט">
             <div class="nav-toggle-bar"></div>
@@ -291,56 +268,50 @@
                 </div>
             </div>
 
-            <!-- גריד של ריבועים -->
             <div class="glos-grid">
 
-                <!-- משכנתא -->
                 <article class="glos-item" data-search="משכנתא הלוואה כנגד נכס נדלן שיעבוד נכס תקופת הלוואה 30 שנה">
                     <button class="glos-card-head" type="button">
                         <span class="glos-term">הלוואת משכנתא</span>
                         <span class="glos-icon" aria-hidden="true"></span>
                     </button>
                     <div class="glos-card-body">
-                        כל הלוואה הניתנת כנגד שיעבוד של נכס נדל&quot;ן (דירה, בית, מגרש וכדומה).
-                        אורך ההלוואה המקסימלי הוא עד 30 שנים, בהתאם לרגולציה. <br> בנוסף, ניתן לקחת יותר מהלוואת משכנתא
-                        אחת
-                        במקביל אך בכל מקרה ההחזר החודשי לא יעלה על 40% מסך ההכנסה הפנוייה של הלווים.
+                        כל הלוואה הניתנת כנגד שיעבוד של נכס נדל&quot;ן (דירה, בית, מגרש וכדומה). אורך ההלוואה המקסימלי
+                        הוא עד 30 שנים, בהתאם לרגולציה. בנוסף, ניתן לקחת יותר מהלוואת משכנתא אחת במקביל אך בכל מקרה
+                        ההחזר
+                        החודשי לא יעלה על 40% מסך ההכנסה הפנוייה של הלווים.
                     </div>
                 </article>
 
-                <!-- נכס ראשון / יחיד -->
-                <article class="glos-item" data-search="הלוואה עבור נכס ראשון יחיד דירה ראשונה 75 אחוז מימון">
+                <article class="glos-item"
+                    data-search="הלוואה עבור נכס ראשון יחיד דירה ראשונה 75 אחוז מימון שיפוץ זכאות">
                     <button class="glos-card-head" type="button">
                         <span class="glos-term">הלוואה עבור נכס יחיד/ שיפוץ נכס קיים</span>
                         <span class="glos-icon" aria-hidden="true"></span>
                     </button>
                     <div class="glos-card-body">
-                        ניתן לקבל עד 75% מסכום העסקה (בהתאם לרגולציה ולנתוני הלווה).
-                        כמו כן, באם מדובר בהלוואת משכנתא ראשונה של הלווים, ניתן להשתמש ב"הלוואת זכאות". בנוסף, באם מדובר
-                        בתכנית מחיר למשתכן, ניתן לקבל תנאים עדיפים עוד יותר במימון העסקה.
+                        ניתן לקבל עד 75% מסכום העסקה (בהתאם לרגולציה ולנתוני הלווה). כמו כן, באם מדובר בהלוואת משכנתא
+                        ראשונה של הלווים, ניתן להשתמש ב&quot;הלוואת זכאות&quot;. בנוסף, באם מדובר בתכנית מחיר למשתכן,
+                        ניתן לקבל תנאים עדיפים עוד יותר במימון העסקה.
                     </div>
                 </article>
 
-                <!-- שיפור דיור -->
                 <article class="glos-item"
-                    data-search="הלוואה עבור שיפור דיור דיור חלופי דירה חדשה לפני מכירת הקיימת 24 חודשים">
+                    data-search="הלוואה עבור שיפור דיור דיור חלופי דירה חדשה לפני מכירת הקיימת 24 חודשים גישור">
                     <button class="glos-card-head" type="button">
                         <span class="glos-term">הלוואה עבור שיפור דיור/דיור חלופי</span>
                         <span class="glos-icon" aria-hidden="true"></span>
                     </button>
                     <div class="glos-card-body">
                         דירה שנרכשה בעוד שהנכס הקיים עדיין לא נמכר. על פי חוק, יש למכור את הדירה הראשונה בעד 24 חודשים.
-                        בסוג משכנתא זה, ניתן לקבל עד 70% מימון מסך הרכישה בניכוי משכנתא קיימת (באם ישנה).
-                        בנוסף, באם יש חוסר בהון הלווים לרכישת הנכס החדש, ניתן לקחת הלוואת גישור שתפרע עם מכירת הנכס
-                        הקיים.
+                        בסוג משכנתא זה, ניתן לקבל עד 70% מימון מסך הרכישה בניכוי משכנתא קיימת (באם ישנה). בנוסף, באם יש
+                        חוסר בהון הלווים לרכישת הנכס החדש, ניתן לקחת הלוואת גישור שתפרע עם מכירת הנכס הקיים.
                     </div>
                 </article>
 
-                <!-- דירה שנייה ומעלה -->
                 <article class="glos-item" data-search="הלוואה עבור דירה שנייה ומעלה נכס להשקעה 50 אחוז מימון">
                     <button class="glos-card-head" type="button">
-                        <span class="glos-term">הלוואה עבור דירה שנייה ומעלה:
-                        </span>
+                        <span class="glos-term">הלוואה עבור דירה שנייה ומעלה</span>
                         <span class="glos-icon" aria-hidden="true"></span>
                     </button>
                     <div class="glos-card-body">
@@ -349,7 +320,6 @@
                     </div>
                 </article>
 
-                <!-- מחזור משכנתא פנימי -->
                 <article class="glos-item" data-search="מחזור משכנתא פנימי שינוי הלוואה באותו בנק החלפת מסלולים ריבית">
                     <button class="glos-card-head" type="button">
                         <span class="glos-term">מחזור משכנתא פנימי</span>
@@ -357,13 +327,12 @@
                     </button>
                     <div class="glos-card-body">
                         שינוי תנאי המשכנתא באותו הבנק: החלפת מסלולים, שינוי ריביות או קיצור/הארכת תקופה. נעשה בדרך כלל
-                        כאשר הריביות בשוק ירדו או כאשר יש שינוי בתזרים החודשי ומכאן להגדיל או להקטין את ההחזר . בכל
-                        מקרה, מומלץ לבדוק אחת למספר שנים התכנות למחזור ההלוואה כדי להתאים את ההלוואה אל מצב הנוכחי של
-                        הלווים וכן להפחתת הריבית.
+                        כאשר הריביות בשוק ירדו או כאשר יש שינוי בתזרים החודשי ומכאן להגדיל או להקטין את ההחזר. בכל מקרה,
+                        מומלץ לבדוק אחת למספר שנים התכנות למחזור ההלוואה כדי להתאים את ההלוואה אל מצב הנוכחי של הלווים
+                        וכן להפחתת הריבית.
                     </div>
                 </article>
 
-                <!-- מחזור משכנתא חיצוני -->
                 <article class="glos-item" data-search="מחזור משכנתא חיצוני מעבר בנק העברת משכנתא לבנק אחר תחרות">
                     <button class="glos-card-head" type="button">
                         <span class="glos-term">מחזור משכנתא חיצוני</span>
@@ -377,7 +346,6 @@
                     </div>
                 </article>
 
-                <!-- מחיר למשתכן -->
                 <article class="glos-item" data-search="מחיר למשתכן דירה בהנחה תוכנית ממשלתית זכאות רוכשי דירה">
                     <button class="glos-card-head" type="button">
                         <span class="glos-term">תכנית מחיר למשתכן / דירה בהנחה</span>
@@ -389,7 +357,6 @@
                     </div>
                 </article>
 
-                <!-- רכישה מקבלן -->
                 <article class="glos-item" data-search="רכישה מקבלן דירה חדשה מקבלן לוח תשלומים בניית שלבים">
                     <button class="glos-card-head" type="button">
                         <span class="glos-term">רכישה מקבלן</span>
@@ -401,7 +368,6 @@
                     </div>
                 </article>
 
-                <!-- שיפוץ נכס קיים -->
                 <article class="glos-item" data-search="שיפוץ נכס קיים הלוואה לשיפוץ הרחבה שדרוג דירה">
                     <button class="glos-card-head" type="button">
                         <span class="glos-term">שיפוץ נכס קיים</span>
@@ -413,290 +379,428 @@
                     </div>
                 </article>
 
-                <!-- הלוואת זכאות -->
                 <article class="glos-item"
-                    data-search="הלוואת זכאות הלוואה מסובסדת משרד השיכון משרד הבינוי ריבית מועדפת">
+                    data-search="משכנתא לכל מטרה מינוף נכס קיים 50 אחוז שווי הנכס 200000 בלי הון עצמי">
                     <button class="glos-card-head" type="button">
-                        <span class="glos-term">הלוואת זכאות</span>
+                        <span class="glos-term">משכנתא לכל מטרה</span>
                         <span class="glos-icon" aria-hidden="true"></span>
                     </button>
                     <div class="glos-card-body">
-                        הלוואת משכנתא בתנאים מועדפים מטעם המדינה, הניתנת לזכאים בהתאם לניקוד שנקבע על ידי משרד הבינוי
-                        והשיכון. ההלוואה משולבת בדרך כלל יחד עם משכנתא בנקאית רגילה.
+                        זוהי למעשה עסקת מינוף של נכס קיים, כאשר ניתן לגייס עד 50% משווי הנכס + 200,000 ש&quot;ח בניכוי
+                        משכנתא קיימת (באם יש). זו המשכנתא היחידה בה אין צורך בהון עצמי של הלווים שכן הנכס שבבעלותם
+                        ימושכן
+                        לטובת הבנק. בדרך כלל, תנאי הלוואה כזו, יהיו יותר יקרים מאשר בסוגי משכנתא אחרים.
                     </div>
                 </article>
 
-                <!-- הלוואת גישור -->
-                <article class="glos-item" data-search="הלוואת גישור גשר בין דירות עד מכירת נכס קיים">
-                    <button class="glos-card-head" type="button">
-                        <span class="glos-term"> משכנתא לכל מטרה</span>
-                        <span class="glos-icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="glos-card-body">
-                        זוהי למעשה עסקת מינוף של נכס קיים, כאשר ניתן לגייס עד 50% משווי הנכס + 200,000 ש"ח בניכוי משכנתא
-                        קיימת (באם יש). זו המשכנתא היחידה בה אין צורך בהון עצמי של הלווים שכן הנכס שבבעלותם ימושכן לטובת
-                        הבנק. בדרך כלל, תנאי הלוואה כזו, יהיו יותר יקרים מאשר בסוגי משכנתא אחרים
-                    </div>
-                </article>
-
-                <!-- מענק מיקום -->
-                <article class="glos-item" data-search="מענק מיקום לזכאי מחיר למשתכן מענק מהמדינה לפי אזור גיאוגרפי">
-                    <button class="glos-card-head" type="button">
-                        <span class="glos-term">מענק מיקום לזכאי מחיר למשתכן</span>
-                        <span class="glos-icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="glos-card-body">
-                        מענק חד־פעמי הניתן לזכאי מחיר למשתכן בהתאם ליישוב ולמרחק ממרכזי הביקוש. המענק מופחת ישירות ממחיר
-                        הדירה או מהיקף המימון הנדרש.
-                    </div>
-                </article>
-
-                <!-- אחוז מימון -->
-                <article class="glos-item" data-search="אחוז מימון שיעור מימון יחס בין גובה ההלוואה לשווי הנכס LTV">
-                    <button class="glos-card-head" type="button">
-                        <span class="glos-term">אחוז מימון העסקה על ידי הבנק</span>
-                        <span class="glos-icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="glos-card-body">
-                        היחס בין סכום המשכנתא לבין שווי הנכס או מחיר העסקה (הנמוך מביניהם). לדוגמה: הלוואה של 750,000 ₪
-                        על נכס בשווי 1,000,000 ₪ = אחוז מימון של 75%.
-                    </div>
-                </article>
-
-                <!-- משכנתא חוץ בנקאית -->
                 <article class="glos-item"
-                    data-search="משכנתא חוץ בנקאית גופים מוסדיים ביטוח חברות אשראי מימון לא מהבנק">
-                    <button class="glos-card-head" type="button">
-                        <span class="glos-term">משכנתא חוץ בנקאית</span>
-                        <span class="glos-icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="glos-card-body">
-                        הלוואת משכנתא הניתנת על ידי גופים שאינם בנקים: חברות ביטוח, קרנות מימון וגופים מוסדיים. לרוב
-                        התנאים גמישים יותר אך הריביות והעמלות יכולות להיות גבוהות יותר.
-                    </div>
-                </article>
-
-                <!-- משכנתא הפוכה -->
-                <article class="glos-item" data-search="משכנתא הפוכה לבני 55 הלוואה כנגד בית בלי החזר חודשי יורשים">
-                    <button class="glos-card-head" type="button">
-                        <span class="glos-term">משכנתא הפוכה</span>
-                        <span class="glos-icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="glos-card-body">
-                        הלוואה המתאימה לבעלי דירות מעל גיל 55 אשר מעוניינים לקבל כסף כנגד הבית, ללא החזר חודשי שוטף.
-                        ההלוואה נפרעת במכירת הנכס או על ידי היורשים, בדרך כלל לאחר פטירת הלווים.
-                    </div>
-                </article>
-
-                <!-- תכנון פיננסי להלוואה -->
-                <article class="glos-item" data-search="תכנון פיננסי להלוואה ניתוח הכנסות הוצאות בניית תמהיל תזרים">
-                    <button class="glos-card-head" type="button">
-                        <span class="glos-term">תכנון פיננסי להלוואה</span>
-                        <span class="glos-icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="glos-card-body">
-                        תהליך מקצועי שבו נבחנות ההכנסות, ההוצאות, ההתחייבויות והיעדים של הלווה, במטרה להתאים את גובה
-                        ההלוואה, התקופה והתמהיל ליכולת ההחזר ולתוכניות העתידיות.
-                    </div>
-                </article>
-
-                <!-- הון עצמי -->
-                <article class="glos-item" data-search="הון עצמי כסף של הלקוח חסכונות קופות גמל קרנות">
-                    <button class="glos-card-head" type="button">
-                        <span class="glos-term">הון עצמי</span>
-                        <span class="glos-icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="glos-card-body">
-                        חלקו של הלקוח בעסקה – חסכונות, פיקדונות, קרנות, כספי ירושה וכדומה – שאינם ממומנים באמצעות
-                        ההלוואה. ככל שההון העצמי גבוה יותר, אחוז המימון נמוך יותר ותנאי המשכנתא בדרך כלל טובים יותר.
-                    </div>
-                </article>
-
-                <!-- חיווי ודירוג אשראי -->
-                <article class="glos-item" data-search="חיווי דירוג אשראי דוח נתוני אשראי הלוואות החזרי עבר">
-                    <button class="glos-card-head" type="button">
-                        <span class="glos-term">חיווי ודירוג אשראי</span>
-                        <span class="glos-icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="glos-card-body">
-                        ציון כלכלי המשקף את התנהלותו הפיננסית של הלקוח בעבר: החזרי הלוואות, חריגות, צ'קים חוזרים ועוד.
-                        דירוג גבוה מעיד על התנהלות תקינה ומסייע לקבלת תנאים טובים יותר.
-                    </div>
-                </article>
-
-                <!-- ערב משלם / ערב תומך -->
-                <article class="glos-item" data-search="ערב משלם ערב תומך ערבות להלוואה הוספת הכנסה">
-                    <button class="glos-card-head" type="button">
-                        <span class="glos-term">ערב משלם / ערב תומך</span>
-                        <span class="glos-icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="glos-card-body">
-                        אדם המתחייב מול הבנק לעמוד בתשלומי המשכנתא אם הלווה לא יעמוד בהם. ערב משלם נחשב חלק מהלווים לכל
-                        דבר, בעוד שערב תומך מצרף בעיקר את הכנסתו לחישוב כושר ההחזר.
-                    </div>
-                </article>
-
-                <!-- הכנסות מוכרות -->
-                <article class="glos-item" data-search="הכנסות מוכרות לחישוב הכנסה פנויה משכורת קבועה תלוש שכר פנסיה">
-                    <button class="glos-card-head" type="button">
-                        <span class="glos-term">הכנסות מוכרות לחישוב הכנסה פנויה</span>
-                        <span class="glos-icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="glos-card-body">
-                        הכנסות שהבנק מכיר בהן לצורך חישוב כושר ההחזר: משכורת קבועה מתלוש שכר, הכנסות מעסק (עם דוחות
-                        מתאימים), פנסיה, קצבאות קבועות ועוד. הכנסות לא־קבועות או לא־מדווחות עשויות שלא להילקח בחשבון.
-                    </div>
-                </article>
-
-                <!-- הכנסה פנויה -->
-                <article class="glos-item" data-search="הכנסה פנויה לאחר מס לאחר התחייבויות חישוב יחס החזר">
-                    <button class="glos-card-head" type="button">
-                        <span class="glos-term">הכנסה פנויה</span>
-                        <span class="glos-icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="glos-card-body">
-                        ההכנסה שנותרת ללקוח לאחר ניכוי מס, הלוואות קיימות והתחייבויות קבועות. על בסיס ההכנסה הפנויה
-                        מחושב יחס ההחזר המקסימלי למשכנתא.
-                    </div>
-                </article>
-
-                <!-- אישור עקרוני -->
-                <article class="glos-item" data-search="אישור עקרוני אישור מהבנק לפני חתימת חוזה מסגרת מימון">
+                    data-search="אישור עקרוני לקבלת משכנתא מסמך ראשוני 4 תמהילים 3 קבועים מותאם אישית תוקף 24 ימים">
                     <button class="glos-card-head" type="button">
                         <span class="glos-term">אישור עקרוני לקבלת משכנתא</span>
                         <span class="glos-icon" aria-hidden="true"></span>
                     </button>
                     <div class="glos-card-body">
-                        מסמך ראשוני מהבנק המאשר, בכפוף לתנאים, את גובה המשכנתא שניתן לקבל ואת התמהיל המומלץ. האישור
-                        מאפשר ללקוח לחפש נכס בידיעה מהי מסגרת המימון הזמינה לו.
+                        מסמך ראשוני מהבנק המאשר, בכפוף לתנאים, את גובה המשכנתא שניתן לקבל ואת ארבעת תמהילי ההלוואה
+                        המוצעים ללווים כאשר השלושה הראשונים קבועים על ידי הבנק ואחרון מותאם אישית על ידי הבנק או על ידי
+                        יועץ משכנתאות שבונה עבורכם.<br />
+                        האישור העקרוני מאפשר ללקוח לחפש נכס בידיעה מהי מסגרת המימון הזמינה לו ובעל תוקף של 24
+                        ימים.<br />
+                        כלל אצבע: לא חותמים על עסקת רכישה ללא קבלת אישור עקרוני מהבנק!
                     </div>
                 </article>
 
-                <!-- עמלת היוון -->
-                <article class="glos-item" data-search="עמלת היוון קנס פירעון מוקדם הפרש ריביות שובר קנס">
+                <article class="glos-item"
+                    data-search="אחוז מימון העסקה LTV יחס מימון סכום משכנתא שווי נכס מחיר עסקה 75">
                     <button class="glos-card-head" type="button">
-                        <span class="glos-term">עמלת היוון (קנס פירעון מוקדם)</span>
+                        <span class="glos-term">אחוז מימון העסקה</span>
                         <span class="glos-icon" aria-hidden="true"></span>
                     </button>
                     <div class="glos-card-body">
-                        עמלה אשר הבנק יכול לגבות כאשר פורעים מסלול בריבית קבועה לפני מועד הסיום, במצב שבו הריביות בשוק
-                        נמוכות מהריבית שבה נלקחה ההלוואה. העמלה נועדה לפצות את הבנק על אובדן הרווח העתידי.
+                        היחס בין סכום הלוואת המשכנתא לבין שווי הנכס או מחיר העסקה (הנמוך מביניהם). לדוגמה: הלוואה של
+                        750,000 ₪ על נכס בשווי 1,000,000 ₪ = אחוז מימון של 75%.
                     </div>
                 </article>
 
-
-                <article class="glos-item" data-search="הלוואת גישור ">
+                <article class="glos-item"
+                    data-search="הון עצמי של הלווים מינימום 25 אחוז מזומנים הון עצמי מחיר למשתכן">
                     <button class="glos-card-head" type="button">
-                        <span class="glos-term"> הלוואת גישור</span>
+                        <span class="glos-term">הון עצמי של הלווים</span>
                         <span class="glos-icon" aria-hidden="true"></span>
                     </button>
                     <div class="glos-card-body">
-                        הלוואה קצרה המאפשרת ללקוח להשלים את העסקה החדשה לפני קבלת הכספים ממכירת הנכס הקיים. ההלוואה
-                        נפרעת בדרך כלל עם קבלת התמורה ממכירת הדירה.
+                        חלקו של הלקוח בעסקה - מזומנים שאינם ממומנים באמצעות ההלוואה ומשמשים לרכישת הנכס. ככל שההון העצמי
+                        גבוה יותר, אחוז המימון נמוך יותר ותנאי המשכנתא בדרך כלל טובים יותר.<br />
+                        ההון העצמי המינימלי לקבלת הלוואת משכנתא יהווה לפחות 25% מהעסקה למעט בעסקאות של תכנית
+                        &quot;מחיר למשתכן&quot;.
                     </div>
                 </article>
 
-
-                <!-- יחס החזר -->
-                <article class="glos-item" data-search="יחס החזר אחוז מההכנסה הפנויה החזר חודשי 40 אחוז">
-                    <button class="glos-card-head" type="button">
-                        <span class="glos-term">יחס החזר</span>
-                        <span class="glos-icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="glos-card-body">
-                        היחס בין ההחזר החודשי עבור הלוואת המשכנתא לבין ההכנסה החודשית הפנויה. בעוד הרגולציה והבנקים
-                        מאפשרים עד 40%, לא מומלץ לעבור מעל 35% ברוב המקרים על מנת להקל על תזרים המזומנים. כלומר באם
-                        הכנסה חודשית פנויה נאמדת ב15,000 אזי רגולטורית ניתן להחזיר עד 6,000 עבור המשכנתא.
-                    </div>
-                </article>
-
-                <!-- כושר החזר -->
-                <article class="glos-item" data-search="כושר החזר יכולת לעמוד בתשלומי המשכנתא תזרים משפחתי">
-                    <button class="glos-card-head" type="button">
-                        <span class="glos-term"> כושר החזר חודשי להלוואת משכנתא</span>
-                        <span class="glos-icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="glos-card-body">
-                        היכולת האמיתית של הלקוח לעמוד בתשלומי המשכנתא לאורך זמן, בהתאם להכנסות, הוצאות, התחייבויות
-                        קיימות ותכניות עתידיות. כושר ההחזר נמדד גם ברמת יחס ההחזר וגם באופי ההתנהלות בחשבון.
-                    </div>
-                </article>
-
-                <!-- ריביות קבועות -->
-                <article class="glos-item" data-search="ריביות קבועות מסלול קבוע צמוד לא צמוד יציבות תשלום">
-                    <button class="glos-card-head" type="button">
-                        <span class="glos-term">ריביות קבועות</span>
-                        <span class="glos-icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="glos-card-body">
-                        מסלולי הלוואה שבהם הריבית נשארת קבועה לאורך כל התקופה (צמודה למדד או לא־צמודה). מספקים יציבות
-                        בתשלום החודשי אך לעיתים יקרים יותר בתחילת ההלוואה.
-                    </div>
-                </article>
-
-                <!-- תמהיל ההלוואה -->
-                <article class="glos-item" data-search="תמהיל ההלוואה שילוב מסלולים קבועה משתנה פריים הצמדה">
-                    <button class="glos-card-head" type="button">
-                        <span class="glos-term">תמהיל ההלוואה</span>
-                        <span class="glos-icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="glos-card-body">
-                        החלוקה של סכום המשכנתא בין מסלולים שונים (קבועה צמודה, קבועה לא צמודה, פריים, משתנות, צמוד דולר
-                        וכדומה). תמהיל נכון מפזר סיכונים ומתאים את ההלוואה לצרכים של הלקוח.
-                    </div>
-                </article>
-
-                <!-- הקצאת הון -->
-                <article class="glos-item" data-search="הקצאת הון בנק רגולציה משקל הון מסלול יקר זול">
+                <article class="glos-item" data-search="הקצאת הון בנק ישראל רגולציה נגזרת אחוז מימון גובה משכנתא ריבית">
                     <button class="glos-card-head" type="button">
                         <span class="glos-term">הקצאת הון</span>
                         <span class="glos-icon" aria-hidden="true"></span>
                     </button>
                     <div class="glos-card-body">
-                        האופן שבו הבנק מחויב להחזיק הון עצמי כנגד כל מסלול משכנתא בהתאם לרגולציה. מסלולים הדורשים הקצאת
-                        הון גבוהה יותר יהיו בדרך כלל יקרים יותר מבחינת ריבית.
-
+                        זהו סכום אותו הבנק נדרש על ידי בנק ישראל להקצות עבור כל הלוואת משכנתא. הקצאת ההון נועדה להבטיח
+                        את יכולתו של הבנק להחזיר את ההון שגייס במקרה שבו הלווה בהלוואת המשכנתא אינו עומד בתנאי
+                        ההלוואה.<br />
+                        סכום הקצאת הון הוא נגזרת של אחוז המימון וגובה הלוואת המשכנתא המבוקשת. ככל שהקצאת ההון בהלוואה
+                        גבוהה יותר, כך מחיר הכסף בהלוואה יהיה גבוה יותר, כלומר אחוז המימון משפיע באופן ישיר על גובה
+                        הריבית שמשלם הלווה.
                     </div>
                 </article>
 
-                <!-- ריבית הפריים -->
-                <article class="glos-item" data-search="ריבית הפריים פריים ריבית בנק ישראל פלוס מרווח">
+                <article class="glos-item"
+                    data-search="חיווי דירוג אשראי נתוני אשראי 2016 הוצאה לפועל צקים חוזרים חריגות חובות לרשויות">
                     <button class="glos-card-head" type="button">
-                        <span class="glos-term">ריבית הפריים</span>
+                        <span class="glos-term">חיווי ודירוג אשראי</span>
                         <span class="glos-icon" aria-hidden="true"></span>
                     </button>
                     <div class="glos-card-body">
-                        ריבית בנק ישראל בתוספת מרווח קבוע של 1.5%. משמשת בסיס למסלולי משכנתא בריבית פריים. כאשר ריבית
-                        בנק ישראל משתנה – גם ריבית הפריים מתעדכנת.
+                        ציון כלכלי המשקף את התנהלותו הפיננסית של הלקוח וכולל בין היתר: החזרי הלוואות, חובות לרשויות
+                        ותיקי הוצאה לפועל, חריגות ממסגרות אשראי, צ&apos;קים חוזרים ועוד.<br />
+                        הבנק יכול על פי חוק נתוני האשראי משנת 2016 לדעת את ההתנהלות הפיננסית של הלווה, ובכך לאפשר
+                        בטיחות לשני הצדדים. לקוח בעל התנהלות פיננסית לא תקינה יתקל בקושי רב יותר בקבלת משכנתא. מנגד,
+                        דירוג גבוה מעיד על התנהלות תקינה ומסייע לקבלת תנאים טובים יותר.
                     </div>
                 </article>
 
-                <!-- ריביות משתנות -->
-                <article class="glos-item" data-search="ריביות משתנות מסלול משתנה כל 5 שנים הצמדה למדד ריבית משתנה">
+                <article class="glos-item"
+                    data-search="תכנון פיננסי להלוואה הכנסות הוצאות הון עצמי התחייבויות יעדים תמהיל תקופה">
+                    <button class="glos-card-head" type="button">
+                        <span class="glos-term">תכנון פיננסי להלוואה</span>
+                        <span class="glos-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="glos-card-body">
+                        תהליך מקצועי שבו נבחנות ההכנסות, ההוצאות, ההון העצמי, ההתחייבויות ארוכות הטווח והיעדים של
+                        הלווים, במטרה להתאים את גובה ההלוואה, אורך התקופה ואופי התמהיל ליכולת ההחזר ולתוכניות העתידיות
+                        של הלווים.
+                    </div>
+                </article>
+
+                <article class="glos-item"
+                    data-search="כושר החזר חודשי משכנתא יכולת לעמוד בתשלומים הכנסות הוצאות התחייבויות יחס החזר">
+                    <button class="glos-card-head" type="button">
+                        <span class="glos-term">כושר החזר חודשי להלוואת משכנתא</span>
+                        <span class="glos-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="glos-card-body">
+                        היכולת האמיתית של הלקוח לעמוד בתשלומי המשכנתא לאורך זמן, בהתאם להכנסות, הוצאות, התחייבויות
+                        קיימות
+                        ותכניות עתידיות. כושר ההחזר נמדד גם ברמת יחס ההחזר וגם באופי ההתנהלות בחשבון.
+                    </div>
+                </article>
+
+                <article class="glos-item"
+                    data-search="חישוב הכנסה פנויה שכר קצבאות מזונות שכירות התחייבויות מעל 18 חודשים דוגמה 15000 2500 1500 1000">
+                    <button class="glos-card-head" type="button">
+                        <span class="glos-term">חישוב הכנסה פנויה</span>
+                        <span class="glos-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="glos-card-body">
+                        הכנסה פנויה היא כל הכנסה מיגיעה אישית כמו שכר, קצבאות לצמיתות, מזונות, הכנסה משכר דירה ועוד
+                        בניכוי התחייבויות ארוכות טווח מעל ל-18 חודשים כמו הלוואות, דמי מזונות, הסדרי חוב ועוד.<br />
+                        לדוגמה באם ישנה משכורת נטו בגובה 15 אלף ויש תשלום מזונות בגובה 2,500, הלוואת רכב בגובה 1,500,
+                        הלוואת אשראי בגובה 1000, אזי ההכנסה הפנויה היא 10 אלף.<br />
+                        על בסיס ההכנסה הפנויה מחושב יחס ההחזר המקסימלי למשכנתא.
+                    </div>
+                </article>
+
+                <article class="glos-item"
+                    data-search="הכנסות מוכרות תלוש שכר שומת מס עצמאים פנסיה קצבאות מזונות שכירות לא קבועות אבטלה">
+                    <button class="glos-card-head" type="button">
+                        <span class="glos-term">הכנסות מוכרות לחישוב הכנסה פנויה</span>
+                        <span class="glos-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="glos-card-body">
+                        הכנסות שהבנק מכיר בהן לצורך חישוב כושר ההחזר: משכורת קבועה מתלוש שכר, שומת מס (הכנסות מעסק
+                        לעצמאיים), פנסיה, קצבאות קבועות, מזונות והכנסה משכירות לבעלי יותר מדירה ועוד.<br />
+                        הבנק לא מתייחס אל הכנסות לא־קבועות כמו קצבאות זמניות, דמי אבטלה או הכנסות לא־מדווחות בחישוב
+                        הכנסה פנויה.
+                    </div>
+                </article>
+
+                <article class="glos-item"
+                    data-search="יחס החזר חודשי 40 אחוז 35 אחוז הכנסה פנויה 15000 6000 5250 תזרים">
+                    <button class="glos-card-head" type="button">
+                        <span class="glos-term">יחס החזר חודשי</span>
+                        <span class="glos-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="glos-card-body">
+                        היחס בין ההחזר החודשי עבור הלוואת המשכנתא לבין ההכנסה החודשית הפנויה. בעוד הרגולציה והבנקים
+                        מאפשרים עד 40%, לא מומלץ לעבור מעל 35% ברוב המקרים על מנת להקל על תזרים המזומנים.<br />
+                        כלומר באם הכנסה חודשית פנויה נאמדת ב15,000 ש&quot;ח אזי רגולטורית ניתן להחזיר עד 6,000 ש&quot;ח
+                        עבור המשכנתא כל חודש וכאמור על פי המלצה עד 5,250 ש&quot;ח.
+                    </div>
+                </article>
+
+                <article class="glos-item"
+                    data-search="ערב משלם ערב תומך קרוב משפחה מדרגה ראשונה 20 אחוז החזר מחצית הכנסה פנויה דרישה בנק">
+                    <button class="glos-card-head" type="button">
+                        <span class="glos-term">ערב משלם / ערב תומך</span>
+                        <span class="glos-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="glos-card-body">
+                        אדם קרוב משפחה מדרגה ראשונה ללווים אשר ישלם לפחות 20% מההחזר החודשי של ההלוואה כאשר אופן חישוב
+                        ההכנסה הפנויה של הערב המשלם הוא מחצית ההכנסה הפנויה שלו.<br />
+                        לרוב, הבנק ידרוש מהלווים ערב משלם באחד מהמקרים הבאים: כאשר ההחזר של הלווים בהלוואה אינו מספיק
+                        גבוה, היסטוריית האשראי של הלווה אינה מושלמת, היסטוריה תעסוקתית לא מספקת.
+                    </div>
+                </article>
+
+                <article class="glos-item" data-search="בנייה עצמית מגרש שירותי בנייה שמאי 75 אחוז מימון חריגות עלות">
+                    <button class="glos-card-head" type="button">
+                        <span class="glos-term">בנייה עצמית</span>
+                        <span class="glos-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="glos-card-body">
+                        ניתן לקבל עד 75% מימון לרכישת מגרש, לשירותי בנייה או לשניהם יחד לפי הערכת שמאי. יחד עם זאת,
+                        בפועל הבנקים מעדיפים לאשר אחוז מימון קצת יותר נמוך בשל החשש מחריגות בעלות הבנייה.
+                    </div>
+                </article>
+
+                <article class="glos-item"
+                    data-search="הלוואת זכאות מסלול מדינה משרד הבינוי והשיכון קצמ קבועה צמודה מדד 0.5 פחות 3 אחוז פעם ראשונה">
+                    <button class="glos-card-head" type="button">
+                        <span class="glos-term">הלוואת זכאות</span>
+                        <span class="glos-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="glos-card-body">
+                        מסלול מתוך תמהיל הלוואת משכנתא בתנאים מועדפים מטעם המדינה, הניתן לזכאים בהתאם לניקוד שנקבע על
+                        ידי
+                        משרד הבינוי והשיכון. מסלול ההלוואה משולב בדרך כלל יחד עם משכנתא בנקאית רגילה.<br />
+                        מסלול הזכאות הוא תמיד ריבית קבועה למדד (קצ&quot;מ), בתנאים עדיפים של -0.5% מהריבית הממוצעת
+                        למסלול לתקופה המבוקשת ולא יותר מ3% בשנה.<br />
+                        הלוואת זכאות ניתנת רק ללווי משכנתא בפעם הראשונה.
+                    </div>
+                </article>
+
+                <article class="glos-item"
+                    data-search="מענק מיקום מחיר למשתכן פריפריה עדיפות לאומית 40000 60000 קבלן הון עצמי">
+                    <button class="glos-card-head" type="button">
+                        <span class="glos-term">מענק מיקום לזכאי מחיר למשתכן</span>
+                        <span class="glos-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="glos-card-body">
+                        מענק חד־פעמי הניתן לזכאי מחיר למשתכן בהתאם ליישוב ולמרחק ממרכזי הביקוש כלומר בפריפריה ובאזורי
+                        עדיפות לאומית. המענקים בגובה 40,000/60,0000 ₪ ניתנים על ידי המדינה באמצעות כספי המשכנתא (דרך
+                        הבנק) ומועברים ישירות לקבלן.<br />
+                        המענק מופחת ישירות ממחיר הדירה או מהיקף המימון הנדרש כלומר המענק יכול לשמש כהשלמת הון עצמי עד
+                        לגובה של 40,000 ₪.
+                    </div>
+                </article>
+
+                <article class="glos-item"
+                    data-search="עמלת היוון קנס פירעון מוקדם מחזור משכנתא פער ריביות כדאיות גבוהה">
+                    <button class="glos-card-head" type="button">
+                        <span class="glos-term">עמלת היוון</span>
+                        <span class="glos-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="glos-card-body">
+                        עמלה אשר נועדה לפצות את הבנק בגין הפסדים שיגרמו לו כתוצאה מהפירעון המוקדם של ההלוואה במצב שבו
+                        הריביות בשוק נמוכות מהריבית שבה נלקחה ההלוואה ובכך לפצות את הבנק על אובדן הרווח העתידי. העמלה
+                        תשולם במחזורי משכנתא או בפירעון חלקי או מלא של ההלוואה.<br />
+                        כלל אצבע: ככל שעמלת ההיוון גבוהה יותר כך הכדאיות למחזור גבוהה יותר בשל פערי ריביות גבוהים יותר.
+                    </div>
+                </article>
+
+                <article class="glos-item" data-search="הלוואת גישור הלוואה קצרה השלמת עסקה לפני מכירה הון עצמי">
+                    <button class="glos-card-head" type="button">
+                        <span class="glos-term">הלוואת גישור</span>
+                        <span class="glos-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="glos-card-body">
+                        הלוואה קצרה המאפשרת ללקוח להשלים את העסקה החדשה לפני קבלת הכספים ממכירת הנכס הקיים. ההלוואה
+                        נפרעת בדרך כלל עם קבלת התמורה ממכירת הדירה. הלוואות אלה נועדו בעיקר להשלמת ההון העצמי הדרוש כדי
+                        לקחת הלוואת משכנתא ולא כהלוואות בפני עצמן.
+                    </div>
+                </article>
+
+                <article class="glos-item" data-search="תמהיל ההלוואה מסלולים ריביות תקופות שליש קבועה בנק ישראל יועץ">
+                    <button class="glos-card-head" type="button">
+                        <span class="glos-term">תמהיל ההלוואה</span>
+                        <span class="glos-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="glos-card-body">
+                        את הלוואת המשכנתא ניתן לקחת בכמה מסלולים שונים, בסוגי ריביות שונות ולתקופות שונות שלמעשה מעצבים
+                        ומרכיבים את תמהיל ההלוואה. לכל תמהיל הלוואה יש את הייחודיות שלו ועל כן החשיבות הרבה שלו כאשר
+                        מתאימים ויוצרים את התמהיל עבור הצרכים והתוכניות של הלווים.<br />
+                        כמו כן, על פי בנק ישראל, לפחות שליש מכל תמהיל הלוואה חייב להיות בריבית קבועה (צמודה או לא
+                        צמודה).
+                    </div>
+                </article>
+
+                <article class="glos-item"
+                    data-search="ריביות המשכנתא מחיר הכסף עוגן מרווח קבועות משתנות טיב לקוח טיב עסקה">
+                    <button class="glos-card-head" type="button">
+                        <span class="glos-term">ריביות המשכנתא</span>
+                        <span class="glos-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="glos-card-body">
+                        ריבית היא מחיר הכסף שאותו אנו לווים מן הבנק. סכום הריבית בכל הלוואה מתווספת לסכום המקורי (קרן
+                        ההלוואה).<br />
+                        כל ריבית מורכבת משני חלקים: עוגן (כמה הכסף עולה לבנק) אשר קבוע לאורך המסלול בהלוואה ומרווח
+                        (התוספת או ההפחתה על מחיר העוגן) המגלם את טיב הלקוח וטיב העסקה והוא יכול להיות חיובי
+                        ושלילי.<br />
+                        למעשה ריביות המשכנתא מתחלקות לשתי קבוצות: קבועות ומשתנות כאשר לכל סוג ריבית מאפיינים ייחודיים
+                        לה.
+                    </div>
+                </article>
+
+                <article class="glos-item"
+                    data-search="ריביות קבועות צמודה מדד לא צמודה יציבות תשלום יקר יותר תקופה שליש חובה">
+                    <button class="glos-card-head" type="button">
+                        <span class="glos-term">ריביות קבועות</span>
+                        <span class="glos-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="glos-card-body">
+                        מסלולים שבהם הריבית נשארת קבועה (צמודה למדד המחירים לצרכן או לא־צמודה) לאורך כל התקופה. ככלל,
+                        ריבית קבועה מספקת יציבות בתשלום החודשי אך לעיתים יקרים יותר בתחילת ההלוואה כאשר המשתנה העיקרי
+                        ביותר על גובה ריבית זו הוא תקופת ההלוואה. כמו כן, בריביות קבועות לא ניתן להינות מהורדת הריבית
+                        בשונה מריביות משתנות.<br />
+                        כאמור, על פי הרגולציה, לפחות שליש מהלוואה חייבת להיות ריבית קבועה.
+                    </div>
+                </article>
+
+                <article class="glos-item"
+                    data-search="ריביות משתנות לא קבועה משתנה כל תקופה עוגן פריים מקמ יורבור שני שליש">
                     <button class="glos-card-head" type="button">
                         <span class="glos-term">ריביות משתנות</span>
                         <span class="glos-icon" aria-hidden="true"></span>
                     </button>
                     <div class="glos-card-body">
-                        מסלולי משכנתא שבהם הריבית מתעדכנת כל תקופה (למשל כל 5 שנים) לפי עוגן מסוים – מדד, ריבית בנק
-                        ישראל, אג"ח וכדומה. ההחזר החודשי יכול לעלות או לרדת בהתאם לשינויים בשוק.
+                        כל הריביות שלא הוגדרו כריבית קבועה. המשמעות היא שאחת לתקופה, המוגדרת מראש בתנאי ההלוואה, יכולה
+                        הריבית להשתנות (לעלות או לרדת). השינוי בריבית נקבע על פי סוג העוגן של הריבית, והוא יקבע את
+                        השינוי בנקודת הזמן. יש לזכור כי שני שליש מהרכב ההלוואה יכול להיות ריבית משתנה.<br />
+                        סוגים של ריביות משתנות הם: ריבית הפריים, משתנה כל X חודשים, מק&quot;מ, יורבור ועוד. לרוב, ככל
+                        שתקופת השינוי ארוכה יותר, כך הריבית תהיה גבוהה יותר.
                     </div>
                 </article>
 
-                <!-- ריבית בנק ישראל -->
-                <article class="glos-item" data-search="ריבית בנק ישראל ריבית בסיסית למשק משפיעה על משכנתאות">
+                <article class="glos-item"
+                    data-search="ריביות צמודות מדד קרן צמודה מדד מחירים לצרכן עלייה ירידה יתרת קרן יקר לאורך זמן">
+                    <button class="glos-card-head" type="button">
+                        <span class="glos-term">ריביות צמודות מדד</span>
+                        <span class="glos-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="glos-card-body">
+                        ריביות הנקבעות בתנאי ההלוואה שסוכמו עם הבנק בלקיחת ההלוואה כאשר קרן ההלוואה (סכום הכסף שלווינו
+                        מהבנק) צמודה למדד המחירים לצרכן.<br />
+                        ריביות אלה גורמות לשינויים תכופים בקרן ההלוואה כאשר המדד עולה יתרת קרן ההלוואה עולה וכאשר המדד
+                        יורד, יתרת קרן ההלוואה קטנה. יש לשים לב, כי לאורך זמן המדד מתמיד לעלות, אזי קרן הלוואה תעלה גם
+                        בהתאם. כתוצאה מכך, נוצרים מצבים בהם הקרן גבוה מהסכום המקורי או שהקרן פחתה מעט בלבד גם לאחר מספר
+                        שנים של תשלום המשכנתא.<br />
+                        בהשוואה לריביות לא צמודות, הריביות הצמודות נוטות להיות נמוכות יותר אך עם משך הזמן הן הופכות
+                        ליקרות יותר בשל ההצמדה למדד.
+                    </div>
+                </article>
+
+                <article class="glos-item"
+                    data-search="מדד המחירים לצרכן למס 15 לחודש אינפלציה דיפלציה 1700 מוצרים חישוב קרן לוח סילוקין">
+                    <button class="glos-card-head" type="button">
+                        <span class="glos-term">מדד המחירים לצרכן</span>
+                        <span class="glos-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="glos-card-body">
+                        זהו כלי פיננסי סטטיסטי המייצג את גובה האינפלציה/דיפלציה במשק. המדד מתפרסם בכל 15 לחודש על ידי
+                        הלמ&quot;ס ומבטא את עליות או ירידות המחירים של חודש הקודם על ידי הכללת 1700 מוצרים ושירותים. סך
+                        המדדים השנתיים מייצג את קצב האינפלציה השנתית.<br />
+                        כאשר מצמידים מסלול הלוואה למדד המחירים לצרכן, אין השפעה על הריבית במסלול ההלוואה, אלא ישירות על
+                        קרן ההלוואה שכאשר המדד עולה גם יתרת הקרן עולה וההפך. מסלולים צמודי מדד, חשופים לשינויים על בסיס
+                        חודשי, וכל שינוי במדד מוביל לחישוב מחדש של יתרת ההלוואה ולוח הסילוקין.
+                    </div>
+                </article>
+
+                <article class="glos-item"
+                    data-search="ריביות לא צמודות מדד קרן לא צמודה חסינות אינפלציה קבועה לא צמודה פריים משתנה לא צמודה">
+                    <button class="glos-card-head" type="button">
+                        <span class="glos-term">ריביות לא צמודות מדד</span>
+                        <span class="glos-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="glos-card-body">
+                        אלה מסלולי הלוואה (ריביות) שבהם ה&quot;קרן&quot; (סכום ההלוואה) לא צמודה למדד המחירים לצרכן ובכך
+                        קרן ההלוואה לא מושפעת משינויי האינפלציה במשק ובכך הן נוטות להיות זולות יותר בהלוואות ארוכות טווח
+                        מאשר ריביות צמודות מדד בשל אותה חסינות מהאינפלציה שמגדילה ב&quot;צמודות-מדד&quot; את קרן החוב
+                        למרות שהן בתמחור גבוה יותר.<br />
+                        כמו כן, ריביות לא צמודות יכולות להיות ריבית קבועה כמו &quot;ריבית קבועה לא צמודה&quot; או ריבית
+                        משתנה כמו &quot;פריים&quot;, &quot;משתנה לא צמודה כל X חודשים&quot; שלהן עוגני ריביות שונים כמו
+                        ריבית בנק ישראל ואג&quot;ח.
+                    </div>
+                </article>
+
+                <article class="glos-item"
+                    data-search="ריבית בנק ישראל מתעדכנת 8 פעמים בשנה אינפלציה שוק אשראי הלוואות חיסכון בסיס לפריים">
                     <button class="glos-card-head" type="button">
                         <span class="glos-term">ריבית בנק ישראל</span>
                         <span class="glos-icon" aria-hidden="true"></span>
                     </button>
                     <div class="glos-card-body">
-                        הריבית שקובע בנק ישראל אחת לחודש, בהתאם למצב האינפלציה והמשק. משמשת בסיס לחישוב ריבית הפריים
-                        ומשפיעה על ריביות המשכנתא במשק כולו.
+                        ריבית הנקבעת על ידי בנק ישראל בהתאם למצב האינפלציה והמשק.<br />
+                        ריבית בנק ישראל מתעדכנת 8 פעמים במהלך השנה ומשליכה על שוק האשראי, ההלוואה והחיסכון.<br />
+                        כמו כן, ריבית בנק ישראל משמשת בסיס לחישוב ריבית הפריים הנפוצה בהלוואות בכלל ובמשכנתאות בפרט וכן
+                        משפיעה על ריביות במשק כולו.
                     </div>
                 </article>
 
-                <!-- תושבי חוץ -->
-                <article class="glos-item" data-search="תושבי חוץ לקוחות שאינם תושבי ישראל משכנתא לתושב חוץ">
+                <article class="glos-item" data-search="ריבית הפריים ריבית בנק ישראל פלוס 1.5 משתנה 8 פעמים בשנה">
+                    <button class="glos-card-head" type="button">
+                        <span class="glos-term">ריבית הפריים</span>
+                        <span class="glos-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="glos-card-body">
+                        ריבית פריים מבוססת על ריבית בנק ישראל. הריבית על הלוואה הזו משתנה ביחס ישיר ועם כל שינוי בריבית
+                        בנק ישראל. ריבית הפריים מורכבת מריבית בנק ישראל + תוספת בנקאית של 1.5% ויכולה להשתנות 8 פעמים
+                        בשנה ועל פי החלטת בנק ישראל לגבי גובה הריבית במשק.
+                    </div>
+                </article>
+
+                <article class="glos-item" data-search="לוחות סילוקין שפיצר קרן שווה גרייס חלקי בלון החזר חודשי">
+                    <button class="glos-card-head" type="button">
+                        <span class="glos-term">לוחות סילוקין</span>
+                        <span class="glos-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="glos-card-body">
+                        צורת פריסת החזר ההלוואה לאורך זמן. הנפוצים הם:
+                        <br />• לוח שפיצר – תשלום חודשי כולל קבוע, כאשר חלק הקרן גדל וחלק הריבית קטן לאורך השנים.
+                        האופציה
+                        הטובה והזולה ביותר לטווח הארוך ולפיכך רוב ההלוואות בכלל הן בלוח זה.
+                        <br />• קרן שווה – החזר קבוע של קרן ההלוואה בכל חודש, כך שהתשלום הכולל גבוה יותר בהתחלה ויורד
+                        בהמשך. מתאים בעיקר להלוואות קצרות ולמשקיעי נדל&quot;ן.
+                        <br />• גרייס חלקי - משלמים רק את הריבית בתקופת הגרייס, ובסוף התקופה קרן ההלוואה משולמת בלוח
+                        סילוקין מסוג שפיצר, ובכך ניתן להקל על תזרים המזומנים. הלוואה זו מתאימה כאשר קונים דירה מקבלן
+                        ולבינתיים משלמים שכר דירה עד שהבניין מוכן או שיש הוצאות אחרות גבוהות בתחילת ההלוואה.
+                        <br />• בלון – דחיית חלק מהקרן לסוף התקופה, לעיתים בשילוב עם מסלול אחר.
+                    </div>
+                </article>
+
+                <article class="glos-item"
+                    data-search="מס שבח מס על רווח הון מכירת דירה 18 חודשים דירה ראשונה יחידה שיפור דיור">
+                    <button class="glos-card-head" type="button">
+                        <span class="glos-term">מס שבח</span>
+                        <span class="glos-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="glos-card-body">
+                        מס המוטל על רווח ההון שנוצר בעת מכירת נכס מקרקעין (השבח). מס שבח הוא מס שאינו משולם במקרה של
+                        שיפור דיור או דירה ראשונה/יחידה במקרה של בעלות על הדירה מעל ל-18 חודשים.
+                    </div>
+                </article>
+
+                <article class="glos-item"
+                    data-search="קריטריונים לקבלת משכנתא אחוז מימון הון עצמי תקופה הכנסה פנויה יחס החזר התנהלות פיננסית שמאות ביטוחים 30 שנים גיל 75">
+                    <button class="glos-card-head" type="button">
+                        <span class="glos-term">קריטריונים לקבלת משכנתא</span>
+                        <span class="glos-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="glos-card-body">
+                        ישנם מספר קריטריונים לקבלת משכנתא כמו אחוז המימון בהלוואה, הון עצמי, תקופת ההלוואה, הכנסה פנויה
+                        ויחס החזר מקסימלי, התנהלות פיננסית תקינה בהווה ובעבר, תקינות הנכס ברמה המשפטית והתכנונית וביטוחי
+                        חיים ומבנה.<br />
+                        כמו כן, תקופת ההלוואה של הלוואת משכנתא לא תעלה על 30 שנים או עד גיל 75 של הלווים (כיום יש החרגה
+                        ענפה לגילאים מתקדמים יותר בשל העלייה בתוחלת החיים).
+                    </div>
+                </article>
+
+                <article class="glos-item" data-search="תושבי חוץ לא תושבי ישראל מס אחוז מימון עד 50 מסמכים מחמירים">
                     <button class="glos-card-head" type="button">
                         <span class="glos-term">תושבי חוץ</span>
                         <span class="glos-icon" aria-hidden="true"></span>
@@ -707,20 +811,20 @@
                     </div>
                 </article>
 
-                <!-- בעלות בירושה -->
-                <article class="glos-item" data-search="בעלות על נכס בירושה ירושה דירה הורשה 50 אחוז בעלות מימון 75">
+                <article class="glos-item"
+                    data-search="בעלות על נכס על ידי ירושה עד 50 אחוז לא נחשב בעלות דירה מימון 75">
                     <button class="glos-card-head" type="button">
                         <span class="glos-term">בעלות על נכס על ידי ירושה</span>
                         <span class="glos-icon" aria-hidden="true"></span>
                     </button>
                     <div class="glos-card-body">
                         כאשר מדובר בדירה שעברה בירושה, עד 50% בעלות בדירה כזו לא תחשב בעלות על דירה לצרכי מימון ומכאן
-                        יכולל היורש לקבל מימון מקסימלי(75%) ברכישת דירה
+                        יכולל היורש לקבל מימון מקסימלי(75%) ברכישת דירה.
                     </div>
                 </article>
 
-                <!-- עסקה בתוך המשפחה -->
-                <article class="glos-item" data-search="עסקה בתוך המשפחה מכירה בין קרובים שמאות שווי שוק אמיתי">
+                <article class="glos-item"
+                    data-search="עסקה בתוך המשפחה מכירה בין קרובים שמאות שווי שוק אמיתי עסקה פיקטיבית שכירות אישור זכויות">
                     <button class="glos-card-head" type="button">
                         <span class="glos-term">עסקה בתוך המשפחה</span>
                         <span class="glos-icon" aria-hidden="true"></span>
@@ -733,44 +837,55 @@
                     </div>
                 </article>
 
-                <!-- מס שבח -->
-                <article class="glos-item" data-search="מס שבח מס על רווח הון ממכירת דירה רווח ממומש">
+                <article class="glos-item"
+                    data-search="רכישה בעקבות גירושין דירת מגורים יחידה 75 אחוז מימון דוגמה 2.75 מיליון 1.25 מיליון 1450000">
                     <button class="glos-card-head" type="button">
-                        <span class="glos-term">מס שבח</span>
+                        <span class="glos-term">רכישה בעקבות גירושין</span>
                         <span class="glos-icon" aria-hidden="true"></span>
                     </button>
                     <div class="glos-card-body">
-                        מס המוטל על רווח ההון שנוצר בעת מכירת נכס מקרקעין (השבח). מס שבח הוא מס שאינו משולם במקרה של
-                        שיפור דיור או דירה ראשונה במקרה של בעלות על הדירה מעל ל-18 חודשים.
+                        בהנחה שלאחד הצדדים הרוכש את הבית אין דירה נוספת, זה נחשב לרכישת דירת מגורים יחידה ובכך אחוז
+                        המימון יעמוד על 75% משווי הבית בניכוי יתרת משכנתא קיימת.<br />
+                        לדוגמא, אחד הצדדים רוכש מהצד השני את הבית שבו הם גרו בשווי 2.75 מיליון ש&quot;ח ועל הבית יש
+                        משכנתא בסך 1.25 מיליון ש&quot;ח, אזי המשכנתא המרבית לה הרוכש יהיה זכאי למימון על סך 1,450,000.
                     </div>
                 </article>
 
-                <!-- שמאות -->
-                <article class="glos-item" data-search="שמאות הערכת שווי נכס שמאי מקרקעין דוח שמאות">
+                <article class="glos-item"
+                    data-search="שמאות שמאי מקרקעין בנק תקינות תכנונית שווי שוק ערך כינון חוזה רכישה הערכה נמוכה יותר">
                     <button class="glos-card-head" type="button">
                         <span class="glos-term">שמאות</span>
                         <span class="glos-icon" aria-hidden="true"></span>
                     </button>
                     <div class="glos-card-body">
-                        חוות דעת מקצועית של שמאי מקרקעין מוסמך, הקובעת את שווי השוק של הנכס. הבנק מסתמך על השמאות לצורך
-                        קביעת אחוז המימון המקסימלי.
+                        בכל רכישת דירה (למעט רכישה מקבלן ומחיר למשתכן) הבנק יבקש הערכת שמאי מקרקעין שמוכר על ידי הבנק.
+                        השמאי בוחן עבור הבנק שלושה פרמטרים – תקינות התכנונית של הנכס, שווי השוק של הנכס (נטו לאחר
+                        הפחתות באם קיימות) וערך הכינון של הנכס (לצורך ביטוח המבנה).<br />
+                        למעשה, הבנק קובע את גובה הלוואת המשכנתא לפי השווי הנמוך ביותר מבין שווי על פי חוזי רכישה או שווי
+                        על פי שמאות.<br />
+                        כלומר, הבנק מסתמך על השמאות לצורך קביעת ערך הנכס ובכל מקרה לא יהיה ניתן לגייס סכום גבוה מהערכת
+                        השמאי לטובת הלוואת המשכנתא.
                     </div>
                 </article>
 
-                <!-- ביטוחים -->
-                <article class="glos-item" data-search="ביטוחים ביטוח חיים ביטוח מבנה משכנתא חובה לבנק">
+                <article class="glos-item"
+                    data-search="ביטוחים ביטוח חיים ביטוח מבנה חובה סכום ביטוח חיים גובה משכנתא ערך כינון פיצוץ צנרת">
                     <button class="glos-card-head" type="button">
-                        <span class="glos-term">ביטוחים במשכנתא</span>
+                        <span class="glos-term">ביטוחים</span>
                         <span class="glos-icon" aria-hidden="true"></span>
                     </button>
                     <div class="glos-card-body">
-                        בדרך כלל נדרשים שני סוגי ביטוח: ביטוח מבנה (מגן על הנכס מפני נזק) וביטוח חיים ללווה/לווים (מבטיח
-                        את סילוק ההלוואה במקרה פטירה). הביטוחים משועבדים לטובת הבנק.
+                        הלוואת משכנתא מחייבת בביטוח חיים וביטוח מבנה – סכום ביטוח החיים שווה לגובה הלוואת המשכנתא, וגובה
+                        הביטוח המבנה הוא ערך הכינון שקובע השמאי.<br />
+                        בעוד ביטוח החיים בהלוואת המשכנתא נועד להבטיח את פירעון המשכנתא על ידי חברת הביטוח במקרה של
+                        פטירת אחד הלווים, ביטוח מבנה נועד להבטיח כי במקרה של נזק למבנה יהיה כיסוי ביטוחי לתיקון הנזק על
+                        מנת לשמור על שווי הבטוחה של הבנק. ביטוח המבנה מבטח גם את בעל הנכס בכל מקרה של נזק למבנה (כמו
+                        פיצוץ בצנרת).
                     </div>
                 </article>
 
-                <!-- שמאות מוקדמת -->
-                <article class="glos-item" data-search="שמאות מוקדמת לפני רכישה בדיקת כדאיות תכנון עסקה">
+                <article class="glos-item"
+                    data-search="שמאות מוקדמת לפני חתימה חוזה בדיקת שווי מגבלות תכנוניות משפטיות">
                     <button class="glos-card-head" type="button">
                         <span class="glos-term">שמאות מוקדמת</span>
                         <span class="glos-icon" aria-hidden="true"></span>
@@ -781,47 +896,10 @@
                     </div>
                 </article>
 
-                <!-- לוחות סילוקין -->
-                <article class="glos-item" data-search="לוחות סילוקין שפיצר קרן שווה בלון תשלום חודשי">
-                    <button class="glos-card-head" type="button">
-                        <span class="glos-term">לוחות סילוקין</span>
-                        <span class="glos-icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="glos-card-body">
-                        צורת פריסת החזר ההלוואה לאורך זמן. הנפוצים הם:
-                        <br />• לוח שפיצר – תשלום חודשי כולל קבוע, כאשר חלק הקרן גדל וחלק הריבית קטן לאורך השנים.
-                        <br />• קרן שווה – החזר קבוע של קרן ההלוואה בכל חודש, כך שהתשלום הכולל גבוה יותר בהתחלה ויורד
-                        בהמשך.
-                        <br />• בלון – דחיית חלק מהקרן לסוף התקופה, לעיתים בשילוב עם מסלול אחר.
-                    </div>
-                </article>
-
-                <article class="glos-item" data-search="רכישה בעקבות גירושין">
-                    <button class="glos-card-head" type="button">
-                        <span class="glos-term"> רכישה בעקבות גירושין</span>
-                        <span class="glos-icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="glos-card-body">
-                        בהנחה שלאחד הצדדים הרוכש את הבית אין דירה נוספת, זה נחשב לרכישת דירת מגורים יחידה ובכך אחוז
-                        המימון יעמוד על 75% משווי הבית בניכוי יתרת משכנתא קיימת.
-                    </div>
-                </article>
-
-                <article class="glos-item" data-search="הלוואת משכנתא נוספת">
-                    <button class="glos-card-head" type="button">
-                        <span class="glos-term"> הלוואת משכנתא נוספת</span>
-                        <span class="glos-icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="glos-card-body">
-                        כאשר לווה מעוניין לקחת הלוואת משכנתא נוספת כמו הלוואה לצורך שיפוץ, יחס ההחזר של הלווה לא יעלה על
-                        40% בשתי הלוואות יחד.
-                    </div>
-                </article>
             </div>
         </div>
     </section>
 
-    <!-- ===== FOOTER ===== -->
     <footer class="site-footer">
         <div class="footer-inner">
             <div class="footer-brand">
@@ -848,8 +926,8 @@
                     <li><span class="label">מייל:</span> <a style="text-decoration: none; color: inherit;"
                             href="mailto:mashcantal@outlook.co.il">mashcantal@outlook.co.il</a></li>
                     <li><span class="label">טלפון:</span> <a style="text-decoration: none; color: inherit;"
-                            href="tel:0552705176">055-9971294</a></span></li>
-                    <li><span class="label">שעות פעילות:</span> א'–ה' 9:00–18:00</span></li>
+                            href="tel:0552705176">055-9971294</a></li>
+                    <li><span class="label">שעות פעילות:</span> א'–ה' 9:00–18:00</li>
                 </ul>
             </div>
         </div>
@@ -871,18 +949,15 @@
             const items = document.querySelectorAll("#glossary .glos-item");
             const searchInput = document.getElementById("glos-search");
 
-            // פתיחה/סגירה של ריבוע
             items.forEach((item) => {
                 const head = item.querySelector(".glos-card-head");
                 head.addEventListener("click", () => {
                     const isOpen = item.classList.contains("open");
-                    // אם אתה רוצה לאפשר כמה פתוחים יחד – מחק את הלולאה הבאה
                     items.forEach((i) => i.classList.remove("open"));
                     if (!isOpen) item.classList.add("open");
                 });
             });
 
-            // חיפוש
             if (searchInput) {
                 searchInput.addEventListener("input", () => {
                     const q = searchInput.value.trim().toLowerCase();
@@ -894,11 +969,13 @@
                     });
                 });
             }
+
+            const yearEl = document.getElementById("year");
+            if (yearEl) yearEl.textContent = new Date().getFullYear();
         });
     </script>
 
     <script>
-        // המבורגר במובייל
         const navToggle = document.getElementById("navToggle");
         const navLinks = document.getElementById("navLinks");
 
@@ -907,7 +984,6 @@
             navLinks.classList.toggle("open");
         });
 
-        // סגירת תפריט אחרי לחיצה על לינק במובייל
         navLinks.querySelectorAll("a").forEach((link) => {
             link.addEventListener("click", () => {
                 if (window.innerWidth <= 768) {
@@ -916,8 +992,6 @@
                 }
             });
         });
-
-
     </script>
 </body>
 
