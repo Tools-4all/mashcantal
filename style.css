@@ -100,6 +100,7 @@
   }
 
   .navbar_logo {
+      margin-top: 10px;
       height: 64px;
       width: auto;
   }
@@ -344,7 +345,6 @@
       }
 
       .navbar_logo {
-          margin-top: 10px;
           margin-left: -10px;
       }
 
