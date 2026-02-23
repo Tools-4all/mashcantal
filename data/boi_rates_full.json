@@ -2,10 +2,10 @@
     "current": {
         "boiRate": 4.00,
         "primeSpread": 1.5,
-        "updatedAt": "2026-01-05"
+        "updatedAt": "2026-02-23"
     },
     "history": {
-        "updatedAt": "2026-01-05",
+        "updatedAt": "2026-02-23",
         "points": [
             {
                 "date": "2022-11-21",
@@ -37,6 +37,10 @@
             },
             {
                 "date": "2026-01-05",
+                "rate": 4.00
+            },
+            {
+                "date": "2026-02-23",
                 "rate": 4.00
             }
         ]

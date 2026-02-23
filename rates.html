@@ -473,10 +473,10 @@
         (function () {
             const STATIC_DATA = {
                 rates: {
-                    updatedAt: "2026-01-05",
+                    updatedAt: "2026-02-23",
                     boiRate: 4.00,
                     primeRate: 5.50,
-                    historyUpdatedAt: "2026-01-05",
+                    historyUpdatedAt: "2026-02-23",
                     history: [
                         { date: "2022-11-21", rate: 3.25 },
                         { date: "2023-01-02", rate: 3.75 },
@@ -485,7 +485,8 @@
                         { date: "2023-05-22", rate: 4.75 },
                         { date: "2024-01-01", rate: 4.50 },
                         { date: "2025-11-24", rate: 4.25 },
-                        { date: "2026-01-05", rate: 4.00 }
+                        { date: "2026-01-05", rate: 4.00 },
+                        { date: "2026-02-23", rate: 4.00 }
                     ]
                 },
                 construction: {
@@ -621,27 +622,6 @@
 
             document.addEventListener("DOMContentLoaded", bootStatic);
         })();
-    </script>
-
-    <script>
-        const navToggle = document.getElementById("navToggle");
-        const navLinks = document.getElementById("navLinks");
-
-        if (navToggle && navLinks) {
-            navToggle.addEventListener("click", () => {
-                navToggle.classList.toggle("open");
-                navLinks.classList.toggle("open");
-            });
-
-            navLinks.querySelectorAll("a").forEach((link) => {
-                link.addEventListener("click", () => {
-                    if (window.innerWidth <= 768) {
-                        navToggle.classList.remove("open");
-                        navLinks.classList.remove("open");
-                    }
-                });
-            });
-        }
     </script>
 
     <script src="nav.js"></script>
