@@ -468,74 +468,34 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
-
     <script>
         (function () {
-            const STATIC_DATA = {
-                rates: {
-                    updatedAt: "2026-02-23",
-                    boiRate: 4.00,
-                    primeRate: 5.50,
-                    historyUpdatedAt: "2026-02-23",
-                    history: [
-                        { date: "2022-11-21", rate: 3.25 },
-                        { date: "2023-01-02", rate: 3.75 },
-                        { date: "2023-02-20", rate: 4.25 },
-                        { date: "2023-04-03", rate: 4.50 },
-                        { date: "2023-05-22", rate: 4.75 },
-                        { date: "2024-01-01", rate: 4.50 },
-                        { date: "2025-11-24", rate: 4.25 },
-                        { date: "2026-01-05", rate: 4.00 },
-                        { date: "2026-02-23", rate: 4.00 }
-                    ]
-                },
-                construction: {
-                    lastMonth: 2.60,
-                    last12: 5.30,
-                    avg5y: 0.04,
-                    // נתוני גרף (ויזואלי). אם תרצה דיוק מלא לפי למ"ס – נחליף את המערך הזה.
-                    labels: ["03.2025", "04.2025", "05.2025", "06.2025", "07.2025", "08.2025", "09.2025", "10.2025", "11.2025", "12.2025"],
-                    monthlySeries: [0.10, -0.10, 0.20, 0.10, 0.00, 0.10, 0.20, 0.10, 0.20, 2.60]
-                },
-                cpi: {
-                    lastMonth: 0.60,
-                    last12: 3.80,
-                    avg5y: -0.33,
-                    // נתוני גרף (ויזואלי). אם תרצה דיוק מלא לפי למ"ס – נחליף את המערך הזה.
-                    labels: ["03.2025", "04.2025", "05.2025", "06.2025", "07.2025", "08.2025", "09.2025", "10.2025", "11.2025", "12.2025"],
-                    monthlySeries: [0.20, 0.10, -0.10, 0.80, 0.60, 0.30, -0.10, 0.20, 0.10, 0.60]
-                }
-            };
 
-            function formatILDateFromISO(iso) {
-                try {
-                    const d = new Date(String(iso));
-                    if (Number.isNaN(d.getTime())) return String(iso || "—");
-                    const dd = String(d.getDate()).padStart(2, "0");
-                    const mm = String(d.getMonth() + 1).padStart(2, "0");
-                    const yy = d.getFullYear();
-                    return dd + "." + mm + "." + yy;
-                } catch {
-                    return String(iso || "—");
-                }
-            }
-
-            function setText(id, text) {
+            function setText(id, value) {
                 const el = document.getElementById(id);
-                if (el) el.textContent = text;
+                if (el) el.textContent = value;
             }
 
-            function createLineChart(ctx, labels, data, strokeColor, asPercent) {
-                return new Chart(ctx, {
+            function formatILDate(iso) {
+                const d = new Date(iso);
+                if (isNaN(d)) return "—";
+                return `${String(d.getDate()).padStart(2, "0")}.${String(d.getMonth() + 1).padStart(2, "0")}.${d.getFullYear()}`;
+            }
+
+            function createLineChart(canvasId, labels, data, color) {
+                const canvas = document.getElementById(canvasId);
+                if (!canvas) return;
+
+                new Chart(canvas, {
                     type: "line",
                     data: {
                         labels,
                         datasets: [{
                             data,
-                            borderColor: strokeColor,
-                            backgroundColor: "rgba(255,255,255,0.03)",
-                            tension: 0.25,
+                            borderColor: color,
+                            backgroundColor: "rgba(255,255,255,0.04)",
                             borderWidth: 2,
+                            tension: 0.25,
                             pointRadius: 0,
                             fill: true
                         }]
@@ -543,84 +503,91 @@
                     options: {
                         responsive: true,
                         maintainAspectRatio: false,
-                        plugins: {
-                            legend: { display: false },
-                            tooltip: {
-                                callbacks: {
-                                    label: (c) => {
-                                        const y = c.parsed.y;
-                                        if (y == null || Number.isNaN(y)) return "";
-                                        return asPercent ? y.toFixed(2) + "%" : String(y);
-                                    }
-                                }
-                            }
-                        },
+                        plugins: { legend: { display: false } },
                         scales: {
-                            x: {
-                                grid: { display: false },
-                                ticks: {
-                                    color: "rgba(255,255,255,0.6)",
-                                    maxRotation: 0,
-                                    autoSkip: true
-                                }
-                            },
+                            x: { grid: { display: false } },
                             y: {
-                                grid: { color: "rgba(148, 163, 184, 0.25)" },
-                                ticks: {
-                                    color: "rgba(255,255,255,0.6)",
-                                    callback: (v) => asPercent ? (v + "%") : String(v)
-                                }
+                                ticks: { callback: v => v + "%" }
                             }
                         }
                     }
                 });
             }
 
-            function bootStatic() {
-                const yEl = document.getElementById("year");
-                if (yEl) yEl.textContent = String(new Date().getFullYear());
+            async function boot() {
+                try {
+                    const [ratesRes, indicesRes] = await Promise.all([
+                        fetch("data/boi_rates_full.json?v=" + Date.now()),
+                        fetch("data/indices.json?v=" + Date.now())
+                    ]);
 
-                // Rates
-                setText("boiRate", STATIC_DATA.rates.boiRate.toFixed(2) + "%");
-                setText("primeRate", STATIC_DATA.rates.primeRate.toFixed(2) + "%");
-                setText("ratesUpdatedAt", formatILDateFromISO(STATIC_DATA.rates.updatedAt));
-                setText("boiRateHistoryUpdatedAt", formatILDateFromISO(STATIC_DATA.rates.historyUpdatedAt));
+                    if (!ratesRes.ok || !indicesRes.ok) {
+                        throw new Error("Failed loading JSON files");
+                    }
 
-                const lastBoi = STATIC_DATA.rates.history.length
-                    ? STATIC_DATA.rates.history[STATIC_DATA.rates.history.length - 1].rate
-                    : null;
-                setText("boiRateLastValue", lastBoi != null ? Number(lastBoi).toFixed(2) : "—");
+                    const ratesJson = await ratesRes.json();
+                    const indicesJson = await indicesRes.json();
 
-                const boiLabels = STATIC_DATA.rates.history.map(p => String(p.date));
-                const boiData = STATIC_DATA.rates.history.map(p => Number(p.rate));
+                    /* FOOTER */
+                    setText("year", new Date().getFullYear());
 
-                const boiCanvas = document.getElementById("boiRateChart");
-                if (boiCanvas) {
-                    createLineChart(boiCanvas.getContext("2d"), boiLabels, boiData, "#bbf7d0", true);
-                }
+                    /* ========= RATES ========= */
+                    const current = ratesJson.current;
+                    const history = ratesJson.history;
 
-                // Construction
-                setText("constructionLastMonth", STATIC_DATA.construction.lastMonth.toFixed(2));
-                setText("constructionLast12", STATIC_DATA.construction.last12.toFixed(2));
-                setText("construction5yAvg", STATIC_DATA.construction.avg5y.toFixed(2));
+                    const boiRate = current.boiRate;
+                    const primeRate = boiRate + current.primeSpread;
 
-                const consCanvas = document.getElementById("constructionChart");
-                if (consCanvas) {
-                    createLineChart(consCanvas.getContext("2d"), STATIC_DATA.construction.labels, STATIC_DATA.construction.monthlySeries, "#f97316", true);
-                }
+                    setText("boiRate", boiRate.toFixed(2) + "%");
+                    setText("primeRate", primeRate.toFixed(2) + "%");
+                    setText("ratesUpdatedAt", formatILDate(current.updatedAt));
+                    setText("boiRateHistoryUpdatedAt", formatILDate(history.updatedAt));
 
-                // CPI
-                setText("cpiLastMonth", STATIC_DATA.cpi.lastMonth.toFixed(2));
-                setText("cpiLast12", STATIC_DATA.cpi.last12.toFixed(2));
-                setText("cpi5yAvg", STATIC_DATA.cpi.avg5y.toFixed(2));
+                    const lastPoint = history.points.at(-1);
+                    setText("boiRateLastValue", lastPoint ? lastPoint.rate.toFixed(2) : "—");
 
-                const cpiCanvas = document.getElementById("cpiChart");
-                if (cpiCanvas) {
-                    createLineChart(cpiCanvas.getContext("2d"), STATIC_DATA.cpi.labels, STATIC_DATA.cpi.monthlySeries, "#38bdf8", true);
+                    createLineChart(
+                        "boiRateChart",
+                        history.points.map(p => p.date),
+                        history.points.map(p => p.rate),
+                        "#bbf7d0"
+                    );
+
+                    /* ========= CONSTRUCTION ========= */
+                    const cons = indicesJson.construction;
+
+                    setText("constructionLastMonth", cons.lastMonth.toFixed(2));
+                    setText("constructionLast12", cons.last12Months.toFixed(2));
+                    setText("construction5yAvg", cons.avg5Years.toFixed(2));
+
+                    createLineChart(
+                        "constructionChart",
+                        cons.monthly.map(m => m.month),
+                        cons.monthly.map(m => m.change),
+                        "#f97316"
+                    );
+
+                    /* ========= CPI ========= */
+                    const cpi = indicesJson.cpi;
+
+                    setText("cpiLastMonth", cpi.lastMonth.toFixed(2));
+                    setText("cpiLast12", cpi.last12Months.toFixed(2));
+                    setText("cpi5yAvg", cpi.avg5Years.toFixed(2));
+
+                    createLineChart(
+                        "cpiChart",
+                        cpi.monthly.map(m => m.month),
+                        cpi.monthly.map(m => m.change),
+                        "#38bdf8"
+                    );
+
+                } catch (err) {
+                    console.error("Failed loading financial data:", err);
                 }
             }
 
-            document.addEventListener("DOMContentLoaded", bootStatic);
+            document.addEventListener("DOMContentLoaded", boot);
+
         })();
     </script>
 

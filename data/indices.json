@@ -1,0 +1,105 @@
+{
+    "updatedAt": "2026-02-23",
+    "construction": {
+        "lastMonth": 0.10,
+        "last12Months": 2.50,
+        "avg5Years": 3.50,
+        "monthly": [
+            {
+                "month": "03.2025",
+                "change": 0.1
+            },
+            {
+                "month": "04.2025",
+                "change": -0.1
+            },
+            {
+                "month": "05.2025",
+                "change": 0.2
+            },
+            {
+                "month": "06.2025",
+                "change": 0.1
+            },
+            {
+                "month": "07.2025",
+                "change": 0.0
+            },
+            {
+                "month": "08.2025",
+                "change": 0.1
+            },
+            {
+                "month": "09.2025",
+                "change": 0.2
+            },
+            {
+                "month": "10.2025",
+                "change": 0.1
+            },
+            {
+                "month": "11.2025",
+                "change": 0.2
+            },
+            {
+                "month": "12.2025",
+                "change": 0.1
+            },
+            {
+                "month": "01.2026",
+                "change": 0.1
+            }
+        ]
+    },
+    "cpi": {
+        "lastMonth": -0.30,
+        "last12Months": 1.80,
+        "avg5Years": 2.20,
+        "monthly": [
+            {
+                "month": "03.2025",
+                "change": 0.2
+            },
+            {
+                "month": "04.2025",
+                "change": 0.1
+            },
+            {
+                "month": "05.2025",
+                "change": -0.1
+            },
+            {
+                "month": "06.2025",
+                "change": 0.8
+            },
+            {
+                "month": "07.2025",
+                "change": 0.6
+            },
+            {
+                "month": "08.2025",
+                "change": 0.3
+            },
+            {
+                "month": "09.2025",
+                "change": -0.1
+            },
+            {
+                "month": "10.2025",
+                "change": 0.2
+            },
+            {
+                "month": "11.2025",
+                "change": 0.1
+            },
+            {
+                "month": "12.2025",
+                "change": 0.0
+            },
+            {
+                "month": "01.2026",
+                "change": -0.3
+            }
+        ]
+    }
+}
