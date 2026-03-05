@@ -50,81 +50,111 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f5f7fb;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .container {
+        .contact-section {
             width: 100%;
-            max-width: 500px;
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 20px;
+            display: flex;
+            gap: 40px;
+            align-items: stretch;
         }
 
-        h1 {
+        .contact-box {
+            flex: 1;
+            background: white;
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-info {
+            flex: 1;
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            color: white;
+            padding: 50px;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-info h2 {
+            margin-top: 0;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .contact-info .info-item {
+            margin-top: 20px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-title {
             text-align: center;
             margin-bottom: 10px;
             color: #1e3a8a;
+            font-size: 32px;
         }
 
-        .subtitle {
+        .contact-subtitle {
             text-align: center;
             color: #555;
             margin-bottom: 30px;
         }
 
-        label {
+        .contact-form label {
             display: block;
             margin-bottom: 6px;
             font-weight: 600;
         }
 
-        input,
-        textarea {
+        .contact-form input,
+        .contact-form textarea {
             width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
-            border-radius: 8px;
+            padding: 14px;
+            margin-bottom: 18px;
+            border-radius: 10px;
             border: 1px solid #ddd;
             font-size: 15px;
-            box-sizing: border-box;
             transition: 0.2s;
         }
 
-        input:focus,
-        textarea:focus {
+        .contact-form input:focus,
+        .contact-form textarea:focus {
             outline: none;
             border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
 
-        textarea {
+        .contact-form textarea {
             resize: vertical;
-            min-height: 120px;
+            min-height: 140px;
         }
 
-        button {
+        .contact-btn {
             width: 100%;
-            padding: 14px;
-            background: #2563eb;
+            padding: 16px;
+            background: linear-gradient(90deg, #2563eb, #1e3a8a);
             color: white;
             border: none;
-            border-radius: 8px;
-            font-size: 16px;
+            border-radius: 10px;
+            font-size: 17px;
             cursor: pointer;
             transition: 0.2s;
         }
 
-        button:hover {
-            background: #1d4ed8;
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         .success {
@@ -133,6 +163,18 @@
             color: green;
             font-weight: bold;
             margin-top: 15px;
+        }
+
+        @media (max-width:900px) {
+
+            .contact-section {
+                flex-direction: column;
+            }
+
+            .contact-info {
+                order: -1;
+            }
+
         }
     </style>
 </head>
@@ -192,34 +234,65 @@
     </header>
 
 
-    <div class="container">
+    <section class="contact-section">
 
-        <h1>השארת פרטים</h1>
-        <p class="subtitle">נחזור אליכם בהקדם האפשרי</p>
+        <div class="contact-box">
 
-        <form id="contact-form" action="https://formspree.io/f/xpqyanzg" method="POST">
+            <h1 class="contact-title">השארת פרטים</h1>
+            <p class="contact-subtitle">נחזור אליכם בהקדם האפשרי</p>
 
-            <label>שם מלא</label>
-            <input type="text" name="name" required>
+            <form class="contact-form" id="contact-form" action="https://formspree.io/f/xpqyanzg" method="POST">
 
-            <label>טלפון</label>
-            <input type="tel" name="phone" required>
+                <label>שם מלא</label>
+                <input type="text" name="name" required>
 
-            <label>אימייל</label>
-            <input type="email" name="email" required>
+                <label>טלפון</label>
+                <input type="tel" name="phone" required>
 
-            <label>הודעה</label>
-            <textarea name="message"></textarea>
+                <label>אימייל</label>
+                <input type="email" name="email" required>
 
-            <button type="submit">שלח פרטים</button>
+                <label>הודעה</label>
+                <textarea name="message"></textarea>
 
-        </form>
+                <button class="contact-btn" type="submit">שלח פרטים</button>
 
-        <div class="success" id="successMessage">
-            ההודעה נשלחה בהצלחה! נחזור אליכם בהקדם.
+            </form>
+
+            <div class="success" id="successMessage">
+                ההודעה נשלחה בהצלחה! נחזור אליכם בהקדם.
+            </div>
+
         </div>
 
-    </div>
+
+        <div class="contact-info">
+
+            <h2>בואו נדבר על המשכנתא שלכם</h2>
+
+            <p>
+                השאירו פרטים ונחזור אליכם לשיחת ייעוץ ראשונית ללא התחייבות.
+                יחד נבדוק איך ניתן לבנות משכנתא חכמה שתחסוך לכם עשרות ואף מאות אלפי שקלים.
+            </p>
+
+            <div class="info-item">
+                <i class="fa-solid fa-phone"></i>
+                055-997-1294
+            </div>
+
+            <div class="info-item">
+                <i class="fa-solid fa-envelope"></i>
+                taltzadok-mortgages@outlook.com
+            </div>
+
+            <div class="info-item">
+                <i class="fa-brands fa-whatsapp"></i>
+                מענה גם ב-WhatsApp
+            </div>
+
+        </div>
+
+    </section>
 
 
     <!-- ===== FOOTER ===== -->
