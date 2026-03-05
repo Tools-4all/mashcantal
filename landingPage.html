@@ -169,6 +169,59 @@
             }
 
         }
+
+
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 14px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            font-size: 15px;
+        }
+
+        .form-group.full {
+            grid-column: span 2;
+        }
+
+        .contact-btn {
+            grid-column: span 2;
+            padding: 16px;
+            background: linear-gradient(90deg, #2563eb, #1e3a8a);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        @media(max-width:700px) {
+
+            .contact-form {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full,
+            .contact-btn {
+                grid-column: span 1;
+            }
+
+        }
     </style>
 </head>
 
@@ -235,17 +288,25 @@
 
         <form class="contact-form" id="contact-form" action="https://formspree.io/f/xpqyanzg" method="POST">
 
-            <label>שם מלא</label>
-            <input type="text" name="name" required>
+            <div class="form-group">
+                <label>שם מלא</label>
+                <input type="text" name="name" required>
+            </div>
 
-            <label>טלפון</label>
-            <input type="tel" name="phone" required>
+            <div class="form-group">
+                <label>טלפון</label>
+                <input type="tel" name="phone" required>
+            </div>
 
-            <label>אימייל</label>
-            <input type="email" name="email" required>
+            <div class="form-group">
+                <label>אימייל</label>
+                <input type="email" name="email" required>
+            </div>
 
-            <label>הודעה</label>
-            <textarea name="message"></textarea>
+            <div class="form-group full">
+                <label>הודעה</label>
+                <textarea name="message"></textarea>
+            </div>
 
             <button class="contact-btn" type="submit">שלח פרטים</button>
 
