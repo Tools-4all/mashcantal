@@ -50,70 +50,42 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <style>
-        .contact-section {
-            width: 100%;
-            max-width: 1200px;
-            margin: 60px auto;
-            padding: 20px;
-            display: flex;
-            gap: 40px;
-            align-items: stretch;
+        body {
+            font-family: Heebo, Arial;
+            background: #f6f7fb;
+            margin: 0;
         }
 
-        .contact-box {
-            flex: 1;
+        .contact-wrapper {
+            max-width: 900px;
+            margin: 80px auto;
+            padding: 40px;
             background: white;
-            padding: 50px;
             border-radius: 16px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
         }
 
-        .contact-info {
-            flex: 1;
-            background: linear-gradient(135deg, #1e3a8a, #2563eb);
-            color: white;
-            padding: 50px;
-            border-radius: 16px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .contact-info h2 {
-            margin-top: 0;
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-
-        .contact-info p {
-            line-height: 1.8;
-            opacity: 0.95;
-        }
-
-        .contact-info .info-item {
-            margin-top: 20px;
-            font-size: 18px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
         .contact-title {
             text-align: center;
-            margin-bottom: 10px;
-            color: #1e3a8a;
             font-size: 32px;
+            color: #1e3a8a;
+            margin-bottom: 10px;
         }
 
         .contact-subtitle {
             text-align: center;
-            color: #555;
-            margin-bottom: 30px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
         }
 
         .contact-form label {
-            display: block;
-            margin-bottom: 6px;
+            grid-column: span 2;
             font-weight: 600;
         }
 
@@ -121,7 +93,6 @@
         .contact-form textarea {
             width: 100%;
             padding: 14px;
-            margin-bottom: 18px;
             border-radius: 10px;
             border: 1px solid #ddd;
             font-size: 15px;
@@ -136,12 +107,13 @@
         }
 
         .contact-form textarea {
-            resize: vertical;
+            grid-column: span 2;
             min-height: 140px;
+            resize: vertical;
         }
 
         .contact-btn {
-            width: 100%;
+            grid-column: span 2;
             padding: 16px;
             background: linear-gradient(90deg, #2563eb, #1e3a8a);
             color: white;
@@ -157,28 +129,7 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
-        .success {
-            display: none;
-            text-align: center;
-            color: green;
-            font-weight: bold;
-            margin-top: 15px;
-        }
-
-        @media (max-width:900px) {
-
-            .contact-section {
-                flex-direction: column;
-            }
-
-            .contact-info {
-                order: -1;
-            }
-
-        }
-
-        .success-state {
-            display: none;
+        .form-success {
             text-align: center;
             padding: 60px 20px;
         }
@@ -190,17 +141,13 @@
             stroke-width: 3;
             stroke-linecap: round;
             stroke-linejoin: round;
-        }
-
-        .checkmark-circle-bg {
-            stroke: #e5e7eb;
-            stroke-width: 3;
+            margin-bottom: 20px;
         }
 
         .checkmark-check {
             stroke-dasharray: 48;
             stroke-dashoffset: 48;
-            animation: checkAnimation 0.6s ease forwards 0.4s;
+            animation: checkAnimation .6s ease forwards .3s;
         }
 
         @keyframes checkAnimation {
@@ -209,15 +156,18 @@
             }
         }
 
-        .success-title {
-            margin-top: 20px;
-            font-size: 26px;
-            color: #16a34a;
-        }
+        @media(max-width:700px) {
 
-        .success-text {
-            color: #555;
-            margin-top: 10px;
+            .contact-form {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form label,
+            .contact-form textarea,
+            .contact-btn {
+                grid-column: span 1;
+            }
+
         }
     </style>
 </head>
@@ -277,75 +227,32 @@
     </header>
 
 
-    <section class="contact-section">
 
-        <div class="contact-box">
+    <div class="contact-wrapper">
 
-            <h1 class="contact-title">השארת פרטים</h1>
-            <p class="contact-subtitle">נחזור אליכם בהקדם האפשרי</p>
+        <h1 class="contact-title">השארת פרטים</h1>
+        <p class="contact-subtitle">נחזור אליכם בהקדם האפשרי</p>
 
-            <form class="contact-form" id="contact-form" action="https://formspree.io/f/xpqyanzg" method="POST">
+        <form class="contact-form" id="contact-form" action="https://formspree.io/f/xpqyanzg" method="POST">
 
-                <label>שם מלא</label>
-                <input type="text" name="name" required>
+            <label>שם מלא</label>
+            <input type="text" name="name" required>
 
-                <label>טלפון</label>
-                <input type="tel" name="phone" required>
+            <label>טלפון</label>
+            <input type="tel" name="phone" required>
 
-                <label>אימייל</label>
-                <input type="email" name="email" required>
+            <label>אימייל</label>
+            <input type="email" name="email" required>
 
-                <label>הודעה</label>
-                <textarea name="message"></textarea>
+            <label>הודעה</label>
+            <textarea name="message"></textarea>
 
-                <button class="contact-btn" type="submit">שלח פרטים</button>
+            <button class="contact-btn" type="submit">שלח פרטים</button>
 
-            </form>
+        </form>
 
-            <div class="success-state" id="successState">
+    </div>
 
-                <div class="checkmark-circle">
-                    <svg viewBox="0 0 52 52" class="checkmark">
-                        <circle class="checkmark-circle-bg" cx="26" cy="26" r="25" fill="none" />
-                        <path class="checkmark-check" fill="none" d="M14 27l7 7 16-16" />
-                    </svg>
-                </div>
-
-                <h2 class="success-title">הפרטים נשלחו בהצלחה</h2>
-                <p class="success-text">נחזור אליכם בהקדם האפשרי.</p>
-
-            </div>
-
-        </div>
-
-
-        <div class="contact-info">
-
-            <h2>בואו נדבר על המשכנתא שלכם</h2>
-
-            <p>
-                השאירו פרטים ונחזור אליכם לשיחת ייעוץ ראשונית ללא התחייבות.
-                יחד נבדוק איך ניתן לבנות משכנתא חכמה שתחסוך לכם עשרות ואף מאות אלפי שקלים.
-            </p>
-
-            <div class="info-item">
-                <i class="fa-solid fa-phone"></i>
-                055-997-1294
-            </div>
-
-            <div class="info-item">
-                <i class="fa-solid fa-envelope"></i>
-                taltzadok-mortgages@outlook.com
-            </div>
-
-            <div class="info-item">
-                <i class="fa-brands fa-whatsapp"></i>
-                מענה גם ב-WhatsApp
-            </div>
-
-        </div>
-
-    </section>
 
 
     <!-- ===== FOOTER ===== -->
@@ -402,8 +309,8 @@
 
     <script>
 
+
         const form = document.getElementById("contact-form");
-        const successState = document.getElementById("successState");
 
         form.addEventListener("submit", async function (e) {
 
@@ -414,15 +321,24 @@
             const response = await fetch(form.action, {
                 method: "POST",
                 body: data,
-                headers: {
-                    'Accept': 'application/json'
-                }
+                headers: { 'Accept': 'application/json' }
             });
 
             if (response.ok) {
 
-                form.style.display = "none";
-                successState.style.display = "block";
+                form.innerHTML = `
+<div class="form-success">
+
+<svg viewBox="0 0 52 52" class="checkmark">
+<circle cx="26" cy="26" r="25" fill="none" stroke="#e5e7eb"/>
+<path class="checkmark-check" fill="none" d="M14 27l7 7 16-16"/>
+</svg>
+
+<h2>הפרטים נשלחו בהצלחה</h2>
+<p>נחזור אליכם בהקדם האפשרי.</p>
+
+</div>
+`;
 
             }
 
