@@ -1,9 +1,21 @@
+function isValidPhone(phone) {
+    const digits = phone.replace(/\D/g, "");
+    return digits.length === 10;
+}
 
 const form = document.getElementById("contact-form");
 
 form.addEventListener("submit", async function (e) {
 
     e.preventDefault();
+
+    const phoneInput = form.querySelector('input[name="phone"]');
+
+    if (!isValidPhone(phoneInput.value)) {
+        alert("נא להזין מספר טלפון תקין עם 10 ספרות");
+        phoneInput.focus();
+        return;
+    }
 
     const data = new FormData(form);
 
