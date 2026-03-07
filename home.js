@@ -110,7 +110,7 @@ pills.forEach((pill) => {
 
         // עדכון הטקסט בכרטיס
         detailsTitle.textContent = data.title;
-        detailsText.textContent = data.body;
+        detailsText.innerHTML = data.body;
 
         // הדגשת הבועה שנבחרה
         pills.forEach((p) => p.classList.remove("active"));
