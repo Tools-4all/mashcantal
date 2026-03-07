@@ -159,6 +159,34 @@
     }
 }
 
+/* section 2 */
+
+#contactFormSection {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 60px;
+}
+
+#contactFormSection .contact-form input,
+#contactFormSection .contact-form textarea {
+    background: linear-gradient(90deg, #f8fafc, #f8fafc);
+    border: 1px solid rgba(148, 163, 184, 0.6);
+    color: #101011;
+}
+
+#contactFormSection .contact-btn {
+    background: rgba(15, 23, 42, 0.96)
+}
+
+#contactFormSection .contact-btn:hover {
+    background: rgba(15, 23, 42, 1);
+}
+
 /* section 3 */
 
 .services-section {
@@ -408,6 +436,10 @@
 
     .timeline-step-text {
         font-size: 0.85rem;
+    }
+
+    #contactFormSection {
+        width: 90%;
     }
 }
 
