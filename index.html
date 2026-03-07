@@ -46,6 +46,7 @@
   <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="home.css" />
+  <link rel="stylesheet" href="sendMail.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
@@ -472,6 +473,89 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+      const popupOverlay = document.getElementById("contactPopupOverlay");
+      const popupClose = document.getElementById("popupClose");
+      const popupForm = document.getElementById("popup-contact-form");
+
+      if (!popupOverlay) return;
+
+      /* show popup only once per page load */
+
+      if (!sessionStorage.getItem("contactPopupShown")) {
+
+        setTimeout(() => {
+          popupOverlay.classList.add("active");
+        }, 2000);
+
+      }
+
+      /* close popup */
+
+      popupClose.addEventListener("click", () => {
+
+        popupOverlay.classList.remove("active");
+        sessionStorage.setItem("contactPopupShown", "true");
+
+      });
+
+      /* close when clicking overlay */
+
+      popupOverlay.addEventListener("click", (e) => {
+
+        if (e.target === popupOverlay) {
+
+          popupOverlay.classList.remove("active");
+          sessionStorage.setItem("contactPopupShown", "true");
+
+        }
+
+      });
+
+      /* submit form */
+
+      popupForm.addEventListener("submit", async (e) => {
+
+        e.preventDefault();
+
+        const data = new FormData(popupForm);
+
+        const response = await fetch(popupForm.action, {
+          method: "POST",
+          body: data,
+          headers: { "Accept": "application/json" }
+        });
+
+        if (response.ok) {
+
+          popupForm.innerHTML = `
+            <div class="form-success">
+
+                <svg viewBox="0 0 52 52" class="checkmark">
+                    <circle cx="26" cy="26" r="25" fill="none" stroke="#e5e7eb"/>
+                    <path class="checkmark-check" fill="none" d="M14 27l7 7 16-16"/>
+                </svg>
+
+                <h2>הפרטים נשלחו בהצלחה</h2>
+                <p>נחזור אליכם בהקדם האפשרי.</p>
+
+            </div>
+            `;
+
+          sessionStorage.setItem("contactPopupShown", "true");
+
+          setTimeout(() => {
+            popupOverlay.classList.remove("active");
+          }, 2000);
+
+        }
+
+      });
+
+    });
+
   </script>
 
   <script src="nav.js"></script>

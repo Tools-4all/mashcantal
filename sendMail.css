@@ -1,0 +1,163 @@
+   /* השארת פרטים */
+
+   .contact-form {
+       display: flex;
+       flex-direction: column;
+       gap: 20px;
+   }
+
+
+   .contact-form input,
+   .contact-form textarea {
+       width: 100%;
+       background: linear-gradient(90deg, #020617, #020617);
+       padding: 12px;
+       color: white;
+       border-radius: 10px;
+       border: 1px solid rgba(148, 163, 184, 0.6);
+       font-size: 15px;
+       transition: 0.2s;
+   }
+
+   .contact-form input:focus,
+   .contact-form textarea:focus {
+       outline: none;
+       border-color: #38bdf8;
+       box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+   }
+
+   .contact-form textarea {
+       grid-column: span 2;
+       height: 50px;
+       overflow: auto;
+       resize: none;
+   }
+
+   form .contact-btn {
+       grid-column: span 2;
+       padding: 16px;
+       background: linear-gradient(90deg, #2563eb, #1e3a8a);
+       color: white;
+       border: none;
+       border-radius: 10px;
+       font-size: 17px;
+       cursor: pointer;
+       transition: 0.2s;
+   }
+
+   form .contact-btn:hover {
+       background: linear-gradient(90deg, #2563eb, #1e3a8a);
+       transform: translateY(-2px);
+       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+   }
+
+   .form-success {
+       text-align: center;
+       margin-top: 50px;
+   }
+
+   .checkmark {
+       width: 90px;
+       height: 90px;
+       stroke: #22c55e;
+       stroke-width: 3;
+       stroke-linecap: round;
+       stroke-linejoin: round;
+       margin-bottom: 20px;
+   }
+
+   .checkmark-check {
+       stroke-dasharray: 48;
+       stroke-dashoffset: 48;
+       animation: checkAnimation .6s ease forwards .3s;
+   }
+
+   @keyframes checkAnimation {
+       to {
+           stroke-dashoffset: 0;
+       }
+   }
+
+   @media(max-width:700px) {
+
+       .contact-form {
+           grid-template-columns: 1fr;
+       }
+
+       .contact-form label,
+       .contact-form textarea,
+       .contact-btn {
+           grid-column: span 1;
+       }
+
+   }
+
+   #popupContactTitle {
+       font-size: 20px;
+       color: #101011;
+       margin-bottom: 20px;
+   }
+
+   /* popup overlay */
+
+   .contact-popup-overlay {
+       position: fixed;
+       top: 0;
+       right: 0;
+       bottom: 0;
+       left: 0;
+       width: 100vw;
+       height: 100vh;
+       background: rgba(2, 2, 2, 0.799);
+       display: none;
+       align-items: center;
+       justify-content: center;
+       z-index: 999999;
+   }
+
+   .contact-popup-overlay.active {
+       display: flex;
+   }
+
+   .contact-popup {
+       background: white;
+       border-radius: 14px;
+       padding: 30px;
+       width: 90%;
+       max-width: 500px;
+       direction: rtl;
+       box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+       position: relative;
+   }
+
+   .contact-popup .contact-form input,
+   .contact-popup .contact-form textarea {
+       background: linear-gradient(90deg, #f8fafc, #f8fafc);
+       border: 1px solid rgba(148, 163, 184, 0.6);
+       color: #101011;
+   }
+
+   .contact-popup .contact-form input:focus,
+   .contact-popup .contact-form textarea:focus {
+       border-color: #2e2f2f;
+       box-shadow: none;
+   }
+
+   .contact-popup .contact-btn {
+       background: linear-gradient(45deg, #365db4, #000000)
+   }
+
+   .contact-popup .contact-btn:hover {
+       background: linear-gradient(45deg, #365db4, #000000);
+   }
+
+   .popup-close {
+       position: absolute;
+       top: 10px;
+       left: 12px;
+       background: none;
+       border: none;
+       font-size: 26px;
+       color: #94a3b8;
+       cursor: pointer;
+   }
