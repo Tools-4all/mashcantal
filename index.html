@@ -420,6 +420,32 @@
 
   </main>
 
+  <div id="contactPopupOverlay" class="contact-popup-overlay">
+
+    <div class="contact-popup">
+
+      <button class="popup-close" id="popupClose">&times;</button>
+
+      <h3 id="popupContactTitle">השאירו פרטים ונחזור אליכם בהקדם האפשרי</h3>
+
+      <form class="contact-form" id="popup-contact-form" action="https://formspree.io/f/xpqyanzg" method="POST">
+
+        <input placeholder="שם מלא" type="text" name="name" required>
+
+        <input type="tel" name="phone" placeholder="טלפון" dir="rtl" required>
+
+        <input placeholder="אימייל" type="email" name="email" required>
+
+        <textarea placeholder="הודעה" name="message"></textarea>
+
+        <button class="contact-btn" type="submit">שלחו פרטים</button>
+
+      </form>
+
+    </div>
+
+  </div>
+
   <!-- ===== FOOTER ===== -->
   <footer class="site-footer">
     <div class="footer-inner">
