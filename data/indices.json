@@ -1,21 +1,21 @@
 {
-    "updatedAt": "2026-02-23",
+    "updatedAt": "2026-03-15",
     "construction": {
-        "lastMonth": 0.10,
-        "last12Months": 2.50,
-        "avg5Years": 3.50,
+        "lastMonth": 0.20,
+        "last12Months": 2.20,
+        "avg5Years": 3.90,
         "monthly": [
             {
                 "month": "03.2025",
-                "change": 0.1
+                "change": 0.4
             },
             {
                 "month": "04.2025",
-                "change": -0.1
+                "change": 0.4
             },
             {
                 "month": "05.2025",
-                "change": 0.2
+                "change": 0.1
             },
             {
                 "month": "06.2025",
@@ -23,7 +23,7 @@
             },
             {
                 "month": "07.2025",
-                "change": 0.0
+                "change": 0
             },
             {
                 "month": "08.2025",
@@ -31,74 +31,90 @@
             },
             {
                 "month": "09.2025",
-                "change": 0.2
+                "change": 0.4
             },
             {
                 "month": "10.2025",
-                "change": 0.1
+                "change": 0
             },
             {
                 "month": "11.2025",
-                "change": 0.2
+                "change": 0.1
             },
             {
                 "month": "12.2025",
-                "change": 0.1
+                "change": 0.6
             },
             {
                 "month": "01.2026",
                 "change": 0.1
+            },
+            {
+                "month": "02.2026",
+                "change": 0.1
+            },
+            {
+                "month": "03.2026",
+                "change": 0.2
             }
         ]
     },
     "cpi": {
-        "lastMonth": -0.30,
-        "last12Months": 1.80,
-        "avg5Years": 2.20,
+        "lastMonth": 0.20,
+        "last12Months": 2.00,
+        "avg5Years": 3.34,
         "monthly": [
             {
                 "month": "03.2025",
-                "change": 0.2
+                "change": 0
             },
             {
                 "month": "04.2025",
-                "change": 0.1
+                "change": 0.5
             },
             {
                 "month": "05.2025",
-                "change": -0.1
+                "change": 1.1
             },
             {
                 "month": "06.2025",
-                "change": 0.8
+                "change": -0.3
             },
             {
                 "month": "07.2025",
-                "change": 0.6
-            },
-            {
-                "month": "08.2025",
                 "change": 0.3
             },
             {
+                "month": "08.2025",
+                "change": 0.4
+            },
+            {
                 "month": "09.2025",
-                "change": -0.1
+                "change": 0.7
             },
             {
                 "month": "10.2025",
-                "change": 0.2
+                "change": -0.6
             },
             {
                 "month": "11.2025",
-                "change": 0.1
+                "change": 0.5
             },
             {
                 "month": "12.2025",
-                "change": 0.0
+                "change": -0.5
             },
             {
                 "month": "01.2026",
+                "change": 0
+            },
+            {
+                "month": "02.2026",
                 "change": -0.3
+            },
+            {
+                "month": "03.2026",
+                "change": 0.2
             }
         ]
     }
