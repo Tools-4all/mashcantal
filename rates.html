@@ -376,7 +376,11 @@
                             <span class="mk-metrics-value"><span id="constructionLast12">—</span>%</span>
                         </div>
                         <div class="mk-metrics-line">
-                            <span class="mk-metrics-label">ממוצע 5 שנים</span>
+                            <span class="mk-metrics-label">ממוצע שנתי - 3 שנים אחרונות</span>
+                            <span class="mk-metrics-value"><span id="construction3yAvg">—</span>%</span>
+                        </div>
+                        <div class="mk-metrics-line">
+                            <span class="mk-metrics-label">ממוצע שנתי - 5 שנים אחרונות</span>
                             <span class="mk-metrics-value"><span id="construction5yAvg">—</span>%</span>
                         </div>
                     </div>
@@ -411,7 +415,11 @@
                             <span class="mk-metrics-value"><span id="cpiLast12">—</span>%</span>
                         </div>
                         <div class="mk-metrics-line">
-                            <span class="mk-metrics-label">ממוצע 5 שנים</span>
+                            <span class="mk-metrics-label">ממוצע שנתי - 3 שנים אחרונות</span>
+                            <span class="mk-metrics-value"><span id="cpi3yAvg">—</span>%</span>
+                        </div>
+                        <div class="mk-metrics-line">
+                            <span class="mk-metrics-label"> ממוצע שנתי - 5 שנים אחרונות </span>
                             <span class="mk-metrics-value"><span id="cpi5yAvg">—</span>%</span>
                         </div>
                     </div>
@@ -567,6 +575,7 @@
                     setText("constructionNow", cons.now.toFixed(2));
                     setText("constructionLastMonth", cons.lastMonth.toFixed(2));
                     setText("constructionLast12", cons.last12Months.toFixed(2));
+                    setText("construction3yAvg", cons.avg3Years.toFixed(2));
                     setText("construction5yAvg", cons.avg5Years.toFixed(2));
 
                     createLineChart(
@@ -582,6 +591,7 @@
                     setText("cpiNow", cpi.now.toFixed(2));
                     setText("cpiLastMonth", cpi.lastMonth.toFixed(2));
                     setText("cpiLast12", cpi.last12Months.toFixed(2));
+                    setText("cpi3yAvg", cpi.avg3Years.toFixed(2));
                     setText("cpi5yAvg", cpi.avg5Years.toFixed(2));
 
                     createLineChart(
