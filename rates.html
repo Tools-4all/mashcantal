@@ -364,6 +364,10 @@
 
                     <div class="mk-metrics-box mk-metrics-box--orange">
                         <div class="mk-metrics-line">
+                            <span class="mk-metrics-label">המדד כעת</span>
+                            <span class="mk-metrics-value"><span id="constructionNow">—</span>%</span>
+                        </div>
+                        <div class="mk-metrics-line">
                             <span class="mk-metrics-label">חודש אחרון</span>
                             <span class="mk-metrics-value"><span id="constructionLastMonth">—</span>%</span>
                         </div>
@@ -394,6 +398,10 @@
                     </p>
 
                     <div class="mk-metrics-box mk-metrics-box--blue">
+                        <div class="mk-metrics-line">
+                            <span class="mk-metrics-label"> המדד כעת</span>
+                            <span class="mk-metrics-value"><span id="cpiNow">—</span>%</span>
+                        </div>
                         <div class="mk-metrics-line">
                             <span class="mk-metrics-label">חודש אחרון</span>
                             <span class="mk-metrics-value"><span id="cpiLastMonth">—</span>%</span>
@@ -556,6 +564,7 @@
                     /* ========= CONSTRUCTION ========= */
                     const cons = indicesJson.construction;
 
+                    setText("constructionNow", cons.now.toFixed(2));
                     setText("constructionLastMonth", cons.lastMonth.toFixed(2));
                     setText("constructionLast12", cons.last12Months.toFixed(2));
                     setText("construction5yAvg", cons.avg5Years.toFixed(2));
@@ -570,6 +579,7 @@
                     /* ========= CPI ========= */
                     const cpi = indicesJson.cpi;
 
+                    setText("cpiNow", cpi.now.toFixed(2));
                     setText("cpiLastMonth", cpi.lastMonth.toFixed(2));
                     setText("cpiLast12", cpi.last12Months.toFixed(2));
                     setText("cpi5yAvg", cpi.avg5Years.toFixed(2));

@@ -1,6 +1,7 @@
 {
-    "updatedAt": "2026-03-15",
+    "updatedAt": "2026-04-15",
     "construction": {
+        "now": 141.1,
         "lastMonth": 0.20,
         "last12Months": 2.20,
         "avg5Years": 3.90,
@@ -56,11 +57,16 @@
             {
                 "month": "03.2026",
                 "change": 0.2
+            },
+            {
+                "month": "04.2026",
+                "change": 0.2
             }
         ]
     },
     "cpi": {
-        "lastMonth": 0.20,
+        "now": 117.6,
+        "lastMonth": 0.40,
         "last12Months": 2.00,
         "avg5Years": 3.34,
         "monthly": [
@@ -115,6 +121,10 @@
             {
                 "month": "03.2026",
                 "change": 0.2
+            },
+            {
+                "month": "04.2026",
+                "change": 0.4
             }
         ]
     }
