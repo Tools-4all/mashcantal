@@ -1,16 +1,12 @@
 {
     "updatedAt": "2026-04-15",
     "construction": {
-        "now": 141.1,
-        "lastMonth": 0.20,
-        "last12Months": 2.00,
-        "avg3Years": 3.03,
-        "avg5Years": 3.84,
+        "now": 142.7,
+        "lastMonth": 1.1,
+        "last12Months": 3.00,
+        "avg3Years": 3.30,
+        "avg5Years": 3.90,
         "monthly": [
-            {
-                "month": "05.2025",
-                "change": 0.1
-            },
             {
                 "month": "06.2025",
                 "change": 0.1
@@ -54,20 +50,21 @@
             {
                 "month": "04.2026",
                 "change": 0.2
+            },
+            {
+                "month": "05.2026",
+                "change": 1.1
             }
         ]
     },
     "cpi": {
-        "now": 117.6,
-        "lastMonth": 0.40,
-        "last12Months": 1.90,
-        "avg3Years": 2.67,
-        "avg5Years": 3.30,
+        "now": 119.0,
+        "lastMonth": 1.20,
+        "last12Months": 2.00,
+        "avg3Years": 2.80,
+        "avg5Years": 3.48,
         "monthly": [
-            {
-                "month": "05.2025",
-                "change": 1.1
-            },
+            
             {
                 "month": "06.2025",
                 "change": -0.3
@@ -111,6 +108,10 @@
             {
                 "month": "04.2026",
                 "change": 0.4
+            },
+            {
+                "month": "05.2026",
+                "change": 1.2
             }
         ]
     }
