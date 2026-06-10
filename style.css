@@ -358,7 +358,7 @@
       }
 
       .footer-bottom {
-          flex-direction: column;
+          flex-direction: column-reverse;
           align-items: center;
           text-align: center;
       }
