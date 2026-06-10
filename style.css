@@ -362,8 +362,13 @@
           align-items: center;
           text-align: center;
       }
-      #mobileLink{
-        display: none;
+
+      #mobileLink {
+          display: block;
+      }
+
+      #webLink {
+          display: none;
       }
 
       .footer-social {
