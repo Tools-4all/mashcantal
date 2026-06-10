@@ -362,6 +362,9 @@
           align-items: center;
           text-align: center;
       }
+      #mobileLink{
+        display: none;
+      }
 
       .footer-social {
           justify-content: center;
