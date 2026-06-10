@@ -318,6 +318,10 @@
       width: 350px;
   }
 
+  #mobileLink {
+      display: none;
+  }
+
   /* רספונסיבי */
   @media (max-width: 900px) {
       .footer-inner {
