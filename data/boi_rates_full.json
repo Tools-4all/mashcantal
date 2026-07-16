@@ -1,16 +1,12 @@
 {
     "current": {
-        "boiRate": 3.75,
+        "boiRate": 3.5,
         "primeSpread": 1.5,
-        "updatedAt": "2026-05-25"
+        "updatedAt": "2026-07-10"
     },
     "history": {
         "updatedAt": "2026-03-30",
         "points": [
-            {
-                "date": "2023-01-03",
-                "rate": 3.75
-            },
             {
                 "date": "2023-02-22",
                 "rate": 4.25
@@ -46,6 +42,10 @@
             {
                 "date": "2026-05-25",
                 "rate": 3.75
+            },
+            {
+                "date": "2026-07-10",
+                "rate": 3.5
             }
 
         ]
