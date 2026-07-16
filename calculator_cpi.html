@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FINANTZA - מחשבון ריבית קבועה צמודה</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;800&display=swap');
+
+        body {
+            font-family: 'Heebo', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        /* צבעי המותג מתוך הלוגו */
+        .bg-finantza-dark {
+            background-color: #232b49;
+        }
+
+        .text-finantza-dark {
+            color: #232b49;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            background: #232b49;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 10px 25px rgba(35, 43, 73, 0.1);
+            border-radius: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- ===== NAVBAR ===== -->
+    <!-- ===== TOP CONTACT BAR ===== -->
+    <div class="top-bar">
+        <div class="top-bar-inner">
+
+            <!-- Right: Contact info -->
+            <div class="top-contact">
+                <a href="tel:0559971294" class="top-link">
+                    <i class="fa-solid fa-phone"></i> 055-9971294
+                </a>
+                <span class="divider">|</span>
+                <a href="mailto:taltzadok-mortgages@outlook.com" class="top-link">
+                    <i class="fa-solid fa-envelope"></i> taltzadok-mortgages@outlook.com
+                </a>
+            </div>
+
+            <!-- Left: Social icons -->
+            <div class="top-social">
+                <a href="https://wa.me/972559971294" target="_blank" rel="noopener" class="icon-link">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <a href="https://www.instagram.com/taltzadok_mortgages/" class="icon-link" target="_blank"
+                    rel="noopener noreferrer" aria-label="אינסטגרם של Finantza">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="https://www.facebook.com/profile.php?id=61586760255116&locale=he_IL" class="icon-link"
+                    target="_blank" rel="noopener noreferrer" aria-label="עמוד הפייסבוק של Finantza">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+
+    <header class="navbar">
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/">דף הבית</a></li>
+            <li><a href="glossary.html">מילון מונחים</a></li>
+            <li><a href="rates.html">שערים ומדדים</a></li>
+            <li><a href="calculator.html">מחשבון משכנתא</a></li>
+            <li><a href="contact.html" class="active">צור קשר</a></li>
+        </ul>
+
+
+        <button class="nav-toggle" id="navToggle" aria-label="תפריט">
+            <div class="nav-toggle-bar"></div>
+        </button>
+        <a href="index.html"><img class="navbar_logo" src="logo.png" alt="logo"></a>
+    </header>
+
+    <div class="min-h-screen p-4 md:p-8 flex flex-col items-center">
+
+        <!-- Main Content -->
+        <div class="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+            <!-- Inputs Panel -->
+            <div class="glass-panel p-6 lg:col-span-1 border-t-4 border-[#232b49]">
+                <h2 class="text-2xl font-bold text-finantza-dark mb-6 border-b pb-2">פרטי ההלוואה</h2>
+
+                <div class="space-y-6">
+                    <!-- סכום ההלוואה -->
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">סכום ההלוואה (₪)</label>
+                        <input type="number" id="loanAmount" value="1000000"
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#232b49] focus:outline-none text-lg font-bold"
+                            oninput="updateCalculations()">
+                    </div>
+
+                    <!-- תקופה -->
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">תקופה (בשנים)</label>
+                        <div class="flex items-center gap-4">
+                            <input type="range" id="loanYears" min="5" max="30" value="20"
+                                class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                                oninput="document.getElementById('yearsDisplay').innerText = this.value; updateCalculations();">
+                            <span id="yearsDisplay"
+                                class="font-bold text-xl text-finantza-dark w-8 text-center">20</span>
+                        </div>
+                    </div>
+
+                    <!-- ריבית קבועה -->
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">ריבית קבועה שנתית (%)</label>
+                        <input type="number" id="interestRate" value="2.5" step="0.1"
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#232b49] focus:outline-none text-lg font-bold"
+                            oninput="updateCalculations()">
+                    </div>
+
+                    <!-- מדד ממוצע חזוי -->
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">מדד מחירים חזוי שנתי (%)</label>
+                        <input type="number" id="cpiRate" value="2.6" step="0.1"
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#232b49] focus:outline-none text-lg font-bold"
+                            oninput="updateCalculations()">
+                        <p class="text-xs text-gray-500 mt-2">* מסלול זה צמוד למדד. ההחזר החודשי יעלה בהתאם לאינפלציה.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Panel -->
+            <div class="lg:col-span-2 flex flex-col gap-6">
+
+                <!-- Summary Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="glass-panel p-5 text-center flex flex-col justify-center">
+                        <p class="text-sm text-gray-500 font-semibold mb-1">החזר חודשי התחלתי</p>
+                        <p id="firstPayment" class="text-3xl font-bold text-finantza-dark">₪0</p>
+                    </div>
+                    <div class="glass-panel p-5 text-center flex flex-col justify-center border-2 border-red-100">
+                        <p class="text-sm text-red-500 font-semibold mb-1">החזר חודשי אחרון (משוער)</p>
+                        <p id="lastPayment" class="text-3xl font-bold text-red-700">₪0</p>
+                    </div>
+                    <div
+                        class="glass-panel p-5 text-center flex flex-col justify-center bg-red-600 text-white shadow-lg border-2 border-red-700">
+                        <p class="text-sm text-red-100 font-semibold mb-1">סך הכל החזר מצטבר</p>
+                        <p id="totalPayment" class="text-3xl font-bold">₪0</p>
+                    </div>
+                </div>
+
+                <!-- Chart -->
+                <div class="glass-panel p-6 flex-grow">
+                    <h3 class="text-xl font-bold text-finantza-dark mb-4">התפתחות ההחזר החודשי לאורך השנים</h3>
+                    <div class="relative h-64 w-full">
+                        <canvas id="paymentChart"></canvas>
+                    </div>
+                    <div class="mt-4 p-4 bg-blue-50 rounded-lg text-sm text-blue-800 border-r-4 border-[#232b49]">
+                        <strong class="block mb-1">💡 הארה מהארט-דיירקטור (והיועץ):</strong>
+                        הגרף המחיש ללקוח בצורה ויזואלית כיצד החזר שנראה נמוך בהתחלה הולך ותופח עקב ההצמדה למדד. חשוב
+                        להציג
+                        זאת בשקיפות מלאה!
+                    </div>
+                </div>
+
+                <div
+                    class="glass-panel p-6 flex-grow border-t-4 border-purple-600 bg-gradient-to-br from-white to-purple-50 mt-2">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-bold text-finantza-dark flex items-center gap-2">
+                            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                            ניתוח הבחירה שלכם
+                        </h3>
+                        <button id="aiBtn" onclick="generateAIAnalysis()"
+                            class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg transition-colors flex items-center gap-2 text-sm shadow-md">
+                            <span>קבל חוות דעת חכמה</span>
+                        </button>
+                    </div>
+
+                    <div id="aiLoading" class="hidden flex flex-col items-center justify-center py-6">
+                        <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-purple-600 mb-3"></div>
+                        <p class="text-sm text-purple-700 animate-pulse">היועץ הוירטואלי מנתח את הנתונים שלך...</p>
+                    </div>
+
+                    <div id="aiResponse"
+                        class="hidden text-gray-700 leading-relaxed bg-white p-5 rounded-lg shadow-inner border border-purple-100 text-sm md:text-base">
+                        <!-- AI response will go here -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img class="footer_logo" src="logo.png" alt="logo">
+                <p class="footer-desc">
+                    השירות ניתן באופן אישי על ידי טל, יועץ משכנתאות וחבר התאחדות המשכנתאות.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="footer-title">ניווט מהיר</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html" class="active">דף הבית</a></li>
+                    <li><a href="glossary.html"> מילון מונחים</a></li>
+                    <li><a href="rates.html">שערים ומדדים</a></li>
+                    <li><a href="calculator.html">מחשבון משכנתא</a></li>
+                    <li><a href="contact.html">צור קשר</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="footer-title">יצירת קשר</h3>
+                <ul class="footer-contact">
+                    <li><span class="label">מייל:</span> <a style="text-decoration: none; color: inherit;"
+                            href="mailto:taltzadok-mortgages@outlook.com">taltzadok-mortgages@outlook.com</a></li>
+                    <li><span class="label">טלפון:</span> <a style="text-decoration: none; color: inherit;"
+                            href="tel: 0559971294"> 055-9971294</a></span></li>
+                    <li><span class="label">שעות פעילות:</span> א'–ה' 9:00–18:00</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div style="display: flex; flex-direction: column;gap:3px;">
+                <a id="mobileLink" href="https://tools-4all.com/" target="_blank" rel="noopener">
+                    Made by Tools 4 All
+                </a>
+                <span>© <span id="year"></span> טל צדוק - ייעוץ משכנתאות · כל הזכויות שמורות.</span>
+                <a id="webLink" href="https://tools-4all.com/" target="_blank" rel="noopener">
+                    Made by Tools 4 All
+                </a>
+            </div>
+
+            <div class="footer-social">
+                <a href="https://www.instagram.com/taltzadok_mortgages/" target="_blank" rel="noopener noreferrer"
+                    aria-label="אינסטגרם של Finantza">
+                    <div class="social-pill">Instagram</div>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61586760255116&locale=he_IL" target="_blank"
+                    rel="noopener noreferrer" class="social-pill" aria-label="Facebook של Finantza">
+                    Facebook
+                </a>
+
+                <div class="social-pill"><a href="https://wa.me/972559971294" target="_blank"
+                        rel="noopener">WhatsApp</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let paymentChartInstance = null;
+
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('he-IL', { style: 'currency', currency: 'ILS', maximumFractionDigits: 0 }).format(amount);
+        }
+
+        function calculateMortgage() {
+            const principal = parseFloat(document.getElementById('loanAmount').value) || 0;
+            const years = parseFloat(document.getElementById('loanYears').value) || 0;
+            const annualInterest = parseFloat(document.getElementById('interestRate').value) || 0;
+            const annualCpi = parseFloat(document.getElementById('cpiRate').value) || 0;
+
+            const months = years * 12;
+            const monthlyInterest = (annualInterest / 100) / 12;
+            const monthlyCpi = (annualCpi / 100) / 12;
+
+            // חישוב שפיצר סטנדרטי (תשלום בסיס ללא מדד)
+            let baseMonthlyPayment = 0;
+            if (monthlyInterest > 0) {
+                baseMonthlyPayment = principal * (monthlyInterest * Math.pow(1 + monthlyInterest, months)) / (Math.pow(1 + monthlyInterest, months) - 1);
+            } else {
+                baseMonthlyPayment = principal / months;
+            }
+
+            let totalPayment = 0;
+            let chartLabels = [];
+            let chartData = [];
+            let firstActualPayment = 0;
+            let lastActualPayment = 0;
+
+            for (let i = 1; i <= months; i++) {
+                // הצמדה למדד
+                let indexMultiplier = Math.pow(1 + monthlyCpi, i);
+                let actualPayment = baseMonthlyPayment * indexMultiplier;
+
+                totalPayment += actualPayment;
+
+                if (i === 1) firstActualPayment = actualPayment;
+                if (i === months) lastActualPayment = actualPayment;
+
+                // שמירת נתונים לגרף (כל שנה)
+                if (i % 12 === 0 || i === 1) {
+                    let yearLabel = i === 1 ? 'התחלה' : `שנה ${i / 12}`;
+                    chartLabels.push(yearLabel);
+                    chartData.push(actualPayment);
+                }
+            }
+
+            return {
+                first: firstActualPayment,
+                last: lastActualPayment,
+                total: totalPayment,
+                labels: chartLabels,
+                data: chartData
+            };
+        }
+
+        function updateChart(labels, data) {
+            const ctx = document.getElementById('paymentChart').getContext('2d');
+
+            if (paymentChartInstance) {
+                paymentChartInstance.destroy();
+            }
+
+            paymentChartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'החזר חודשי (₪)',
+                        data: data,
+                        borderColor: '#232b49',
+                        backgroundColor: 'rgba(35, 43, 73, 0.1)',
+                        borderWidth: 3,
+                        pointBackgroundColor: '#ffffff',
+                        pointBorderColor: '#232b49',
+                        pointRadius: 4,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    return formatCurrency(context.raw);
+                                }
+                            },
+                            titleFont: { family: 'Heebo' },
+                            bodyFont: { family: 'Heebo' }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            ticks: {
+                                callback: function (value) {
+                                    return '₪' + value.toLocaleString();
+                                },
+                                font: { family: 'Heebo' }
+                            },
+                            grid: { color: '#e5e7eb' }
+                        },
+                        x: {
+                            ticks: { font: { family: 'Heebo' } },
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateCalculations() {
+            const results = calculateMortgage();
+
+            document.getElementById('firstPayment').innerText = formatCurrency(results.first);
+            document.getElementById('lastPayment').innerText = formatCurrency(results.last);
+            document.getElementById('totalPayment').innerText = formatCurrency(results.total);
+
+            updateChart(results.labels, results.data);
+
+            // Clear previous AI response if data changes
+            document.getElementById('aiResponse').classList.add('hidden');
+            document.getElementById('aiResponse').innerHTML = '';
+        }
+
+        // הפעלה ראשונית
+        window.onload = updateCalculations;
+
+        async function generateAIAnalysis() {
+            const btn = document.getElementById('aiBtn');
+            const loading = document.getElementById('aiLoading');
+            const responseDiv = document.getElementById('aiResponse');
+
+            // Gather current parameters from the UI
+            const principal = document.getElementById('loanAmount').value;
+            const years = document.getElementById('loanYears').value;
+            const interest = document.getElementById('interestRate').value;
+            const cpi = document.getElementById('cpiRate').value;
+            const firstPayment = document.getElementById('firstPayment').innerText;
+            const totalPayment = document.getElementById('totalPayment').innerText;
+
+            btn.disabled = true;
+            btn.classList.add('opacity-50');
+            loading.classList.remove('hidden');
+            responseDiv.classList.add('hidden');
+
+            const systemPrompt = "אתה יועץ משכנתאות בכיר ומומחה פיננסי בחברת FINANTZA בישראל. עליך לספק ניתוח מקצועי, קצר וקולע (עד 3 פסקאות) לגבי תמהיל המשכנתא של הלקוח. המסלול הוא ריבית קבועה צמודה למדד. התייחס לסיכונים של אינפלציה, לתקופת ההלוואה (אם היא ארוכה מ-15 שנים, הזהר מהשפעת המדד המצטברת) ולפער בין התשלום הראשון לסך ההחזר. פנה ללקוח בגוף שני, בשפה מקצועית אך נגישה ומזמינה, בלי להשתמש בהדגשות מיותרות (כוכביות) - השתמש בטקסט פשוט, נקי וזורם.";
+
+            const userQuery = `לקוח שוקל לקחת הלוואה במסלול קבועה צמודה. נתונים: סכום ההלוואה: ${principal} ש"ח. תקופה: ${years} שנים. ריבית שנתית: ${interest}%. מדד חזוי: ${cpi}%. תשלום התחלתי: ${firstPayment}. סך החזר מצטבר חזוי: ${totalPayment}. מה דעתך המקצועית על כדאיות המסלול בתנאים אלו, ומה כדאי ללקוח לקחת בחשבון?`;
+
+            // Canvas will inject the API key securely at runtime
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+            };
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+
+                if (result.candidates && result.candidates.length > 0 && result.candidates[0].content && result.candidates[0].content.parts) {
+                    let text = result.candidates[0].content.parts[0].text;
+                    // Format response with standard HTML paragraph breaks
+                    text = text.replace(/\n\n/g, '</p><p class="mb-3">').replace(/\n/g, '<br>');
+                    responseDiv.innerHTML = `<p class="mb-3">${text}</p>`;
+                } else {
+                    responseDiv.innerHTML = "המערכת נתקלה בבעיה טכנית בעת ניתוח הנתונים. אנא נסה שוב מאוחר יותר.";
+                }
+            } catch (error) {
+                console.error("Error fetching AI response:", error);
+                responseDiv.innerHTML = "שגיאת תקשורת. לא ניתן ליצור קשר עם שרת ה-AI כרגע.";
+            } finally {
+                btn.disabled = false;
+                btn.classList.remove('opacity-50');
+                loading.classList.add('hidden');
+                responseDiv.classList.remove('hidden');
+            }
+        }
+
+    </script>
+</body>
+
+</html>
