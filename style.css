@@ -510,3 +510,14 @@
           justify-content: center;
       }
   }
+  /* ===== כפתור "לשיחת היכרות" בתפריט – מוביל לדף הנחיתה ===== */
+  .nav-links li a.nav-cta {
+      background: #ffffff;
+      color: #0f172a;
+      font-weight: 700;
+  }
+
+  .nav-links li a.nav-cta:hover {
+      background: #93c5fd;
+      color: #0f172a;
+  }
