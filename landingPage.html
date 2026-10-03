@@ -473,6 +473,8 @@
 
         .field-error { color: #b91c1c; font-size: 14px; }
         .lead-form .btn { grid-column: 1 / -1; width: 100%; margin-top: 6px; }
+        .btn-whatsapp { background: #25d366; color: var(--white); font-size: 18px; }
+        .btn-whatsapp:hover { background: #1ebe5b; }
         .form-note { grid-column: 1 / -1; text-align: center; font-size: 14px; color: var(--muted); }
 
         .form-success { text-align: center; padding: 30px 0 10px; }
@@ -823,7 +825,11 @@
 
                     <form class="lead-form" id="lead-form" action="https://formspree.io/f/xpqyanzg" method="POST" novalidate>
                         <input type="hidden" name="_subject" value="ליד חדש מדף הנחיתה – FINANTZA">
-                        <input type="hidden" name="source" value="דף נחיתה">
+                        <input type="hidden" name="page" value="דף נחיתה">
+                        <input type="hidden" name="מקור הגעה" id="lead-source" value="">
+                        <input type="hidden" name="utm_source" id="utm_source" value="">
+                        <input type="hidden" name="utm_medium" id="utm_medium" value="">
+                        <input type="hidden" name="utm_campaign" id="utm_campaign" value="">
 
                         <div class="field">
                             <label for="name">שם מלא</label>
@@ -847,7 +853,8 @@
                             </select>
                         </div>
 
-                        <button class="btn btn-dark" type="submit" id="submitBtn">שלחו פרטים</button>
+                        <button class="btn btn-whatsapp" type="submit" id="submitBtn"><i class="fa-brands fa-whatsapp"></i> שלחו פרטים בוואטסאפ</button>
+                        <p class="form-note">בלחיצה תיפתח שיחת וואטסאפ עם הודעה מוכנה, רק ללחוץ "שליחה"</p>
                         <p class="form-note"><i class="fa-solid fa-lock"></i> הפרטים שלכם נשמרים אצלנו ולא יועברו לאף גורם אחר</p>
                         <p class="form-note" id="form-error" role="alert"></p>
                     </form>
@@ -897,6 +904,41 @@
             });
         });
 
+        // ===== מעקב מקור הגעה (UTM) =====
+        // כשמישהו מגיע מקישור עם תגית (למשל ?utm_source=instagram), שומרים את המקור
+        // ומצרפים אותו לליד שנשלח למייל.
+        const WHATSAPP_NUMBER = "972559971294";
+        const SOURCE_NAMES = {
+            instagram: "אינסטגרם", facebook: "פייסבוק", google: "גוגל",
+            whatsapp: "וואטסאפ", tiktok: "טיקטוק", linkedin: "לינקדאין", youtube: "יוטיוב"
+        };
+        (function trackSource() {
+            const params = new URLSearchParams(window.location.search);
+            let utm = {
+                utm_source: params.get("utm_source") || "",
+                utm_medium: params.get("utm_medium") || "",
+                utm_campaign: params.get("utm_campaign") || ""
+            };
+            try {
+                if (utm.utm_source) sessionStorage.setItem("finantza_utm", JSON.stringify(utm));
+                else utm = JSON.parse(sessionStorage.getItem("finantza_utm") || "null") || utm;
+            } catch (err) { /* דפדפן שחוסם אחסון – ממשיכים בלי */ }
+
+            let label = "ישיר / לא ידוע";
+            if (utm.utm_source) {
+                label = SOURCE_NAMES[utm.utm_source.toLowerCase()] || utm.utm_source;
+                if (utm.utm_medium) label += " – " + utm.utm_medium;
+                if (utm.utm_campaign) label += " (" + utm.utm_campaign + ")";
+            } else if (document.referrer && !document.referrer.includes(location.hostname)) {
+                label = "הפניה מ-" + new URL(document.referrer).hostname;
+            }
+            document.getElementById("lead-source").value = label;
+            document.querySelector('[name="_subject"]').value = "ליד חדש מדף הנחיתה – " + label;
+            document.getElementById("utm_source").value = utm.utm_source;
+            document.getElementById("utm_medium").value = utm.utm_medium;
+            document.getElementById("utm_campaign").value = utm.utm_campaign;
+        })();
+
         // שליחת הטופס
         const form = document.getElementById("lead-form");
         const nameInput = document.getElementById("name");
@@ -926,27 +968,35 @@
 
             const btn = document.getElementById("submitBtn");
             btn.disabled = true;
-            btn.textContent = "שולח…";
+            btn.textContent = "פותח וואטסאפ…";
 
-            try {
-                const response = await fetch(form.action, {
-                    method: "POST",
-                    body: new FormData(form),
-                    headers: { Accept: "application/json" }
-                });
-                if (!response.ok) throw new Error("send failed");
-                document.getElementById("formHeader").remove();
-                form.outerHTML = `
-                    <div class="form-success">
-                        <i class="fa-solid fa-circle-check"></i>
-                        <h3>הפרטים נשלחו בהצלחה</h3>
-                        <p>תודה! אחזור אליכם בהקדם האפשרי.</p>
-                    </div>`;
-            } catch (err) {
-                btn.disabled = false;
-                btn.textContent = "שלחו פרטים";
-                setError("form-error", "משהו השתבש בשליחה. נסו שוב או כתבו לי בוואטסאפ.");
-            }
+            // 1. גיבוי: הליד נשלח גם למייל (דרך Formspree), כולל מקור ההגעה.
+            //    לא מחכים לזה יותר מ-4 שניות, כדי שהלקוח לא יחכה.
+            const backup = fetch(form.action, {
+                method: "POST",
+                body: new FormData(form),
+                headers: { Accept: "application/json" }
+            }).catch(() => null);
+            await Promise.race([backup, new Promise((r) => setTimeout(r, 4000))]);
+
+            // 2. פתיחת שיחת וואטסאפ עם הודעה מוכנה
+            const name = nameInput.value.trim();
+            const service = serviceSelect.value;
+            const interest = service === "עדיין לא בטוח/ה"
+                ? "ואשמח לשמוע איזה מסלול מתאים לי"
+                : "ואני מתעניין/ת ב" + service;
+            const text = `היי טל, אני ${name} ${interest}. השארתי פרטים באתר, אשמח שתחזור אליי. הטלפון שלי: ${phoneInput.value.trim()}`;
+            const waLink = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text);
+
+            document.getElementById("formHeader").remove();
+            form.outerHTML = `
+                <div class="form-success">
+                    <i class="fa-brands fa-whatsapp" style="color:#25d366"></i>
+                    <h3>מעבירים אתכם לוואטסאפ…</h3>
+                    <p>ההודעה כבר מוכנה, רק ללחוץ "שליחה".</p>
+                    <p style="margin-top:18px"><a class="btn btn-dark" href="${waLink}">לא נפתח? לחצו כאן</a></p>
+                </div>`;
+            setTimeout(() => { window.location.href = waLink; }, 700);
         });
     </script>
 </body>
