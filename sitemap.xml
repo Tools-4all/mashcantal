@@ -35,4 +35,11 @@
     <lastmod>2026-10-02</lastmod>
     <priority>0.6</priority>
   </url>
+  <!-- AUTO:ARTICLES -->
+  <url>
+    <loc>https://finantza.co.il/articles.html</loc>
+    <lastmod>2026-10-05</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <!-- /AUTO:ARTICLES -->
 </urlset>
