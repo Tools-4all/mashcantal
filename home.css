@@ -211,6 +211,8 @@
 
 .about-box {
     flex: 1;
+    max-width: 850px;
+    margin: 0 auto;
 }
 
 .about-box h2 {
@@ -256,7 +258,6 @@
     direction: rtl;
     background: #ffffff;
     padding: 80px 20px 70px;
-    margin-bottom: 60px;
     border-top: 1px solid #e5e7eb;
     border-bottom: 1px solid #e5e7eb;
 }
@@ -327,7 +328,6 @@
 @media (max-width: 768px) {
     .fc-section {
         padding: 50px 6%;
-        margin-bottom: 40px;
     }
 
     .fc-title {
@@ -350,13 +350,12 @@
 
 #contactFormSection {
     max-width: 650px;
-    margin: 0 auto;
+    margin: 60px auto;
     padding: 40px 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
     background-color: #f9f9f9;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 60px;
 }
 
 #contactFormSection .contact-form input,
@@ -378,7 +377,6 @@
 
 .services-section {
     background-color: rgba(15, 23, 42, 0.96);
-    margin-top: 20px;
     padding: 80px 20px 70px;
     display: flex;
     align-items: center;
@@ -760,7 +758,7 @@
 }
 
 .faq-item-open .faq-answer-wrapper {
-    max-height: 260px;
+    max-height: 400px;
     /* מספיק לרוב תשובות הטקסט */
     padding-bottom: 14px;
 }
