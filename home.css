@@ -47,19 +47,19 @@
 
 .siftah {
     background: linear-gradient(45deg, #365db4, #000000);
-    padding: 40px 0;
-    padding-bottom: 0px;
+    padding: 50px 20px 60px;
     display: flex;
     justify-content: center;
+    direction: rtl;
 }
 
 .siftah-inner {
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    width: 80%;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
     max-width: 950px;
-    gap: 32px;
+    gap: 36px;
 }
 
 .siftah-inner img {
@@ -94,13 +94,104 @@
         font-size: 30px;
     }
 
+    .siftah {
+        padding: 30px 14px 40px;
+    }
+
     .siftah-inner {
-        align-items: center;
+        gap: 24px;
     }
 
     .siftah-logo img {
-        height: 100px;
+        height: 130px;
         width: auto;
+    }
+}
+
+/* שני השירותים – בתוך הבאנר, מתחת ללוגו */
+
+.offerings-inner {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.offering-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 30px 26px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    text-decoration: none;
+    color: #111827;
+    transition: box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+.offering-card:hover {
+    box-shadow: 0 22px 46px rgba(0, 0, 0, 0.5);
+    transform: translateY(-4px);
+}
+
+.offering-icon,
+.fc-icon {
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #365db4, #000000);
+    color: #ffffff;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.offering-title {
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: #1e3153;
+    margin: 16px 0 8px;
+}
+
+.offering-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #374151;
+}
+
+#services,
+#financial-consulting {
+    scroll-margin-top: 100px;
+}
+
+@media (max-width: 768px) {
+    .offerings-inner {
+        gap: 12px;
+    }
+
+    .offering-card {
+        padding: 18px 10px;
+    }
+
+    .offering-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
+    }
+
+    .offering-title {
+        font-size: 1.05rem;
+        margin: 12px 0 6px;
+    }
+
+    .offering-text {
+        font-size: 0.85rem;
+        line-height: 1.7;
     }
 }
 
@@ -156,6 +247,102 @@
     .about-box p {
         font-size: 16px;
         text-align: right;
+    }
+}
+
+/* ליווי וייעוץ פיננסי */
+
+.fc-section {
+    direction: rtl;
+    background: #ffffff;
+    padding: 80px 20px 70px;
+    margin-bottom: 60px;
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.fc-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.fc-title {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 12px;
+}
+
+.fc-subtitle {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    font-size: 18px;
+    line-height: 1.9;
+    color: #1f2937;
+}
+
+.fc-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.fc-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 26px 20px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+.fc-card:hover {
+    border-color: #365db4;
+    box-shadow: 0 14px 30px rgba(37, 99, 235, 0.16);
+    transform: translateY(-2px);
+}
+
+.fc-card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1e3153;
+    margin: 16px 0 8px;
+}
+
+.fc-card-text {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #374151;
+}
+
+@media (max-width: 1000px) {
+    .fc-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .fc-section {
+        padding: 50px 6%;
+        margin-bottom: 40px;
+    }
+
+    .fc-title {
+        font-size: 1.85rem;
+    }
+
+    .fc-subtitle {
+        font-size: 16px;
+        margin-bottom: 28px;
+    }
+}
+
+@media (max-width: 520px) {
+    .fc-grid {
+        grid-template-columns: 1fr;
     }
 }
 

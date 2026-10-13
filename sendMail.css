@@ -33,6 +33,55 @@
        resize: none;
    }
 
+   /* בחירת שירות: משכנתא / ליווי כלכלי */
+
+   .contact-form .service-choice {
+       display: flex;
+       gap: 12px;
+   }
+
+   .contact-form .service-option {
+       flex: 1;
+       position: relative;
+       cursor: pointer;
+   }
+
+   .contact-form .service-option input {
+       position: absolute;
+       inset: 0;
+       height: 100%;
+       margin: 0;
+       opacity: 0;
+       cursor: pointer;
+   }
+
+   .contact-form .service-option span {
+       display: block;
+       padding: 12px;
+       text-align: center;
+       font-size: 15px;
+       color: #101011;
+       background: #f8fafc;
+       border: 1px solid rgba(148, 163, 184, 0.6);
+       border-radius: 10px;
+       transition: 0.2s;
+   }
+
+   .contact-form .service-option:hover span {
+       border-color: #365db4;
+   }
+
+   .contact-form .service-option input:checked+span {
+       background: rgba(15, 23, 42, 0.96);
+       border-color: rgba(15, 23, 42, 0.96);
+       color: #ffffff;
+       font-weight: 500;
+   }
+
+   .contact-form .service-option input:focus-visible+span {
+       box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+   }
+
    form .contact-btn {
        grid-column: span 2;
        padding: 16px;
