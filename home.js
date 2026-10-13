@@ -128,8 +128,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     items.forEach(function (item) {
         item.addEventListener('click', function () {
-            // סגירה של כל האחרים
-            items.forEach(function (other) {
+            // סגירה של כל האחרים באותו תהליך
+            item.closest('.timeline').querySelectorAll('.timeline-item').forEach(function (other) {
                 if (other !== item) {
                     other.classList.remove('active');
                 }
