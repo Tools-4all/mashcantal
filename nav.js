@@ -8,7 +8,7 @@ navToggle.addEventListener("click", () => {
 
 navLinks.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 1000) {
             navToggle.classList.remove("open");
             navLinks.classList.remove("open");
         }

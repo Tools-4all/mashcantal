@@ -11,6 +11,10 @@
       overflow-x: hidden;
   }
 
+  html {
+      scroll-behavior: smooth;
+  }
+
   body {
       padding-top: calc(36px + 64px);
       font-family: "Heebo", system-ui, -apple-system, BlinkMacSystemFont,
@@ -478,7 +482,7 @@
       }
 
       .nav-links.open {
-          max-height: 440px;
+          max-height: 480px;
           opacity: 1;
           pointer-events: auto;
       }
@@ -520,4 +524,54 @@
   .nav-links li a.nav-cta:hover {
       background: #93c5fd;
       color: #0f172a;
+  }
+
+  /* ===== תפריט עם 10 פריטים – התאמה למסכים בינוניים ===== */
+  @media (min-width: 1001px) and (max-width: 1250px) {
+      .nav-links {
+          gap: 2px;
+      }
+
+      .nav-links li a {
+          font-size: 0.75rem;
+          padding: 6px 6px;
+      }
+  }
+
+  @media (min-width: 769px) and (max-width: 1000px) {
+      .nav-links {
+          position: fixed;
+          inset-inline: 0;
+          top: 64px;
+          background: rgba(15, 23, 42, 0.98);
+          border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 10px 18px 16px;
+          gap: 6px;
+          max-height: 0;
+          overflow: hidden;
+          opacity: 0;
+          pointer-events: none;
+          transition: max-height 0.22s ease, opacity 0.22s ease;
+      }
+
+      .nav-links.open {
+          max-height: 480px;
+          opacity: 1;
+          pointer-events: auto;
+      }
+
+      .nav-links li {
+          width: 100%;
+      }
+
+      .nav-links li a {
+          display: block;
+          width: 100%;
+      }
+
+      .nav-toggle {
+          display: flex;
+      }
   }
