@@ -185,3 +185,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+// כפתור המסלול המשולב – בוחר מראש את האפשרות המתאימה בטופס
+document.querySelectorAll("[data-service]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+        const radio = document.querySelector(`#contact-form input[name="service"][value="${btn.dataset.service}"]`);
+        if (radio) radio.checked = true;
+    });
+});

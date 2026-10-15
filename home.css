@@ -166,7 +166,9 @@
 
 #services,
 #mortgage-consulting,
-#financial-consulting {
+#financial-consulting,
+#synergy,
+#contactFormSection {
     scroll-margin-top: 100px;
 }
 
@@ -268,14 +270,14 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto 1fr;
+    grid-template-rows: auto auto 1fr auto;
     column-gap: 50px;
 }
 
 .fc-container {
     display: grid;
     grid-template-rows: subgrid;
-    grid-row: span 3;
+    grid-row: span 4;
     text-align: center;
 }
 
@@ -373,6 +375,219 @@
 @media (max-width: 520px) {
     .fc-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* כפתור "לפרטים נוספים" בכל אחד מטורי השירות */
+
+.fc-more {
+    justify-self: center;
+    align-self: end;
+    margin-top: 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 26px;
+    border: 2px solid #1e3153;
+    border-radius: 999px;
+    color: #1e3153;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.fc-more:hover {
+    background: #1e3153;
+    color: #ffffff;
+}
+
+.fc-more i {
+    transition: transform 0.2s ease;
+}
+
+.fc-more:hover i {
+    transform: translateX(-4px);
+}
+
+/* המסלול המשולב */
+
+.synergy-section {
+    direction: rtl;
+    background: #f9fafb;
+    padding: 90px 20px;
+}
+
+.synergy-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.synergy-eyebrow {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #365db4;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 999px;
+    padding: 4px 14px;
+    margin-bottom: 14px;
+}
+
+.synergy-title {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 8px;
+}
+
+.synergy-subtitle {
+    font-size: 1.05rem;
+    color: #4b5563;
+    margin-bottom: 44px;
+}
+
+.synergy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    grid-template-areas: "a c b";
+    gap: 24px;
+    align-items: center;
+}
+
+.synergy-a {
+    grid-area: a;
+}
+
+.synergy-b {
+    grid-area: b;
+}
+
+.synergy-combined {
+    grid-area: c;
+}
+
+.synergy-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 30px 24px;
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+}
+
+.synergy-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1f5f9;
+    color: #1e3153;
+    font-size: 1.25rem;
+    margin-bottom: 14px;
+}
+
+.synergy-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1e3153;
+    margin-bottom: 8px;
+}
+
+.synergy-card h3.synergy-warning {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+.synergy-tag {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #475569;
+    background: #f1f5f9;
+    border-radius: 999px;
+    padding: 2px 12px;
+    margin-bottom: 12px;
+}
+
+.synergy-card p:not(.synergy-tag) {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #374151;
+}
+
+.synergy-combined {
+    background: linear-gradient(45deg, #365db4, #000000);
+    border: none;
+    padding: 40px 30px;
+    box-shadow: 0 24px 50px rgba(15, 23, 42, 0.35);
+}
+
+.synergy-combined .synergy-icon {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+}
+
+.synergy-combined h3 {
+    color: #ffffff;
+    font-size: 1.5rem;
+}
+
+.synergy-list {
+    list-style: none;
+    text-align: right;
+    margin: 18px 0 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.synergy-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: #e5e7eb;
+}
+
+.synergy-list i {
+    color: #93c5fd;
+    margin-top: 6px;
+}
+
+.synergy-cta {
+    display: block;
+    background: #ffffff;
+    color: #0f172a;
+    font-weight: 700;
+    font-size: 1.05rem;
+    padding: 16px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.synergy-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 900px) {
+    .synergy-section {
+        padding: 60px 16px;
+    }
+
+    .synergy-title {
+        font-size: 1.75rem;
+    }
+
+    .synergy-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas: "a" "b" "c";
     }
 }
 

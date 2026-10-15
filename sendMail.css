@@ -37,11 +37,12 @@
 
    .contact-form .service-choice {
        display: flex;
+       flex-wrap: wrap;
        gap: 12px;
    }
 
    .contact-form .service-option {
-       flex: 1;
+       flex: 1 1 auto;
        position: relative;
        cursor: pointer;
    }
