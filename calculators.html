@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>FINANTZA - מרכז המחשבונים הפיננסיים</title>
+  <meta name="description" content="כלי תכנון מתקדמים לבחינת תמהילי משכנתא, תחזיות אינפלציה וניתוח תזרימי מדויק." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="canonical" href="https://finantza.co.il/calculators.html" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="/apple-icon.png" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="calculators.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+  <!-- ===== TOP CONTACT BAR ===== -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+
+      <!-- Right: Contact info -->
+      <div class="top-contact">
+        <a href="tel:0559971294" class="top-link">
+          <i class="fa-solid fa-phone"></i> 055-9971294
+        </a>
+        <span class="divider">|</span>
+        <a href="mailto:Finantza@outlook.com" class="top-link">
+          <i class="fa-solid fa-envelope"></i> Finantza@outlook.com
+        </a>
+      </div>
+
+      <!-- Left: Social icons -->
+      <div class="top-social">
+        <a href="https://wa.me/972559971294" target="_blank" rel="noopener" class="icon-link">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="https://www.instagram.com/taltzadok_mortgages/" class="icon-link" target="_blank"
+          rel="noopener noreferrer" aria-label="אינסטגרם של Finantza">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61586760255116&locale=he_IL" class="icon-link" target="_blank"
+          rel="noopener noreferrer" aria-label="עמוד הפייסבוק של Finantza">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+
+  <header class="navbar">
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">דף הבית</a></li>
+      <li><a href="/#mortgage-consulting">ייעוץ משכנתאות</a></li>
+      <li><a href="/#financial-consulting">ליווי כלכלי</a></li>
+      <li><a href="glossary.html">מילון מונחים</a></li>
+      <li><a href="rates.html">שערים ומדדים</a></li>
+      <li><a href="calculators.html" class="active">מחשבונים</a></li>
+      <li><a href="articles.html">מאמרים</a></li>
+      <li><a href="contact.html">צור קשר</a></li>
+            <li><a href="landingPage.html" class="nav-cta">לשיחת היכרות</a></li>
+    </ul>
+
+
+    <button class="nav-toggle" id="navToggle" aria-label="תפריט">
+      <div class="nav-toggle-bar"></div>
+    </button>
+    <a href="index.html"><img class="navbar_logo" src="logo.png" alt="logo"></a>
+  </header>
+
+  <main class="calc-page">
+
+    <div class="calc-header">
+      <h1>מרכז המחשבונים הפיננסיים</h1>
+      <p>כלי תכנון מתקדמים לבחינת תמהילי משכנתא, תחזיות אינפלציה וניתוח תזרימי מדויק.</p>
+
+      <!-- בחירת מחשבון. אפשר לקשר ישירות: calculators.html#general / calculators.html#cpi -->
+      <div class="calc-tabs" role="tablist">
+        <button type="button" class="calc-tab is-active" id="tabGeneral" role="tab" aria-selected="true" aria-controls="calcGeneral" data-calc="general">
+          מחשבון ריבית קבועה
+        </button>
+        <button type="button" class="calc-tab" id="tabCpi" role="tab" aria-selected="false" aria-controls="calcCpi" data-calc="cpi">
+          מחשבון ריבית קבועה צמודה
+        </button>
+      </div>
+    </div>
+
+    <!-- ===== 1. מחשבון ריבית קבועה ===== -->
+    <section class="calc-panel" id="calcGeneral" role="tabpanel" aria-labelledby="tabGeneral">
+      <div class="calc-card calc-inputs">
+        <h2>נתוני ההלוואה</h2>
+            <div class="calc-field">
+              <label for="genAmount">סכום ההלוואה (₪)</label>
+              <input type="number" id="genAmount" value="1000000" min="0" step="50000" />
+            </div>
+            <div class="calc-field">
+              <label for="genYears">תקופה (בשנים): <span id="genYearsDisplay" class="calc-range-value">25</span></label>
+              <input type="range" id="genYears" min="5" max="30" value="25" />
+            </div>
+            <div class="calc-field">
+              <label for="genRate">ריבית שנתית ממוצעת (%)</label>
+              <input type="number" id="genRate" value="4.5" min="0" step="0.1" />
+            </div>
+      </div>
+
+      <div class="calc-results">
+        <div class="calc-stats calc-stats-3">
+          <div class="calc-card calc-stat">
+            <p class="calc-stat-label">החזר חודשי (שפיצר)</p>
+            <p class="calc-stat-value" id="genMonthly">₪0</p>
+          </div>
+          <div class="calc-card calc-stat calc-stat-accent">
+            <p class="calc-stat-label">סה"כ ריבית</p>
+            <p class="calc-stat-value" id="genInterest">₪0</p>
+          </div>
+          <div class="calc-card calc-stat calc-stat-dark">
+            <p class="calc-stat-label">סה"כ לתשלום על פני תקופת ההלוואה</p>
+            <p class="calc-stat-value" id="genTotal">₪0</p>
+          </div>
+        </div>
+        <div class="calc-card calc-chart-card">
+          <h3>השוואת התפתחות ההחזר החודשי לאורך השנים</h3>
+          <div class="calc-chart">
+            <canvas id="genChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 2. מחשבון ריבית קבועה צמודה ===== -->
+    <section class="calc-panel" id="calcCpi" role="tabpanel" aria-labelledby="tabCpi" hidden>
+      <div class="calc-card calc-inputs">
+        <h2>תחזית הצמדה למדד</h2>
+            <div class="calc-field">
+              <label for="cpiAmount">סכום ההלוואה הצמודה (₪)</label>
+              <input type="number" id="cpiAmount" value="1000000" min="0" step="50000" />
+            </div>
+            <div class="calc-field">
+              <label for="cpiYears">תקופה (בשנים): <span id="cpiYearsDisplay" class="calc-range-value">20</span></label>
+              <input type="range" id="cpiYears" min="5" max="30" value="20" />
+            </div>
+            <div class="calc-field">
+              <label for="cpiRate">ריבית קבועה שנתית (%)</label>
+              <input type="number" id="cpiRate" value="2.5" min="0" step="0.1" />
+            </div>
+            <div class="calc-field">
+              <label for="cpiInflation">מדד מחירים חזוי שנתי (אינפלציה %)</label>
+              <input type="number" id="cpiInflation" value="2.6" step="0.1" />
+              <p class="calc-hint">* מסלול צמוד מדד: הקרן וההחזר החודשי מתעדכנים בהתאם לקצב האינפלציה.</p>
+            </div>
+      </div>
+
+      <div class="calc-results">
+        <div class="calc-stats calc-stats-3">
+          <div class="calc-card calc-stat">
+            <p class="calc-stat-label">החזר חודשי התחלתי</p>
+            <p class="calc-stat-value" id="cpiFirst">₪0</p>
+          </div>
+          <div class="calc-card calc-stat calc-stat-accent">
+            <p class="calc-stat-label">החזר חודשי אחרון (משוער)</p>
+            <p class="calc-stat-value" id="cpiLast">₪0</p>
+          </div>
+          <div class="calc-card calc-stat calc-stat-dark">
+            <p class="calc-stat-label">סה"כ החזר מצטבר</p>
+            <p class="calc-stat-value" id="cpiTotal">₪0</p>
+          </div>
+        </div>
+        <div class="calc-card calc-chart-card">
+          <h3>השוואת התפתחות ההחזר החודשי לאורך השנים</h3>
+          <div class="calc-chart">
+            <canvas id="cpiChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img class="footer_logo" src="logo.png" alt="logo">
+        <p class="footer-desc">
+          השירות ניתן באופן אישי על ידי טל צדוק, יועץ משכנתאות וחבר התאחדות המשכנתאות.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="footer-title">ניווט מהיר</h3>
+        <ul class="footer-links">
+          <li><a href="index.html">דף הבית</a></li>
+          <li><a href="glossary.html"> מילון מונחים</a></li>
+          <li><a href="rates.html">שערים ומדדים</a></li>
+          <li><a href="calculators.html">מחשבונים</a></li>
+          <li><a href="articles.html">מאמרים</a></li>
+          <li><a href="contact.html">צור קשר</a></li>
+                    <li><a href="landingPage.html">לשיחת היכרות ללא עלות</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="footer-title">יצירת קשר</h3>
+        <ul class="footer-contact">
+          <li><span class="label">מייל:</span> <a style="text-decoration: none; color: inherit;"
+              href="mailto:Finantza@outlook.com">Finantza@outlook.com</a></li>
+          <li><span class="label">טלפון:</span> <a style="text-decoration: none; color: inherit;"
+              href="tel: 0559971294"> 055-9971294</a></span></li>
+          <li><span class="label">שעות פעילות:</span> א'–ה' 9:00–18:00</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+
+      <div style="display: flex; flex-direction: column;gap:3px;">
+        <a id="mobileLink" href="https://tools-4all.com/" target="_blank" rel="noopener">
+          Made by Tools 4 All
+        </a>
+        <span>© <span id="year"></span> טל צדוק - ייעוץ משכנתאות · כל הזכויות שמורות.</span>
+        <a id="webLink" href="https://tools-4all.com/" target="_blank" rel="noopener">
+          Made by Tools 4 All
+        </a>
+      </div>
+
+      <div class="footer-social">
+        <a href="https://www.instagram.com/taltzadok_mortgages/" target="_blank" rel="noopener noreferrer"
+          aria-label="אינסטגרם של Finantza">
+          <div class="social-pill">Instagram</div>
+        </a>
+
+        <a href="https://www.facebook.com/profile.php?id=61586760255116&locale=he_IL" target="_blank"
+          rel="noopener noreferrer" class="social-pill" aria-label="Facebook של Finantza">
+          Facebook
+        </a>
+        <div class="social-pill"><a href="https://wa.me/972559971294" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="nav.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="calculators.js"></script>
+</body>
+
+</html>

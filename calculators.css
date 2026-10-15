@@ -1,0 +1,259 @@
+/* מרכז המחשבונים הפיננסיים */
+
+.calc-page {
+    direction: rtl;
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 50px 20px 70px;
+}
+
+/* כותרת ולשוניות */
+
+.calc-header {
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.calc-header h1 {
+    font-size: 2.3rem;
+    font-weight: 800;
+    color: #1e3153;
+    margin-bottom: 8px;
+}
+
+.calc-header p {
+    max-width: 580px;
+    margin: 0 auto;
+    font-size: 1.02rem;
+    line-height: 1.8;
+    color: #4b5563;
+}
+
+.calc-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 26px;
+}
+
+.calc-tab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 230px;
+    padding: 11px 24px;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #374151;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.calc-tab:hover {
+    border-color: #365db4;
+}
+
+.calc-tab.is-active {
+    background: linear-gradient(45deg, #365db4, #000000);
+    border-color: transparent;
+    color: #ffffff;
+}
+
+/* פריסת מחשבון: שדות | תוצאות */
+
+.calc-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: 28px;
+    align-items: start;
+}
+
+.calc-panel[hidden] {
+    display: none;
+}
+
+.calc-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+.calc-inputs {
+    padding: 24px;
+    border-top: 4px solid #1e3153;
+}
+
+.calc-inputs h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1e3153;
+    padding-bottom: 10px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.calc-field + .calc-field {
+    margin-top: 16px;
+}
+
+.calc-field label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 6px;
+}
+
+.calc-field input[type="number"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font: inherit;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0f172a;
+    background: #f8fafc;
+}
+
+.calc-field input[type="number"]:focus {
+    outline: none;
+    border-color: #365db4;
+    box-shadow: 0 0 0 3px rgba(54, 93, 180, 0.2);
+}
+
+.calc-field input[type="range"] {
+    width: 100%;
+    accent-color: #1e3153;
+    cursor: pointer;
+}
+
+.calc-range-value {
+    color: #1e3153;
+    font-weight: 800;
+}
+
+.calc-hint {
+    margin-top: 6px;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: #6b7280;
+}
+
+/* תוצאות */
+
+.calc-results {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.calc-stats {
+    display: grid;
+    gap: 16px;
+}
+
+.calc-stats-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.calc-stat {
+    padding: 20px 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.calc-stat-label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #6b7280;
+    margin-bottom: 6px;
+}
+
+.calc-stat-value {
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: #1e3153;
+    direction: ltr;
+}
+
+.calc-stats-3 .calc-stat-value {
+    font-size: 1.55rem;
+}
+
+.calc-stat-accent {
+    border: 2px solid #bfdbfe;
+    background: #eff6ff;
+}
+
+.calc-stat-accent .calc-stat-label,
+.calc-stat-accent .calc-stat-value {
+    color: #365db4;
+}
+
+.calc-stat-dark {
+    background: linear-gradient(45deg, #365db4, #000000);
+    border: none;
+}
+
+.calc-stat-dark .calc-stat-label {
+    color: #d1d5db;
+}
+
+.calc-stat-dark .calc-stat-value {
+    color: #ffffff;
+}
+
+.calc-chart-card {
+    padding: 22px;
+}
+
+.calc-chart-card h3 {
+    text-align: center;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #374151;
+    margin-bottom: 14px;
+}
+
+.calc-chart {
+    position: relative;
+    height: 300px;
+}
+
+@media (max-width: 1000px) {
+    .calc-panel {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .calc-page {
+        padding: 34px 16px 50px;
+    }
+
+    .calc-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .calc-tab {
+        width: 100%;
+    }
+
+    .calc-stats-3 {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .calc-stat-value,
+    .calc-stats-3 .calc-stat-value {
+        font-size: 1.6rem;
+    }
+}
