@@ -229,6 +229,102 @@
     color: #374151;
 }
 
+.svc-content .content-card ul {
+    margin: 14px 0 0;
+    padding-top: 12px;
+    padding-inline-start: 18px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.svc-content .content-card li {
+    margin-bottom: 6px;
+    font-size: 0.93rem;
+    line-height: 1.75;
+    color: #374151;
+}
+
+.svc-content .content-card li strong {
+    color: #1e3153;
+}
+
+/* כרטיסים נפתחים (content-accordion): רק הכותרת גלויה, התיאור נפתח בלחיצה */
+
+.svc-content .content-accordion {
+    align-items: start;
+}
+
+.svc-content .content-accordion .content-card {
+    padding: 0;
+}
+
+.svc-content .content-accordion .content-card h3 {
+    margin: 0;
+}
+
+.svc-content .content-card-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 18px 20px;
+    background: none;
+    border: none;
+    font: inherit;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1e3153;
+    text-align: right;
+    cursor: pointer;
+}
+
+.svc-content .content-card-toggle:hover {
+    color: #365db4;
+}
+
+.svc-content .content-card-toggle:focus-visible {
+    outline: 2px solid #365db4;
+    outline-offset: -4px;
+    border-radius: 12px;
+}
+
+.svc-content .content-card-toggle i {
+    flex-shrink: 0;
+    font-size: 0.9rem;
+    transition: transform 0.25s ease;
+}
+
+.svc-content .content-card.is-open .content-card-toggle i {
+    transform: rotate(180deg);
+}
+
+.svc-content .content-card-body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.25s ease;
+}
+
+.svc-content .content-card.is-open .content-card-body {
+    grid-template-rows: 1fr;
+}
+
+.svc-content .content-card-inner {
+    min-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+}
+
+.svc-content .content-card-inner > :last-child {
+    margin-bottom: 20px;
+}
+
+.svc-content .content-note {
+    margin-top: 22px;
+    font-size: 0.85rem;
+    color: #6b7280;
+    text-align: center;
+}
+
 /* ציר שלבים: <div class="content-timeline"> סביב רשימה ממוספרת */
 
 .svc-content .content-timeline ol {
