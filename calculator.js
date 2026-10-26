@@ -228,8 +228,9 @@ const META_EVENT_NAMES = {
 
 function track(eventName, params = {}) {
     try {
+        // Google Analytics (gtag מותקן בכל עמודי האתר). אם יש רק Tag Manager בלי gtag – שולחים ל-dataLayer.
         if (typeof window.gtag === "function") window.gtag("event", eventName, params);
-        if (Array.isArray(window.dataLayer)) window.dataLayer.push({ event: eventName, ...params });
+        else if (Array.isArray(window.dataLayer)) window.dataLayer.push({ event: eventName, ...params });
         if (typeof window.fbq === "function") {
             if (eventName === "generate_lead") window.fbq("track", "Lead", params);
             else window.fbq("trackCustom", META_EVENT_NAMES[eventName] || eventName, params);
