@@ -115,10 +115,13 @@ const STEPS = [
         ]
     },
     {
-        title: "חיסכון ומצב החשבון",
+        title: "חיסכון, הלוואות ומצב החשבון",
         subtotalLabel: "הפקדה חודשית לחיסכון",
         fields: [
             { id: "saving", label: "הפקדה חודשית לחיסכון", hint: "הוראות קבע לחיסכון, קופת גמל להשקעה. לא כולל פנסיה מהמשכורת" },
+            // יתרות (לא סכומים חודשיים) – משמשות רק לחישוב השווי הנקי
+            { id: "existingSavings", label: "חסכונות קיימים", hint: "כמה כסף יש לכם היום בחסכונות, בפיקדונות, בקופות גמל להשקעה ובתיקי השקעות. לא כולל פנסיה", balance: true },
+            { id: "loanBalance", label: "יתרת הלוואות קיימות", hint: "כמה נשאר לכם להחזיר בכל ההלוואות יחד עד סיומן. לא כולל משכנתא", balance: true },
             { id: "balance", label: 'יתרת העו"ש היום', hint: "הסכום בחשבון העו\"ש נכון להיום", signed: true }
         ]
     }
@@ -168,7 +171,7 @@ function escapeHtml(s) {
 // סכום קטגוריה: אם יש לה ריבועים – סכום הריבועים, אחרת השדה עצמו
 function fieldAmount(f, values) {
     if (f.items) return f.items.reduce((acc, it) => acc + (values[it.id] || 0), 0);
-    return f.signed ? 0 : (values[f.id] || 0);
+    return f.signed || f.balance ? 0 : (values[f.id] || 0);
 }
 
 function sumFields(stepIndex, values) {
@@ -186,6 +189,14 @@ function compute(values, balanceSign) {
     const balanceToday = (values.balance || 0) * (balanceSign === "minus" ? -1 : 1);
     const balanceInYear = balanceToday + yearly;
     const yearlySaving = saving * 12;
+
+    // שווי נקי: נכסים (חסכונות קיימים + עו"ש בפלוס) פחות התחייבויות (יתרת הלוואות + מינוס בעו"ש)
+    const existingSavings = values.existingSavings || 0;
+    const loanBalance = values.loanBalance || 0;
+    const assets = existingSavings + Math.max(balanceToday, 0);
+    const liabilities = loanBalance + Math.max(-balanceToday, 0);
+    const netWorth = assets - liabilities;
+
     const fixedPct = income > 0 ? (fixed / income) * 100 : 0;
     const incomeMinusExpenses = income - expenses;
     // חלוקת ההוצאות: קבועות ומשתנות מתוך סך ההוצאות
@@ -202,7 +213,7 @@ function compute(values, balanceSign) {
     if (left < 0) status = "red";
     else if (left + saving < YELLOW_THRESHOLD * income) status = "yellow";
 
-    return { income, fixed, variable, expenses, saving, left, yearly, balanceToday, balanceInYear, yearlySaving, fixedPct, incomeMinusExpenses, fixedShare, variableShare, top3, status };
+    return { income, fixed, variable, expenses, saving, left, yearly, balanceToday, balanceInYear, yearlySaving, fixedPct, incomeMinusExpenses, fixedShare, variableShare, existingSavings, loanBalance, assets, liabilities, netWorth, top3, status };
 }
 
 // =====================================================================
@@ -211,7 +222,8 @@ function compute(values, balanceSign) {
 
 const META_EVENT_NAMES = {
     calculator_start: "CalculatorStart",
-    calculator_step_complete: "CalculatorStepComplete"
+    calculator_step_complete: "CalculatorStepComplete",
+    calculator_complete: "CalculatorComplete"
 };
 
 function track(eventName, params = {}) {
@@ -434,7 +446,7 @@ prevBtn.addEventListener("click", () => {
 });
 
 // =====================================================================
-// סיום האשף: השארת פרטים ← תוצאות
+// סיום האשף: התוצאות מוצגות מיד. השארת פרטים היא רשות ומופיעה אחרי התוצאות.
 // =====================================================================
 
 let result = null;
@@ -442,29 +454,17 @@ let result = null;
 function finishWizard() {
     result = compute(values, balanceSign);
     wizardCard.hidden = true;
-
-    if (leadSent) {
-        showResults();
-        return;
-    }
-
-    // תצוגה מקדימה מטושטשת של התוצאות האמיתיות
-    document.getElementById("previewContent").innerHTML = renderResults(result, "pv");
-    leadCard.hidden = false;
-    document.getElementById("leadTitle").focus({ preventScroll: true });
-    scrollToEl(leadCard);
-}
-
-function showResults() {
-    leadCard.hidden = true;
     document.getElementById("resultsContent").innerHTML = renderResults(result, "rs");
     resultsEl.hidden = false;
+    leadCard.hidden = false;
+    track("calculator_complete");
     document.getElementById("resultsTitle").focus({ preventScroll: true });
     scrollToEl(resultsEl);
 }
 
 document.getElementById("editBtn").addEventListener("click", () => {
     resultsEl.hidden = true;
+    leadCard.hidden = true;
     wizardCard.hidden = false;
     showStep(0, true);
 });
@@ -519,6 +519,11 @@ function renderResults(r, uid) {
         <div class="mc-card">
             <h4 class="mc-chart-title">הוצאות קבועות מתוך ההכנסה</h4>
             ${renderMeter(r)}
+        </div>
+
+        <div class="mc-card">
+            <h4 class="mc-chart-title">שווי נקי: נכסים מול התחייבויות</h4>
+            ${renderNetWorth(r)}
         </div>
     </div>`;
 }
@@ -638,6 +643,33 @@ function renderSplit(r) {
         </ul>`;
 }
 
+// שווי נקי: שני פסים (נכסים, התחייבויות) ביחס לגדול מביניהם, והפרש ביניהם כמספר גדול
+function renderNetWorth(r) {
+    if (r.assets <= 0 && r.liabilities <= 0) return `<p class="mc-empty">לא הוזנו חסכונות, הלוואות או יתרת עו"ש.</p>`;
+    const max = Math.max(r.assets, r.liabilities);
+    const row = (label, amount, cls, details) => `
+        <li>
+            <div class="mc-bar-head"><span>${label}</span><strong>${money(amount)}</strong></div>
+            <div class="mc-bar-track" aria-hidden="true"><div class="mc-bar-fill ${cls}" style="width:${max > 0 ? (amount / max) * 100 : 0}%"></div></div>
+            ${details ? `<p class="mc-nw-details">${details}</p>` : ""}
+        </li>`;
+
+    const assetParts = [];
+    if (r.existingSavings > 0) assetParts.push(`חסכונות קיימים ${money(r.existingSavings)}`);
+    if (r.balanceToday > 0) assetParts.push(`עו"ש בפלוס ${money(r.balanceToday)}`);
+    const liabilityParts = [];
+    if (r.loanBalance > 0) liabilityParts.push(`יתרת הלוואות ${money(r.loanBalance)}`);
+    if (r.balanceToday < 0) liabilityParts.push(`מינוס בעו"ש ${money(-r.balanceToday)}`);
+
+    return `
+        <p class="mc-nw-value ${Math.round(r.netWorth) < 0 ? "is-neg" : ""}">${money(r.netWorth)}</p>
+        <p class="mc-meter-sub">נכסים פחות התחייבויות</p>
+        <ul class="mc-bars">
+            ${row("נכסים", r.assets, "mc-fill-assets", assetParts.join(" · "))}
+            ${row("התחייבויות", r.liabilities, "mc-fill-liabilities", liabilityParts.join(" · "))}
+        </ul>`;
+}
+
 function renderBars(r) {
     if (!r.top3.length) return `<p class="mc-empty">לא הוזנו הוצאות.</p>`;
     const max = r.top3[0].amount;
@@ -735,6 +767,9 @@ leadForm.addEventListener("submit", async (e) => {
         "הכנסות פחות הוצאות": moneyText(r.incomeMinusExpenses),
         "נשאר בסוף החודש": moneyText(r.left),
         'יתרת עו"ש היום': moneyText(r.balanceToday),
+        "חסכונות קיימים": moneyText(r.existingSavings),
+        "יתרת הלוואות קיימות": moneyText(r.loanBalance),
+        "שווי נקי (נכסים פחות התחייבויות)": moneyText(r.netWorth),
         "סטטוס": `${st.name} – ${st.text}`,
         "3 הקטגוריות הגדולות": r.top3.length
             ? r.top3.map((c) => `${c.label} ${moneyText(c.amount)}`).join(" | ")
@@ -757,13 +792,17 @@ leadForm.addEventListener("submit", async (e) => {
         if (!response.ok) throw new Error("HTTP " + response.status);
 
         leadSent = true;
-        track("generate_lead", { status: r.status });
-        showResults();
+        // לאירועי המעקב לא מצורף שום נתון כספי
+        track("generate_lead");
+        leadForm.hidden = true;
+        const success = document.getElementById("leadSuccess");
+        success.hidden = false;
+        success.focus();
     } catch (err) {
         formErr.textContent = "השליחה לא הצליחה. נא לבדוק את החיבור ולנסות שוב.";
     } finally {
         submitBtn.disabled = false;
-        submitBtn.textContent = "להציג את התוצאה";
+        submitBtn.textContent = "שלחו פרטים";
     }
 });
 

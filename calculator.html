@@ -81,7 +81,6 @@
         <h1>לאן הכסף שלכם הולך כל חודש?</h1>
         <p class="mc-hero-sub">מחשבון חינמי של 3 דקות שמראה מה נשאר לכם בסוף החודש ומה יקרה בעוד שנה באותו קצב.</p>
         <a href="#calculator" class="mc-btn mc-btn-light" id="heroStart">להתחיל לחשב</a>
-        <p class="mc-trust">טל צדוק, חבר התאחדות יועצי המשכנתאות ויועץ פיננסי</p>
       </div>
     </section>
 
@@ -126,6 +125,8 @@
 
             <div class="mc-subtotal" id="subtotal" aria-live="polite"></div>
 
+            <p class="mc-privacy-note"><i class="fa-solid fa-lock" aria-hidden="true"></i> החישוב נעשה במכשיר שלכם בלבד. הנתונים שמילאתם לא נשמרים ולא נשלחים אלינו.</p>
+
             <div class="mc-nav">
               <button type="button" class="mc-btn mc-btn-ghost" id="prevBtn">חזרה</button>
               <button type="submit" class="mc-btn mc-btn-primary" id="nextBtn">הבא</button>
@@ -133,13 +134,18 @@
           </form>
         </div>
 
-        <!-- 4. השארת פרטים -->
-        <div class="mc-card mc-lead" id="leadCard" hidden>
-          <h3 class="mc-lead-title" id="leadTitle" tabindex="-1">התוצאה שלכם מוכנה</h3>
+        <!-- 5. התוצאות – מוצגות מיד, בלי צורך להשאיר פרטים -->
+        <div class="mc-results" id="results" hidden>
+          <h3 class="mc-results-title" id="resultsTitle" tabindex="-1">תמונת המצב שלכם</h3>
+          <p class="mc-privacy-note"><i class="fa-solid fa-lock" aria-hidden="true"></i> החישוב נעשה במכשיר שלכם בלבד. הנתונים שמילאתם לא נשמרים ולא נשלחים אלינו.</p>
+          <div id="resultsContent"></div>
+          <button type="button" class="mc-link-btn" id="editBtn">לעדכן את הנתונים</button>
+        </div>
 
-          <div class="mc-preview" aria-hidden="true" inert>
-            <div id="previewContent"></div>
-          </div>
+        <!-- 4. השארת פרטים – רשות, אחרי התוצאות -->
+        <div class="mc-card mc-lead" id="leadCard" hidden>
+          <h3 class="mc-lead-title" id="leadTitle">רוצים שנחזור אליכם?</h3>
+          <p class="mc-lead-note">השאירו פרטים ונחזור אליכם לשיחת "בדיקת דופק כלכלי" של 15 דקות, ללא עלות. אם תשאירו פרטים, נקבל גם סיכום קצר של התוצאה, כדי להגיע לשיחה מוכנים.</p>
 
           <form id="leadForm" novalidate>
             <div class="mc-field">
@@ -161,16 +167,10 @@
               <input id="leadConsent" name="consent" type="checkbox" />
               <label for="leadConsent">אני מסכים/ה לקבל פניות ודיוור <span id="privacyLinkWrap"></span></label>
             </div>
-            <button type="submit" class="mc-btn mc-btn-primary mc-btn-block" id="leadSubmit">להציג את התוצאה</button>
+            <button type="submit" class="mc-btn mc-btn-primary mc-btn-block" id="leadSubmit">שלחו פרטים</button>
             <p class="mc-error mc-form-error" id="leadFormErr" role="alert"></p>
           </form>
-        </div>
-
-        <!-- 5. התוצאות -->
-        <div class="mc-results" id="results" hidden>
-          <h3 class="mc-results-title" id="resultsTitle" tabindex="-1">תמונת המצב שלכם</h3>
-          <div id="resultsContent"></div>
-          <button type="button" class="mc-link-btn" id="editBtn">לעדכן את הנתונים</button>
+          <p class="mc-lead-success" id="leadSuccess" role="status" tabindex="-1" hidden>הפרטים נשלחו. נחזור אליכם בהקדם.</p>
         </div>
       </div>
     </section>
@@ -229,7 +229,7 @@
     </div>
 
     <div class="footer-bottom">
-      <span>© <span id="year"></span> טל צדוק – FINANTZA · כל הזכויות שמורות.</span>
+      <span>© <span id="year"></span> FINANTZA · כל הזכויות שמורות.</span>
     </div>
   </footer>
 

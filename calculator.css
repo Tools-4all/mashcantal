@@ -186,11 +186,6 @@ body.mc-page {
     color: #e5e9f5;
 }
 
-.mc-trust {
-    margin-top: 22px;
-    font-size: 0.92rem;
-    color: #d4daea;
-}
 
 /* ===== מקטעים כלליים ===== */
 
@@ -456,28 +451,6 @@ body.mc-page {
 .mc-lead-title:focus,
 .mc-results-title:focus {
     outline: none;
-}
-
-.mc-preview {
-    position: relative;
-    max-height: 220px;
-    overflow: hidden;
-    border-radius: 12px;
-    margin-bottom: 22px;
-    user-select: none;
-}
-
-.mc-preview > div {
-    filter: blur(11px);
-    transform: scale(0.96);
-    transform-origin: top center;
-}
-
-.mc-preview::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 40%, #ffffff 100%);
 }
 
 .mc-req,
@@ -1042,4 +1015,77 @@ body.mc-page {
     .mc-group {
         padding: 16px;
     }
+}
+
+/* ===== הודעת פרטיות והשארת פרטים (רשות) ===== */
+
+.mc-privacy-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.88rem;
+    color: var(--mc-muted);
+    margin-top: 14px;
+}
+
+.mc-privacy-note i {
+    margin-top: 4px;
+    color: var(--mc-navy);
+}
+
+.mc-results .mc-privacy-note {
+    justify-content: center;
+    text-align: center;
+    margin: -6px 0 18px;
+}
+
+.mc-results + .mc-lead {
+    margin-top: 28px;
+}
+
+.mc-lead-note {
+    text-align: center;
+    color: var(--mc-text);
+    max-width: 520px;
+    margin: -6px auto 22px;
+}
+
+.mc-lead-success {
+    text-align: center;
+    font-weight: 700;
+    color: var(--mc-green-text);
+    background: var(--mc-green-bg);
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.mc-lead-success:focus {
+    outline: none;
+}
+
+/* ===== שווי נקי ===== */
+
+.mc-nw-value {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--mc-navy);
+    line-height: 1.1;
+}
+
+.mc-nw-value.is-neg {
+    color: var(--mc-red);
+}
+
+.mc-fill-assets {
+    background: var(--mc-green);
+}
+
+.mc-fill-liabilities {
+    background: var(--mc-red);
+}
+
+.mc-nw-details {
+    font-size: 0.85rem;
+    color: var(--mc-muted);
+    margin-top: 6px;
 }
