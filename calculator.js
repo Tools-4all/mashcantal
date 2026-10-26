@@ -14,9 +14,9 @@ const PHONE_NUMBER = "0559971294";
 // ההודעה שתופיע מוכנה בוואטסאפ.
 const WHATSAPP_MESSAGE = 'שלום טל, מילאתי את המחשבון "לאן הכסף הולך" ואשמח לתאם בדיקת דופק כלכלי של 15 דקות.';
 
-// TODO (טל): כתובת עמוד מדיניות הפרטיות (למשל "privacy.html").
-// כל עוד ריק – הקישור לא יוצג בטופס ובכותרת התחתונה.
-const PRIVACY_POLICY_URL = "";
+// כתובת עמוד מדיניות הפרטיות – מוצגת כקישור ליד תיבת ההסכמה לדיוור.
+// אם ריק – הקישור לא יוצג.
+const PRIVACY_POLICY_URL = "privacy.html";
 
 // נקודת שליחת הלידים – אותו טופס Formspree שמשמש את שאר האתר.
 const LEAD_ENDPOINT = "https://formspree.io/f/xpqyanzg";
@@ -822,7 +822,6 @@ else phoneBtn.hidden = true;
 if (PRIVACY_POLICY_URL) {
     document.getElementById("privacyLinkWrap").innerHTML =
         `בהתאם ל<a href="${PRIVACY_POLICY_URL}" target="_blank" rel="noopener">מדיניות הפרטיות</a>`;
-    document.getElementById("footerPrivacy").innerHTML = `<a href="${PRIVACY_POLICY_URL}">מדיניות פרטיות</a>`;
 }
 
 document.getElementById("year").textContent = new Date().getFullYear();

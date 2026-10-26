@@ -575,3 +575,14 @@
           display: flex;
       }
   }
+
+  /* ===== קישורים משפטיים בכותרת התחתונה (מדיניות פרטיות, הצהרת נגישות) ===== */
+  .footer-legal {
+      font-size: 0.85rem;
+      color: #9ca3af;
+  }
+
+  .footer-legal a {
+      color: #cbd5e1 !important;
+      text-decoration: underline;
+  }
