@@ -42,28 +42,76 @@ const STEPS = [
     {
         title: "הוצאות קבועות",
         subtotalLabel: 'סה"כ הוצאות קבועות',
+        // כל קטגוריה מחולקת לריבועים – הוצאה אחת בכל ריבוע. סכום הקטגוריה = סכום הריבועים.
         fields: [
-            { id: "housing", label: "דיור", hint: "משכנתא או שכר דירה, ועד בית" },
-            { id: "bills", label: "ארנונה וחשבונות", hint: "ארנונה, חשמל, מים וביוב, גז" },
-            { id: "telecom", label: "תקשורת ומנויים", hint: "סלולר, אינטרנט, טלוויזיה, סטרימינג, חדר כושר" },
-            { id: "insurance", label: "ביטוחים", hint: "בריאות, חיים, רכוש, ביטוח רכב – החלק החודשי" },
-            { id: "kids", label: "ילדים וחינוך", hint: "גן, מעון, צהרון, חוגים, קייטנות" },
-            { id: "loans", label: "החזרי הלוואות ותשלומים", hint: "הלוואות, עסקאות בתשלומים" },
-            { id: "fees", label: "עמלות וריבית", hint: "ריבית על המינוס, עמלות בנק, דמי כרטיס אשראי" }
+            { id: "housing", label: "דיור", items: [
+                { id: "rent", label: "משכנתא / שכר דירה" },
+                { id: "houseCommittee", label: "ועד בית" }] },
+            { id: "bills", label: "ארנונה וחשבונות", items: [
+                { id: "arnona", label: "ארנונה" },
+                { id: "electricity", label: "חשמל" },
+                { id: "water", label: "מים וביוב" },
+                { id: "gas", label: "גז" }] },
+            { id: "telecom", label: "תקשורת ומנויים", items: [
+                { id: "mobile", label: "סלולר" },
+                { id: "internet", label: "אינטרנט" },
+                { id: "tv", label: "טלוויזיה" },
+                { id: "streaming", label: "סטרימינג" },
+                { id: "gym", label: "חדר כושר" }] },
+            { id: "insurance", label: "ביטוחים", items: [
+                { id: "insHealth", label: "ביטוח בריאות" },
+                { id: "insLife", label: "ביטוח חיים" },
+                { id: "insProperty", label: "ביטוח רכוש" },
+                { id: "insCar", label: "ביטוח רכב (החלק החודשי)" }] },
+            { id: "kids", label: "ילדים וחינוך", items: [
+                { id: "daycare", label: "גן / מעון" },
+                { id: "afterschool", label: "צהרון" },
+                { id: "classes", label: "חוגים" },
+                { id: "camps", label: "קייטנות" }] },
+            { id: "loans", label: "החזרי הלוואות ותשלומים", items: [
+                { id: "loanRepay", label: "הלוואות" },
+                { id: "installments", label: "עסקאות בתשלומים" }] },
+            { id: "fees", label: "עמלות וריבית", items: [
+                { id: "overdraftInterest", label: "ריבית על המינוס" },
+                { id: "bankFees", label: "עמלות בנק" },
+                { id: "cardFees", label: "דמי כרטיס אשראי" }] }
         ]
     },
     {
         title: "הוצאות משתנות",
         subtotalLabel: 'סה"כ הוצאות משתנות',
         fields: [
-            { id: "groceries", label: "מזון לבית", hint: "סופר, שוק, מכולת" },
-            { id: "eatingOut", label: "אוכל בחוץ ובילויים", hint: "מסעדות, משלוחים, יציאות" },
-            { id: "transport", label: "רכב ותחבורה", hint: "דלק, חניה, כבישי אגרה, תחבורה ציבורית, תיקונים" },
-            { id: "shopping", label: "קניות וטיפוח", hint: "ביגוד והנעלה, פארם, קוסמטיקה, תספורת" },
-            { id: "gifts", label: "מתנות ואירועים", hint: "מתנות לשמחות, חגים" },
-            { id: "leisure", label: "פנאי וחופשות", hint: "תחביבים, טיולים, חופשות" },
-            { id: "untracked", label: "מזומן וביט ללא מעקב", hint: "משיכות מזומן והעברות שלא ברור על מה הלכו" },
-            { id: "misc", label: "שונות", hint: "כל מה שלא נכנס למעלה" }
+            { id: "groceries", label: "מזון לבית", items: [
+                { id: "supermarket", label: "סופר" },
+                { id: "market", label: "שוק" },
+                { id: "grocery", label: "מכולת" }] },
+            { id: "eatingOut", label: "אוכל בחוץ ובילויים", items: [
+                { id: "restaurants", label: "מסעדות" },
+                { id: "delivery", label: "משלוחים" },
+                { id: "outings", label: "יציאות" }] },
+            { id: "transport", label: "רכב ותחבורה", items: [
+                { id: "fuel", label: "דלק" },
+                { id: "parking", label: "חניה" },
+                { id: "tolls", label: "כבישי אגרה" },
+                { id: "publicTransport", label: "תחבורה ציבורית" },
+                { id: "carRepairs", label: "תיקונים" }] },
+            { id: "shopping", label: "קניות וטיפוח", items: [
+                { id: "clothing", label: "ביגוד והנעלה" },
+                { id: "pharm", label: "פארם" },
+                { id: "cosmetics", label: "קוסמטיקה" },
+                { id: "haircut", label: "תספורת" }] },
+            { id: "gifts", label: "מתנות ואירועים", items: [
+                { id: "eventGifts", label: "מתנות לשמחות" },
+                { id: "holidays", label: "חגים" }] },
+            { id: "leisure", label: "פנאי וחופשות", items: [
+                { id: "hobbies", label: "תחביבים" },
+                { id: "trips", label: "טיולים" },
+                { id: "vacations", label: "חופשות" }] },
+            { id: "untracked", label: "מזומן וביט ללא מעקב", items: [
+                { id: "cashWithdrawals", label: "משיכות מזומן" },
+                { id: "untrackedTransfers", label: "העברות שלא ברור על מה הלכו" }] },
+            { id: "misc", label: "שונות", items: [
+                { id: "miscItems", label: "כל מה שלא נכנס למעלה" }] }
         ]
     },
     {
@@ -117,8 +165,14 @@ function escapeHtml(s) {
 // החישוב – לפי הנוסחאות במפרט
 // =====================================================================
 
+// סכום קטגוריה: אם יש לה ריבועים – סכום הריבועים, אחרת השדה עצמו
+function fieldAmount(f, values) {
+    if (f.items) return f.items.reduce((acc, it) => acc + (values[it.id] || 0), 0);
+    return f.signed ? 0 : (values[f.id] || 0);
+}
+
 function sumFields(stepIndex, values) {
-    return STEPS[stepIndex].fields.reduce((acc, f) => acc + (f.signed ? 0 : (values[f.id] || 0)), 0);
+    return STEPS[stepIndex].fields.reduce((acc, f) => acc + fieldAmount(f, values), 0);
 }
 
 function compute(values, balanceSign) {
@@ -133,8 +187,12 @@ function compute(values, balanceSign) {
     const balanceInYear = balanceToday + yearly;
     const yearlySaving = saving * 12;
     const fixedPct = income > 0 ? (fixed / income) * 100 : 0;
+    const incomeMinusExpenses = income - expenses;
+    // חלוקת ההוצאות: קבועות ומשתנות מתוך סך ההוצאות
+    const fixedShare = expenses > 0 ? (fixed / expenses) * 100 : 0;
+    const variableShare = expenses > 0 ? (variable / expenses) * 100 : 0;
 
-    const categories = [...STEPS[1].fields, ...STEPS[2].fields].map((f) => ({ label: f.label, amount: values[f.id] || 0 }));
+    const categories = [...STEPS[1].fields, ...STEPS[2].fields].map((f) => ({ label: f.label, amount: fieldAmount(f, values) }));
     const top3 = categories
         .filter((c) => c.amount > 0)
         .sort((a, b) => b.amount - a.amount)
@@ -144,7 +202,7 @@ function compute(values, balanceSign) {
     if (left < 0) status = "red";
     else if (left + saving < YELLOW_THRESHOLD * income) status = "yellow";
 
-    return { income, fixed, variable, expenses, saving, left, yearly, balanceToday, balanceInYear, yearlySaving, fixedPct, top3, status };
+    return { income, fixed, variable, expenses, saving, left, yearly, balanceToday, balanceInYear, yearlySaving, fixedPct, incomeMinusExpenses, fixedShare, variableShare, top3, status };
 }
 
 // =====================================================================
@@ -259,11 +317,41 @@ function buildField(f) {
         </fieldset>`;
 }
 
+// כרטיס קטגוריה עם ריבוע לכל הוצאה, וסכום הקטגוריה בכותרת
+function buildGroup(g) {
+    const tiles = g.items.map((it) => `
+        <div class="mc-tile">
+            <label for="${it.id}">${it.label}</label>
+            <div class="mc-input-wrap">
+                <input type="text" id="${it.id}" name="${it.id}" inputmode="numeric" autocomplete="off"
+                    enterkeyhint="next" maxlength="11" data-amount data-group="${g.id}">
+                <span class="mc-currency" aria-hidden="true">₪</span>
+            </div>
+        </div>`).join("");
+
+    return `
+        <div class="mc-group" role="group" aria-labelledby="gl-${g.id}">
+            <div class="mc-group-head">
+                <h4 class="mc-group-title" id="gl-${g.id}">${g.label}</h4>
+                <span class="mc-group-sum" id="sum-${g.id}">${money(0)}</span>
+            </div>
+            <div class="mc-tiles">${tiles}</div>
+        </div>`;
+}
+
 stepsEl.innerHTML = STEPS.map((step, i) => `
     <div class="mc-step" data-step="${i}" ${i === 0 ? "" : "hidden"}>
         <h3 class="mc-step-title" tabindex="-1">${step.title}</h3>
-        ${step.fields.map(buildField).join("")}
+        ${step.fields.map((f) => (f.items ? buildGroup(f) : buildField(f))).join("")}
     </div>`).join("");
+
+const GROUPS = {};
+[...STEPS[1].fields, ...STEPS[2].fields].forEach((g) => { GROUPS[g.id] = g; });
+
+function updateGroupSum(groupId) {
+    const el = document.getElementById(`sum-${groupId}`);
+    if (el) el.innerHTML = money(fieldAmount(GROUPS[groupId], values));
+}
 
 // עיצוב אוטומטי של מפריד אלפים, תוך שמירה על מיקום הסמן
 function formatInput(input) {
@@ -286,6 +374,7 @@ function formatInput(input) {
 stepsEl.addEventListener("input", (e) => {
     if (e.target.matches("[data-amount]")) {
         formatInput(e.target);
+        if (e.target.dataset.group) updateGroupSum(e.target.dataset.group);
         updateSubtotal();
     }
 });
@@ -398,6 +487,7 @@ function renderResults(r, uid) {
         <div class="mc-card mc-hero-card mc-status-${r.status}">
             <p class="mc-label">נשאר בסוף החודש</p>
             <p class="mc-big">${money(r.left)}</p>
+            <p class="mc-sub-line">הכנסות פחות הוצאות (לפני חיסכון): <strong>${money(r.incomeMinusExpenses)}</strong></p>
             <p class="mc-forecast">${forecast}</p>
             <p class="mc-badge"><span class="mc-badge-dot" aria-hidden="true"></span>סטטוס ${st.name}: ${st.text}</p>
         </div>
@@ -409,6 +499,11 @@ function renderResults(r, uid) {
             ${stat('יתרת עו"ש היום', r.balanceToday)}
             ${stat('יתרת עו"ש צפויה בעוד שנה', r.balanceInYear)}
             ${stat("חיסכון שנתי מתוכנן", r.yearlySaving)}
+        </div>
+
+        <div class="mc-card">
+            <h4 class="mc-chart-title">הוצאות קבועות מול משתנות</h4>
+            ${renderSplit(r)}
         </div>
 
         <div class="mc-card">
@@ -520,6 +615,29 @@ function renderDonut(r, uid) {
     </div>`;
 }
 
+// סך ההוצאות מחולק לקבועות ולמשתנות, בשקלים ובאחוזים מסך ההוצאות
+function renderSplit(r) {
+    if (r.expenses <= 0) return `<p class="mc-empty">לא הוזנו הוצאות.</p>`;
+    const fixedPct = Math.round(r.fixedShare);
+    const variablePct = 100 - fixedPct;
+    return `
+        <p class="mc-split-total">סך ההוצאות: <strong>${money(r.expenses)}</strong></p>
+        <div class="mc-split-bar" aria-hidden="true">
+            <div class="mc-split-fixed" style="width:${r.fixedShare}%"></div>
+            <div class="mc-split-variable" style="width:${r.variableShare}%"></div>
+        </div>
+        <ul class="mc-split-legend">
+            <li><span class="mc-swatch" style="background:var(--mc-fixed)" aria-hidden="true"></span>
+                <span class="mc-legend-name">הוצאות קבועות</span>
+                <span class="mc-legend-val">${money(r.fixed)}</span>
+                <span class="mc-legend-pct">${fixedPct}%</span></li>
+            <li><span class="mc-swatch" style="background:var(--mc-variable)" aria-hidden="true"></span>
+                <span class="mc-legend-name">הוצאות משתנות</span>
+                <span class="mc-legend-val">${money(r.variable)}</span>
+                <span class="mc-legend-pct">${variablePct}%</span></li>
+        </ul>`;
+}
+
 function renderBars(r) {
     if (!r.top3.length) return `<p class="mc-empty">לא הוזנו הוצאות.</p>`;
     const max = r.top3[0].amount;
@@ -612,6 +730,9 @@ leadForm.addEventListener("submit", async (e) => {
         "הסכמה לפניות ודיוור": consentInput.checked ? "כן" : "לא",
         'סה"כ הכנסות': moneyText(r.income),
         'סה"כ הוצאות': moneyText(r.expenses),
+        "מתוכן הוצאות קבועות": `${moneyText(r.fixed)} (${Math.round(r.fixedShare)}%)`,
+        "מתוכן הוצאות משתנות": `${moneyText(r.variable)} (${r.expenses > 0 ? 100 - Math.round(r.fixedShare) : 0}%)`,
+        "הכנסות פחות הוצאות": moneyText(r.incomeMinusExpenses),
         "נשאר בסוף החודש": moneyText(r.left),
         'יתרת עו"ש היום': moneyText(r.balanceToday),
         "סטטוס": `${st.name} – ${st.text}`,

@@ -905,3 +905,141 @@ body.mc-page {
         transition: none !important;
     }
 }
+
+/* ===== כרטיסי קטגוריה עם ריבועים (שלבים 2–3) ===== */
+
+.mc-group {
+    border: 1px solid var(--mc-line);
+    border-radius: 14px;
+    padding: 14px 12px 12px;
+    margin-bottom: 14px;
+    background: #fbfcfe;
+}
+
+.mc-group-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.mc-group-title {
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: var(--mc-navy);
+}
+
+.mc-group-sum {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--mc-navy);
+}
+
+.mc-tiles {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.mc-tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 6px;
+    background: var(--mc-white);
+    border: 1px solid var(--mc-line);
+    border-radius: 12px;
+    padding: 10px;
+}
+
+.mc-tile:focus-within {
+    border-color: var(--mc-accent);
+}
+
+.mc-tile label {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--mc-ink);
+    line-height: 1.35;
+}
+
+.mc-tile input {
+    width: 100%;
+    min-height: 44px;
+    padding: 8px 10px;
+    padding-inline-end: 30px !important;
+    border: 1px solid var(--mc-field);
+    border-radius: 8px;
+    background: var(--mc-white);
+    font-size: 16px; /* מונע זום אוטומטי באייפון */
+    color: var(--mc-ink);
+}
+
+.mc-tile .mc-currency {
+    inset-inline-end: 10px;
+    font-size: 0.9rem;
+}
+
+/* ===== תוצאות: הכנסות פחות הוצאות, קבועות מול משתנות ===== */
+
+.mc-sub-line {
+    font-size: 0.95rem;
+    color: var(--mc-muted);
+    margin-bottom: 12px;
+}
+
+.mc-sub-line strong {
+    color: var(--mc-ink);
+}
+
+.mc-split-total {
+    font-size: 1rem;
+    color: var(--mc-text);
+    margin-bottom: 12px;
+}
+
+.mc-split-total strong {
+    color: var(--mc-navy);
+    font-size: 1.15rem;
+}
+
+.mc-split-bar {
+    display: flex;
+    height: 18px;
+    border-radius: 999px;
+    overflow: hidden;
+    background: #eef1f7;
+}
+
+.mc-split-fixed {
+    background: var(--mc-fixed);
+}
+
+.mc-split-variable {
+    background: var(--mc-variable);
+}
+
+.mc-split-legend {
+    list-style: none;
+    display: grid;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.mc-split-legend li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+}
+
+@media (min-width: 640px) {
+    .mc-tiles {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .mc-group {
+        padding: 16px;
+    }
+}
