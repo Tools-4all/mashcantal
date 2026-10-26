@@ -2,6 +2,15 @@
 <html lang="he" dir="rtl">
 
 <head>
+  <!-- Google tag (gtag.js) – Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B3DCERWSRY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-B3DCERWSRY');
+  </script>
   <meta charset="UTF-8" />
   <title>FINANTZA - מרכז המחשבונים הפיננסיים</title>
   <meta name="description" content="כלי תכנון מתקדמים לבחינת תמהילי משכנתא, תחזיות אינפלציה וניתוח תזרימי מדויק." />
@@ -77,6 +86,15 @@
     <div class="calc-header">
       <h1>מרכז המחשבונים הפיננסיים</h1>
       <p>כלי תכנון מתקדמים לבחינת תמהילי משכנתא, תחזיות אינפלציה וניתוח תזרימי מדויק.</p>
+
+      <!-- קישור למחשבון "לאן הכסף הולך" (עמוד נפרד: calculator.html) -->
+      <a class="calc-promo" href="calculator.html">
+        <span class="calc-promo-text">
+          <strong>לאן הכסף שלכם הולך כל חודש?</strong>
+          <span>מחשבון חינמי של 3 דקות שמראה מה נשאר לכם בסוף החודש ומה יקרה בעוד שנה באותו קצב.</span>
+        </span>
+        <span class="calc-promo-go" aria-hidden="true"><i class="fa-solid fa-arrow-left"></i></span>
+      </a>
 
       <!-- בחירת מחשבון. אפשר לקשר ישירות: calculators.html#general / calculators.html#cpi -->
       <div class="calc-tabs" role="tablist">
@@ -218,6 +236,7 @@
     </div>
 
     <div class="footer-bottom">
+      <nav class="footer-legal" aria-label="מידע משפטי"><a href="privacy.html">מדיניות פרטיות</a> · <a href="accessibility.html">הצהרת נגישות</a></nav>
 
       <div style="display: flex; flex-direction: column;gap:3px;">
         <a id="mobileLink" href="https://tools-4all.com/" target="_blank" rel="noopener">
