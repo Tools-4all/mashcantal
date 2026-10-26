@@ -257,3 +257,53 @@
         font-size: 1.6rem;
     }
 }
+
+/* קישור למחשבון "לאן הכסף הולך" */
+
+.calc-promo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    max-width: 640px;
+    margin: 26px auto 0;
+    padding: 18px 22px;
+    border-radius: 16px;
+    background: #1A2751;
+    color: #ffffff;
+    text-align: right;
+    text-decoration: none;
+    transition: background 0.15s ease;
+}
+
+.calc-promo:hover {
+    background: #24346a;
+}
+
+.calc-promo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.calc-promo-text strong {
+    font-size: 1.1rem;
+}
+
+.calc-promo-text span {
+    font-size: 0.92rem;
+    color: #d4daea;
+    line-height: 1.6;
+}
+
+.calc-promo-go {
+    flex: 0 0 auto;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #1A2751;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
