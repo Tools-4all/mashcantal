@@ -126,6 +126,17 @@ const STEPS = [
             { id: "loanBalance", label: "יתרת הלוואות קיימות", hint: "כמה נשאר לכם להחזיר בכל ההלוואות יחד עד סיומן. לא כולל משכנתא", balance: true },
             { id: "balance", label: 'יתרת העו"ש היום', hint: "הסכום בחשבון העו\"ש נכון להיום", signed: true }
         ]
+    },
+    {
+        title: "מתכנון רכישת דירה",
+        subtotalLabel: null,
+        fields: [
+            { id: "homeTimeline", label: "מתכננים לקנות דירה ב-5 השנים הקרובות?", type: "radio", options: [
+                { id: "homeTimeline_1to3", label: "כן, תוך שנה עד 3 שנים" },
+                { id: "homeTimeline_3to5", label: "כן, תוך 3 עד 5 שנים" },
+                { id: "homeTimeline_no", label: "לא כרגע" }
+            ], required: false }
+        ]
     }
 ];
 
@@ -302,6 +313,20 @@ const leadCard = document.getElementById("leadCard");
 const resultsEl = document.getElementById("results");
 
 function buildField(f) {
+    // שאלת בחירה עם כפתורי רדיו
+    if (f.type === "radio" && f.options) {
+        const options = f.options.map((opt) => `
+            <input type="radio" id="${opt.id}" name="${f.id}" value="${opt.id}">
+            <label for="${opt.id}">${opt.label}</label>`).join("");
+        return `
+            <fieldset class="mc-fieldset">
+                <legend>${f.label}</legend>
+                <div class="mc-sign" role="radiogroup">
+                    ${options}
+                </div>
+            </fieldset>`;
+    }
+
     const hintId = `${f.id}Hint`;
     const input = `
         <div class="mc-input-wrap">
@@ -396,6 +421,7 @@ stepsEl.addEventListener("input", (e) => {
 
 stepsEl.addEventListener("change", (e) => {
     if (e.target.name === "balanceSign") balanceSign = e.target.value;
+    if (e.target.type === "radio") values[e.target.name] = e.target.value;
 });
 
 wizardCard.addEventListener("focusin", trackStart);
@@ -482,6 +508,20 @@ function renderResults(r, uid) {
         ? `בקצב הזה, תוך 12 חודשים המינוס שלכם יגדל ב־${money(-r.yearly)}`
         : `בקצב הזה, תוך 12 חודשים יישאר לכם עודף של ${money(r.yearly)}`;
 
+    // חישוב הון עצמי לרכישת דירה
+    const homeTimeline = values.homeTimeline;
+    let homeEquityHtml = '';
+    if (homeTimeline === 'homeTimeline_1to3' || homeTimeline === 'homeTimeline_3to5') {
+        const months = homeTimeline === 'homeTimeline_1to3' ? 24 : 48;
+        const equityAmount = Math.round(r.left * months / 1000) * 1000;
+        const equityText = equityAmount > 0
+            ? `בקצב הנוכחי, עד הרכישה יצטברו בערך ${money(equityAmount)} להון העצמי.`
+            : `בקצב הנוכחי לא נצבר הון עצמי לקראת הרכישה.`;
+        homeEquityHtml = `
+            <p class="mc-forecast">${equityText}</p>
+            <p class="mc-forecast" style="font-size: 0.85rem; color: #9ca3af;">הערכה בלבד, בלי ריבית ובלי שינויים בהכנסות או בהוצאות.</p>`;
+    }
+
     const stat = (label, n) =>
         `<div class="mc-stat"><p class="mc-stat-label">${label}</p><p class="mc-stat-value ${Math.round(n) < 0 ? "is-neg" : ""}">${money(n)}</p></div>`;
 
@@ -492,6 +532,7 @@ function renderResults(r, uid) {
             <p class="mc-big">${money(r.left)}</p>
             <p class="mc-sub-line">הכנסות פחות הוצאות (לפני חיסכון): <strong>${money(r.incomeMinusExpenses)}</strong></p>
             <p class="mc-forecast">${forecast}</p>
+            ${homeEquityHtml}
             <p class="mc-badge"><span class="mc-badge-dot" aria-hidden="true"></span>סטטוס ${st.name}: ${st.text}</p>
         </div>
 
