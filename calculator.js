@@ -319,46 +319,13 @@ function buildField(f) {
             <input type="radio" id="${opt.id}" name="${f.id}" value="${opt.id}">
             <label for="${opt.id}">${opt.label}</label>`).join("");
 
-        let visualization = '';
-        if (f.id === 'homeTimeline') {
-            visualization = `
-                <div style="margin-top: 20px; padding: 20px; background: #f0f4f8; border-radius: 12px;">
-                    <svg viewBox="0 0 600 180" style="width: 100%; height: auto; max-width: 500px;">
-                        <!-- דרך -->
-                        <line x1="30" y1="100" x2="570" y2="100" stroke="#D4A574" stroke-width="25" stroke-linecap="round"/>
-
-                        <!-- קו וסימנים על הדרך -->
-                        <line x1="30" y1="100" x2="570" y2="100" stroke="#B8956A" stroke-width="3" stroke-dasharray="20,15" opacity="0.5"/>
-
-                        <!-- בית בעיצומו -->
-                        <g transform="translate(530, 30)">
-                            <rect x="-25" y="0" width="50" height="45" fill="#C8A882" stroke="#8B6F47" stroke-width="1"/>
-                            <polygon points="0,-18 -25,0 25,0" fill="#A0522D"/>
-                            <rect x="-8" y="15" width="12" height="15" fill="#87CEEB" stroke="#4682B4" stroke-width="1"/>
-                            <rect x="2" y="20" width="6" height="8" fill="#333"/>
-                            <circle cx="-3" cy="18" r="2" fill="#FFD700"/>
-                        </g>
-
-                        <!-- דמות -->
-                        <g id="homeCharacter" transform="translate(50, 70)">
-                            <circle cx="0" cy="-8" r="6" fill="#4A90E2"/>
-                            <rect x="-4" y="0" width="8" height="12" fill="#2E5C8A"/>
-                            <line x1="-6" y1="3" x2="-10" y2="8" stroke="#2E5C8A" stroke-width="2"/>
-                            <line x1="6" y1="3" x2="10" y2="8" stroke="#2E5C8A" stroke-width="2"/>
-                            <line x1="-3" y1="12" x2="-5" y2="20" stroke="#2E5C8A" stroke-width="2"/>
-                            <line x1="3" y1="12" x2="5" y2="20" stroke="#2E5C8A" stroke-width="2"/>
-                        </g>
-                    </svg>
-                </div>`;
-        }
-
         return `
             <fieldset class="mc-fieldset">
                 <legend>${f.label}</legend>
                 <div class="mc-sign" role="radiogroup">
                     ${options}
                 </div>
-                ${visualization}
+                <p style="margin-top: 12px; color: #666; font-size: 14px;">0 ₪</p>
             </fieldset>`;
     }
 
@@ -458,20 +425,6 @@ stepsEl.addEventListener("change", (e) => {
     if (e.target.name === "balanceSign") balanceSign = e.target.value;
     if (e.target.type === "radio") {
         values[e.target.name] = e.target.value;
-
-        // עדכן אנימציה של דרך לבית
-        if (e.target.name === "homeTimeline") {
-            const character = document.getElementById("homeCharacter");
-            if (character) {
-                let newX = 50;
-                if (e.target.value === "homeTimeline_1to3") {
-                    newX = 450; // הכי קרוב לבית
-                } else if (e.target.value === "homeTimeline_3to5") {
-                    newX = 250; // באמצע
-                }
-                character.setAttribute("transform", `translate(${newX}, 70)`);
-            }
-        }
     }
 });
 
