@@ -128,8 +128,8 @@ const STEPS = [
         ]
     },
     {
-        title: "מתכנון רכישת דירה",
-        subtotalLabel: null,
+        title: "תכנון לרכישת דירה",
+        subtotalLabel: "",
         fields: [
             { id: "homeTimeline", label: "מתכננים לקנות דירה ב-5 השנים הקרובות?", type: "radio", options: [
                 { id: "homeTimeline_1to3", label: "כן, תוך שנה עד 3 שנים" },
