@@ -89,7 +89,6 @@ const STEPS = [
             { id: "eatingOut", label: "אוכל בחוץ ובילויים", items: [
                 { id: "restaurants", label: "מסעדות" },
                 { id: "delivery", label: "משלוחים" },
-                { id: "outsideEating", label: "בחוץ" },
                 { id: "outings", label: "בילויים" }] },
             { id: "transport", label: "רכב ותחבורה", items: [
                 { id: "fuel", label: "דלק" },
