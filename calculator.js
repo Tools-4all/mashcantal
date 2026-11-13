@@ -60,6 +60,7 @@ const STEPS = [
                 { id: "gym", label: "חדר כושר" }] },
             { id: "insurance", label: "ביטוחים", items: [
                 { id: "insHealth", label: "ביטוח בריאות" },
+                { id: "insHealthFund", label: "קופת חולים" },
                 { id: "insLife", label: "ביטוח חיים" },
                 { id: "insProperty", label: "ביטוח רכוש" },
                 { id: "insCar", label: "ביטוח רכב (החלק החודשי)" }] },
@@ -88,12 +89,14 @@ const STEPS = [
             { id: "eatingOut", label: "אוכל בחוץ ובילויים", items: [
                 { id: "restaurants", label: "מסעדות" },
                 { id: "delivery", label: "משלוחים" },
-                { id: "outings", label: "יציאות" }] },
+                { id: "outsideEating", label: "בחוץ" },
+                { id: "outings", label: "בילויים" }] },
             { id: "transport", label: "רכב ותחבורה", items: [
                 { id: "fuel", label: "דלק" },
                 { id: "parking", label: "חניה" },
                 { id: "tolls", label: "כבישי אגרה" },
                 { id: "publicTransport", label: "תחבורה ציבורית" },
+                { id: "taxis", label: "מוניות" },
                 { id: "carRepairs", label: "תיקונים" }] },
             { id: "shopping", label: "קניות וטיפוח", items: [
                 { id: "clothing", label: "ביגוד והנעלה" },
