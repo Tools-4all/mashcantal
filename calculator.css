@@ -1089,3 +1089,46 @@ body.mc-page {
     color: var(--mc-muted);
     margin-top: 6px;
 }
+
+/* ===== חומר למחשבה ===== */
+
+.mc-intro {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--mc-navy);
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.mc-questions {
+    list-style: decimal;
+    list-style-position: inside;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+    color: var(--mc-text);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.mc-questions li {
+    padding-inline-start: 8px;
+}
+
+.mc-closing {
+    font-size: 1rem;
+    color: var(--mc-text);
+    line-height: 1.6;
+    text-align: center;
+}
+
+.mc-closing a {
+    color: var(--mc-accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.mc-closing a:hover {
+    text-decoration: underline;
+}
