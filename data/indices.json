@@ -1,25 +1,12 @@
 {
-    "updatedAt": "2026-04-15",
+    "updatedAt": "2026-11-15",
     "construction": {
-        "now": 143.9,
-        "lastMonth": 0.2,
-        "last12Months": 3.70,
-        "avg3Years": 3.50,
-        "avg5Years": 3.80,
+        "now": 145.1,
+        "lastMonth": 0.4,
+        "last12Months": 3.9,
+        "avg3Years": 3.7,
+        "avg5Years": 3.7,
         "monthly": [
-           
-            {
-                "month": "09.2025",
-                "change": 0.4
-            },
-            {
-                "month": "10.2025",
-                "change": 0
-            },
-            {
-                "month": "11.2025",
-                "change": 0.1
-            },
             {
                 "month": "12.2025",
                 "change": 0.6
@@ -51,33 +38,32 @@
             {
                 "month": "07.2026",
                 "change": 0.2
+            },
+            {
+                "month": "08.2026",
+                "change": -0.1
+            },
+            {
+                "month": "09.2026",
+                "change": 0.4
+            },
+            {
+                "month": "10.2026",
+                "change": 0.1
+            },
+            {
+                "month": "11.2026",
+                "change": 0.4
             }
         ]
     },
     "cpi": {
-        "now": 118.6,
-        "lastMonth": 0,
-        "last12Months": 1.70,
-        "avg3Years": 2.63,
-        "avg5Years": 3.32,
+        "now": 119.1,
+        "lastMonth": -0.1,
+        "last12Months": 1.1,
+        "avg3Years": 2.37,
+        "avg5Years": 3.2,
         "monthly": [
-            
-            {
-                "month": "08.2025",
-                "change": 0.4
-            },
-            {
-                "month": "09.2025",
-                "change": 0.7
-            },
-            {
-                "month": "10.2025",
-                "change": -0.6
-            },
-            {
-                "month": "11.2025",
-                "change": 0.5
-            },
             {
                 "month": "12.2025",
                 "change": -0.5
@@ -104,11 +90,27 @@
             },
             {
                 "month": "06.2026",
-                "change": 0.3
+                "change": -0.3
             },
             {
                 "month": "07.2026",
                 "change": 0
+            },
+            {
+                "month": "08.2026",
+                "change": 0.3
+            },
+            {
+                "month": "09.2026",
+                "change": 0.7
+            },
+            {
+                "month": "10.2026",
+                "change": -0.5
+            },
+            {
+                "month": "11.2026",
+                "change": -0.1
             }
         ]
     }
