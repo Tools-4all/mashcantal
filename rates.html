@@ -402,6 +402,11 @@
                         </div>
                     </div>
 
+                    <div class="mk-card-footer">
+                        <span class="mk-updated-label">נכון לתאריך</span>
+                        <span id="constructionUpdatedAt" class="mk-updated-date">—</span>
+                    </div>
+
                     <div class="mk-chart-wrapper">
                         <canvas id="constructionChart"></canvas>
                     </div>
@@ -439,6 +444,11 @@
                             <span class="mk-metrics-label"> ממוצע שנתי - 5 שנים אחרונות </span>
                             <span class="mk-metrics-value"><span id="cpi5yAvg">—</span>%</span>
                         </div>
+                    </div>
+
+                    <div class="mk-card-footer">
+                        <span class="mk-updated-label">נכון לתאריך</span>
+                        <span id="cpiUpdatedAt" class="mk-updated-date">—</span>
                     </div>
 
                     <div class="mk-chart-wrapper">
@@ -606,6 +616,7 @@
                     setText("constructionLast12", cons.last12Months.toFixed(2));
                     setText("construction3yAvg", cons.avg3Years.toFixed(2));
                     setText("construction5yAvg", cons.avg5Years.toFixed(2));
+                    setText("constructionUpdatedAt", formatILDate(indicesJson.updatedAt));
 
                     createLineChart(
                         "constructionChart",
@@ -622,6 +633,7 @@
                     setText("cpiLast12", cpi.last12Months.toFixed(2));
                     setText("cpi3yAvg", cpi.avg3Years.toFixed(2));
                     setText("cpi5yAvg", cpi.avg5Years.toFixed(2));
+                    setText("cpiUpdatedAt", formatILDate(indicesJson.updatedAt));
 
                     createLineChart(
                         "cpiChart",
